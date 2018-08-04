@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="python,data," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="shuang's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="对西安市计算机相关职位情况的分析报告主题本报告主要有以下几个目的：  分析西安市计算机相关职位的需求情况 分析西安市计算机相关职位的薪酬情况 分析西安市计算机相关职位的招聘要求 为广大意向从事计算机行业人群的就业提供借鉴和指导  数据来源本报告对智联招聘网站进行爬虫，主要采集以下几方面的数据,爬虫代码见作业中代码部分。  Java相关职位 C++相关职位 Python相关职位 C#相关职位 Rub">
+<meta name="keywords" content="python,data">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对西安市计算机相关职位情况的分析">
+<meta property="og:url" content="http://yoursite.com/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/index.html">
+<meta property="og:site_name" content="shuang&#39;s blog">
+<meta property="og:description" content="对西安市计算机相关职位情况的分析报告主题本报告主要有以下几个目的：  分析西安市计算机相关职位的需求情况 分析西安市计算机相关职位的薪酬情况 分析西安市计算机相关职位的招聘要求 为广大意向从事计算机行业人群的就业提供借鉴和指导  数据来源本报告对智联招聘网站进行爬虫，主要采集以下几方面的数据,爬虫代码见作业中代码部分。  Java相关职位 C++相关职位 Python相关职位 C#相关职位 Rub">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/job_pie.jpg">
+<meta property="og:image" content="http://yoursite.com/images/salary_inXian.jpg">
+<meta property="og:image" content="http://yoursite.com/images/brief_cloud.png">
+<meta property="og:updated_time" content="2018-01-14T07:00:44.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对西安市计算机相关职位情况的分析">
+<meta name="twitter:description" content="对西安市计算机相关职位情况的分析报告主题本报告主要有以下几个目的：  分析西安市计算机相关职位的需求情况 分析西安市计算机相关职位的薪酬情况 分析西安市计算机相关职位的招聘要求 为广大意向从事计算机行业人群的就业提供借鉴和指导  数据来源本报告对智联招聘网站进行爬虫，主要采集以下几方面的数据,爬虫代码见作业中代码部分。  Java相关职位 C++相关职位 Python相关职位 C#相关职位 Rub">
+<meta name="twitter:image" content="http://yoursite.com/images/job_pie.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/"/>
+
+
+
+
+
+  <title>对西安市计算机相关职位情况的分析 | shuang's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">shuang's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cccshuang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shuang's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">对西安市计算机相关职位情况的分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-14T14:55:05+08:00">
+                2018-01-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Data-mining/" itemprop="url" rel="index">
+                    <span itemprop="name">Data mining</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/" class="leancloud_visitors" data-flag-title="对西安市计算机相关职位情况的分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,491
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="对西安市计算机相关职位情况的分析"><a href="#对西安市计算机相关职位情况的分析" class="headerlink" title="对西安市计算机相关职位情况的分析"></a>对西安市计算机相关职位情况的分析</h1><h2 id="报告主题"><a href="#报告主题" class="headerlink" title="报告主题"></a>报告主题</h2><p>本报告主要有以下几个目的：</p>
+<ol>
+<li>分析西安市计算机相关职位的需求情况</li>
+<li>分析西安市计算机相关职位的薪酬情况</li>
+<li>分析西安市计算机相关职位的招聘要求</li>
+<li>为广大意向从事计算机行业人群的就业提供借鉴和指导</li>
+</ol>
+<h2 id="数据来源"><a href="#数据来源" class="headerlink" title="数据来源"></a>数据来源</h2><p>本报告对<code>智联招聘</code>网站进行爬虫，主要采集以下几方面的数据,爬虫代码见作业中<code>代码</code>部分。</p>
+<ul>
+<li>Java相关职位</li>
+<li>C++相关职位</li>
+<li>Python相关职位</li>
+<li>C#相关职位</li>
+<li>Ruby相关职位</li>
+<li>PHP相关职位</li>
+<li>.NET相关职位</li>
+<li>Swift相关职位</li>
+<li>Go相关职位</li>
+<li>Scala相关职位</li>
+</ul>
+<h2 id="分析思路"><a href="#分析思路" class="headerlink" title="分析思路"></a>分析思路</h2><p>分析思路主要包含以下几步。</p>
+<ul>
+<li>数据读取</li>
+<li>数据整理</li>
+<li>分析职位数量情况</li>
+<li>分析职位月薪情况</li>
+<li>分析招聘岗位要求</li>
+</ul>
+<h2 id="计算过程"><a href="#计算过程" class="headerlink" title="计算过程"></a>计算过程</h2><p>以下是数据分析和数据挖掘过程</p>
+<h3 id="数据读取"><a href="#数据读取" class="headerlink" title="数据读取"></a>数据读取</h3><p>将通过爬虫爬取的数据通过Python按行读取，去除不符合规则的数据，进而转换为字典，存在列表里面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">def read_data():</span><br><span class="line">    lists=[]</span><br><span class="line">    try:</span><br><span class="line">        f = open(&apos;r.txt&apos;,&apos;r&apos;,encoding=&apos;utf-8&apos;)</span><br><span class="line">        tmp_list = f.readline()</span><br><span class="line">        lists.append(tmp_list)</span><br><span class="line">        while tmp_list:</span><br><span class="line">            tmp_list = f.readline()</span><br><span class="line">            lists.append(tmp_list)</span><br><span class="line">    except:</span><br><span class="line">        print(&apos;error:&apos;,tmp_list)</span><br><span class="line">    finally:</span><br><span class="line">        f.close()     </span><br><span class="line">    datas = []  </span><br><span class="line">    for item in lists:</span><br><span class="line">        if(not item.startswith(&apos;&#123;\&apos;&apos;)):</span><br><span class="line">            continue       </span><br><span class="line">        dic = eval(item)</span><br><span class="line">        datas.append(dic)</span><br><span class="line">    return datas</span><br></pre></td></tr></table></figure></p>
+<h3 id="数据整理"><a href="#数据整理" class="headerlink" title="数据整理"></a>数据整理</h3><ol>
+<li><p>使用pandas包，将数据组织成DataFrame形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(datas)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将日期格式规范化，并对数据进行筛选，对月薪的数据进行筛选，选取格式为“XXXX-XXXX”的信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">df = pd.DataFrame(datas)</span><br><span class="line">df[&apos;save_date&apos;] = pd.to_datetime(df[&apos;save_date&apos;])</span><br><span class="line">df_clean = df[[&apos;position_name&apos;,</span><br><span class="line">       &apos;feedback&apos;,</span><br><span class="line">       &apos;company_name&apos;,</span><br><span class="line">       &apos;salary&apos;,</span><br><span class="line">       &apos;place&apos;,</span><br><span class="line">       &apos;time&apos;,</span><br><span class="line">       &apos;brief&apos;,</span><br><span class="line">       &apos;link&apos;,</span><br><span class="line">       &apos;save_date&apos;,</span><br><span class="line">       &apos;keyword&apos;]]</span><br><span class="line">df_clean = df_clean[df_clean[&apos;salary&apos;].str.contains(&apos;\d+-\d+&apos;, regex=True)]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据链接作为标志判断爬取的数据是否有重复值，并进行去重工作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_clean_concat = df_clean_concat.drop_duplicates([&apos;link&apos;])</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="分析职位数量情况"><a href="#分析职位数量情况" class="headerlink" title="分析职位数量情况"></a>分析职位数量情况</h3><p>对西安市计算机行业不同职位数量的分布情况进行分析。</p>
+<ol>
+<li><p>首先以不同职位作为关键词进行分析，并按职位数量进行排序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df_key_main = df_city[df_city[&apos;keyword&apos;].isin(KEYWORDS)]</span><br><span class="line">df_key_main_count = df_key_main.groupby(&apos;keyword&apos;)[&apos;position_name&apos;,&apos;company_name&apos;].count()</span><br><span class="line">df_key_main_count[&apos;company_name&apos;] = df_key_main_count[&apos;company_name&apos;]/(df_key_main_count[&apos;company_name&apos;].sum())</span><br><span class="line">df_key_main_count.columns = [&apos;number&apos;, &apos;percentage&apos;]</span><br><span class="line">df_key_main_count.sort_values(by=&apos;number&apos;, ascending=False, inplace=True)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对西安市计算机行业不同职位数量的情况进行分析，以饼图的形式呈现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">label = df_key_main_count[&apos;label&apos;]</span><br><span class="line">sizes = df_key_main_count[&apos;number&apos;]</span><br><span class="line"># 设置绘图区域大小</span><br><span class="line">fig, axes = plt.subplots(figsize=(10,6),ncols=2)</span><br><span class="line">ax1, ax2 = axes.ravel()</span><br><span class="line">colors  = [&quot;blue&quot;,&quot;red&quot;,&quot;coral&quot;,&quot;green&quot;,&quot;yellow&quot;,&quot;orange&quot;] </span><br><span class="line">patches, texts = ax1.pie(sizes,labels=None, shadow=False, startangle=0, colors=colors)</span><br><span class="line">ax1.axis(&apos;equal&apos;)  </span><br><span class="line">ax1.set_title(&apos;职位数量分布&apos;, loc=&apos;center&apos;)</span><br><span class="line"># ax2 只显示图例（legend）</span><br><span class="line">ax2.axis(&apos;off&apos;)</span><br><span class="line">ax2.legend(patches, label, loc=&apos;center left&apos;, fontsize=9)</span><br><span class="line">plt.savefig(&apos;job_pie.jpg&apos;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>所得饼图如下所示：<br><img src="/images/job_pie.jpg" alt="Alt text"></p>
+<p>观察图表，可以看到，传统的Java和C++开发职位占据所有职位数量的半壁江山，此外，.NET，PHP，Python也占据了一部分，而像Scala，Swift等新出现的语言相关的职位则几乎没有。所以，像Java，C++在西安的计算机相关职位招聘中还是属于主流。</p>
+<h3 id="分析职位月薪情况"><a href="#分析职位月薪情况" class="headerlink" title="分析职位月薪情况"></a>分析职位月薪情况</h3><p>对西安市的职位月薪情况进行分析。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">df_salary_adjust = df_clean_concat[df_clean_concat[&apos;salary_min&apos;]&lt;=20000]</span><br><span class="line"> fig, (ax1, ax2) = plt.subplots(figsize=(10,8), nrows=2)</span><br><span class="line"> x_pos = list(range(df_salary_adjust.shape[0]))</span><br><span class="line"> y1 = df_salary_adjust[&apos;salary_min&apos;]</span><br><span class="line"> ax1.plot(x_pos, y1)</span><br><span class="line"> ax1.set_title(&apos;西安计算机相关职位月薪趋势图&apos;, size=14)</span><br><span class="line"> ax1.set_xticklabels(&apos;&apos;)</span><br><span class="line"> ax1.set_ylabel(&apos;最低月薪(RMB)&apos;)</span><br><span class="line"> bins = [3000,6000, 9000, 12000, 15000, 18000, 21000]</span><br><span class="line"> counts, bins, patches = ax2.hist(y1, bins, normed=1, histtype=&apos;bar&apos;, facecolor=&apos;g&apos;, rwidth=0.8)</span><br><span class="line"> ax2.set_title(&apos;西安计算机相关职位月薪直方图&apos;, size=14)</span><br><span class="line"> ax2.set_yticklabels(&apos;&apos;)</span><br><span class="line"> ax2.set_xticks(bins) </span><br><span class="line"> ax2.set_xticklabels(bins, rotation=-90)</span><br><span class="line"> # Label the raw counts and the percentages below the x-axis...</span><br><span class="line"> bin_centers = 0.5 * np.diff(bins) + bins[:-1]</span><br><span class="line"> for count, x in zip(counts, bin_centers):</span><br><span class="line">     percent = &apos;%0.0f%%&apos; % (100 * float(count) / counts.sum())</span><br><span class="line">     ax2.annotate(percent, xy=(x, 0), xycoords=(&apos;data&apos;, &apos;axes fraction&apos;),</span><br><span class="line">                 xytext=(0, -40), textcoords=&apos;offset points&apos;, va=&apos;top&apos;, ha=&apos;center&apos;, rotation=-90, color=&apos;b&apos;, size=14)</span><br><span class="line"> fig.savefig(&apos;salary_inXian.jpg&apos;)</span><br><span class="line"> fig.show()</span><br></pre></td></tr></table></figure></p>
+<p>所得结果如下所示：<br><img src="/images/salary_inXian.jpg" alt="Alt text"></p>
+<p>观察图表，可以看到，西安市计算机相关职位月薪在3000~12000人民币占据了绝大部分，也有一小部分月薪达到了12000以上，但几乎没有超过20000的。这个月薪水平在西安可以基本达到小康水平。</p>
+<h3 id="分析招聘岗位要求"><a href="#分析招聘岗位要求" class="headerlink" title="分析招聘岗位要求"></a>分析招聘岗位要求</h3><p>对西安市计算机相关职位招聘岗位要求描述进行词云图分析<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">brief_list = list(df_clean_concat[&apos;brief&apos;])</span><br><span class="line">brief_str = &apos;&apos;.join(brief_list)</span><br><span class="line"># 首先使用 jieba 中文分词工具进行分词</span><br><span class="line">wordlist = jieba.cut(brief_str, cut_all=False)      </span><br><span class="line"># cut_all, True为全模式，False为精确模式</span><br><span class="line">wordlist_space_split = &apos; &apos;.join(wordlist)</span><br><span class="line"></span><br><span class="line">my_wordcloud = WordCloud( max_words=100, font_path=&quot;simhei.ttf&quot;,background_color=&quot;white&quot;,</span><br><span class="line">                     max_font_size=300, random_state=42).generate(wordlist_space_split)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.imshow(my_wordcloud)            # 以图片的形式显示词云</span><br><span class="line">plt.axis(&apos;off&apos;)                     # 关闭坐标轴</span><br><span class="line">plt.show()</span><br><span class="line">my_wordcloud.to_file(os.path.join( &apos;brief_cloud.png&apos;))</span><br></pre></td></tr></table></figure></p>
+<p>所得结果如下所示：</p>
+<p><img src="/images/brief_cloud.png" alt="Alt text"></p>
+<p>观察图表，可以看到企业在进行招聘时，看重具有相关的开发经验，比较青睐相关专业的人员，学历也占据了相对来说比较重要的地位，另外，也希望应聘人员具有团队合作的能力，具有较好的学习能力。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本分析报告结论如下：</p>
+<ul>
+<li>Java，C++等开发岗位在西安的计算机相关职位招聘中属于主流，需求较多。</li>
+<li>西安市计算机相关职位月薪大多在3000~12000人民币，在西安可以基本达到小康水平。</li>
+<li>企业希望应聘人员具有相关的开发经验，比较青睐相关专业的人员，学历也占据了相对来说比较重要的地位。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/data/" rel="tag"># data</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/17/2018-01-17-MongoDB学习笔记/" rel="prev" title="MongoDB学习笔记">
+                MongoDB学习笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzE4NC85NzQx"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.gif"
+                alt="cccshuang" />
+            
+              <p class="site-author-name" itemprop="name">cccshuang</p>
+              <p class="site-description motion-element" itemprop="description">滴水穿石，非一日之功</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/cccshuang" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-globe"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/socool-30-95/activities" target="_blank" title="ZhiHu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>ZhiHu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对西安市计算机相关职位情况的分析"><span class="nav-number">1.</span> <span class="nav-text">对西安市计算机相关职位情况的分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#报告主题"><span class="nav-number">1.1.</span> <span class="nav-text">报告主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据来源"><span class="nav-number">1.2.</span> <span class="nav-text">数据来源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析思路"><span class="nav-number">1.3.</span> <span class="nav-text">分析思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算过程"><span class="nav-number">1.4.</span> <span class="nav-text">计算过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据读取"><span class="nav-number">1.4.1.</span> <span class="nav-text">数据读取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据整理"><span class="nav-number">1.4.2.</span> <span class="nav-text">数据整理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析职位数量情况"><span class="nav-number">1.4.3.</span> <span class="nav-text">分析职位数量情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析职位月薪情况"><span class="nav-number">1.4.4.</span> <span class="nav-text">分析职位月薪情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析招聘岗位要求"><span class="nav-number">1.4.5.</span> <span class="nav-text">分析招聘岗位要求</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结论"><span class="nav-number">1.5.</span> <span class="nav-text">结论</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">cccshuang</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">2.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("pgDykfs8p7TOdsUrQjsirs3K-gzGzoHsz", "jjUyXR2grhsiQEUQkQKg8qL3");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
