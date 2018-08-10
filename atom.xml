@@ -46,9 +46,9 @@
     <link href="http://yoursite.com/2018/08/04/%E6%B5%8B%E8%AF%95%E5%85%AC%E5%BC%8F/"/>
     <id>http://yoursite.com/2018/08/04/测试公式/</id>
     <published>2018-08-04T15:12:07.000Z</published>
-    <updated>2018-08-10T08:51:23.679Z</updated>
+    <updated>2018-08-10T08:54:26.761Z</updated>
     
-    <content type="html"><![CDATA[<p>$f(x_1) = sin(x_1)^2$</p><p>$$<br>f(n)=\begin{cases}<br>n/2, &amp; \text{如果$ x&lt;=2 $}\<br>3n+1, &amp; \text{如果$ x&gt;2 $}<br>\end{cases}<br>$$</p><p>$$<br>f([\frac{1+{x,y}}{(\frac{x}{y}+\frac{y}{x})(u+1)}+a]^{3\2})<br>$$</p><p>$$<br>f\left(<br>    \left[<br>        \frac{<br>            1+\left{x,y\right}<br>        }{<br>        \left(<br>            \frac{x}{y}+\frac{y}{x}<br>        \right)<br>        \left(u+1\right)<br>        }+a<br>    \right]^{3\2}<br>\right)<br>$$</p>]]></content>
+    <content type="html"><![CDATA[<p>$f(x_1) = sin(x_1)^2$</p><p>$$<br>f(n)=\begin{cases}<br>n/2, &amp; \text{如果$ x&lt;=2 $}\<br>3n+1, &amp; \text{如果$ x&gt;2 $}<br>\end{cases}<br>$$</p><p>$$<br>f\left(<br>    \left[<br>        \frac{<br>            1+\left{x,y\right}<br>        }{<br>        \left(<br>            \frac{x}{y}+\frac{y}{x}<br>        \right)<br>        \left(u+1\right)<br>        }+a<br>    \right]^{3/2}<br>\right)<br>$$</p>]]></content>
     
     <summary type="html">
     
