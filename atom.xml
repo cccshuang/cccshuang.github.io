@@ -46,9 +46,9 @@
     <link href="http://yoursite.com/2018/08/04/%E6%B5%8B%E8%AF%95%E5%85%AC%E5%BC%8F/"/>
     <id>http://yoursite.com/2018/08/04/测试公式/</id>
     <published>2018-08-04T15:12:07.000Z</published>
-    <updated>2018-08-10T09:12:20.515Z</updated>
+    <updated>2018-08-10T09:16:59.356Z</updated>
     
-    <content type="html"><![CDATA[<p>$f(x_1) = sin(x_1)^2$</p><p>$$f(x)=<br>\begin{cases}<br>0&amp; \text{x=0}\\<br>1&amp; \text{x!=0}<br>\end{cases}$$</p><p>$$<br>\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t<br>$$</p><p>$$\begin{bmatrix}<br>{a_{11}}&amp;{a_{12}}&amp;{\cdots}&amp;{a_{1n}}\<br>{a_{21}}&amp;{a_{22}}&amp;{\cdots}&amp;{a_{2n}}\<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}\<br>{a_{m1}}&amp;{a_{m2}}&amp;{\cdots}&amp;{a_{mn}}\<br>\end{bmatrix}$$</p><p>$$\begin{cases}<br>a_1x+b_1y+c_1z=d_1\<br>a_2x+b_2y+c_2z=d_2\<br>a_3x+b_3y+c_3z=d_3\<br>\end{cases}<br>$$</p>]]></content>
+    <content type="html"><![CDATA[<p>$f(x_1) = sin(x_1)^2$</p><p>$$f(x)=<br>\begin{cases}<br>0&amp; \text{x=0}\\<br>1&amp; \text{x!=0}<br>\end{cases}$$</p><p>$$<br>\sum_{i=0}^N\int_{a}^{b}g(t,i)\text{d}t<br>$$</p><p>$$\begin{bmatrix}<br>{a_{11}}&amp;{a_{12}}&amp;{\cdots}&amp;{a_{1n}}\\<br>{a_{21}}&amp;{a_{22}}&amp;{\cdots}&amp;{a_{2n}}\\<br>{\vdots}&amp;{\vdots}&amp;{\ddots}&amp;{\vdots}\\<br>{a_{m1}}&amp;{a_{m2}}&amp;{\cdots}&amp;{a_{mn}}\\<br>\end{bmatrix}$$</p><p>$$\begin{cases}<br>a_1x+b_1y+c_1z=d_1\\<br>a_2x+b_2y+c_2z=d_2\\<br>a_3x+b_3y+c_3z=d_3\\<br>\end{cases}<br>$$</p>]]></content>
     
     <summary type="html">
     
