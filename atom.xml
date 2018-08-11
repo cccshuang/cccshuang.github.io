@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-10T08:46:50.005Z</updated>
+  <updated>2018-08-11T11:19:00.754Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>朴素贝叶斯法</title>
+    <link href="http://yoursite.com/2018/08/11/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/"/>
+    <id>http://yoursite.com/2018/08/11/朴素贝叶斯法/</id>
+    <published>2018-08-11T11:17:46.000Z</published>
+    <updated>2018-08-11T11:19:00.754Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+      <category term="统计机器学习" scheme="http://yoursite.com/categories/%E7%BB%9F%E8%AE%A1%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="朴素贝叶斯" scheme="http://yoursite.com/tags/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF/"/>
+    
+      <category term="统计学习" scheme="http://yoursite.com/tags/%E7%BB%9F%E8%AE%A1%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MathJax使用LaTeX语法编写数学公式教程</title>
+    <link href="http://yoursite.com/2018/08/11/MathJax%E4%BD%BF%E7%94%A8LaTeX%E8%AF%AD%E6%B3%95%E7%BC%96%E5%86%99%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%95%99%E7%A8%8B/"/>
+    <id>http://yoursite.com/2018/08/11/MathJax使用LaTeX语法编写数学公式教程/</id>
+    <published>2018-08-11T08:51:30.000Z</published>
+    <updated>2018-08-11T11:16:41.702Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>转载于<a href="https://www.zybuluo.com/knight/note/96093" target="_blank" rel="noopener">@knight</a>博客，感谢博主的分享。</p></blockquote><h3 id="如何插入公式"><a href="#如何插入公式" class="headerlink" title="如何插入公式"></a>如何插入公式</h3><p>LaTeX的数学公式有两种：行中公式和独立公式。行中公式放在文中与其它文字混编，独立公式单独成行。</p><p>行中公式可以用如下方法表示：</p><p>\$数学公式\$</p><p>独立公式可以用如下方法表示：</p><p>\$\$ 数学公式 \$\$</p><p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$J_\alpha(x) = \sum_&#123;m=0&#125;^\infty \frac&#123;(-1)^m&#125;&#123;m! \Gamma (m + \alpha + 1)&#125; &#123;\left(&#123; \frac&#123;x&#125;&#123;2&#125; &#125;\right)&#125;^&#123;2m + \alpha&#125;$</span><br></pre></td></tr></table></figure></p><p>显示：</p><p>$J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}$</p><h3 id="如何插入公式大括号"><a href="#如何插入公式大括号" class="headerlink" title="如何插入公式大括号"></a>如何插入公式大括号</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$$f(x)=</span><br><span class="line">\begin&#123;cases&#125;</span><br><span class="line">0&amp; \text&#123;x=0&#125;\\\\</span><br><span class="line">1&amp; \text&#123;x!=0&#125;</span><br><span class="line">\end&#123;cases&#125;$$</span><br></pre></td></tr></table></figure><p>$$f(x)=<br>\begin{cases}<br>0&amp; \text{x=0}\\<br>1&amp; \text{x!=0}<br>\end{cases}$$</p><h3 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$$\begin&#123;bmatrix&#125; </span><br><span class="line">1&amp;x&amp;x^2\\\\ </span><br><span class="line">1&amp;y&amp;y^2\\\\ </span><br><span class="line">1&amp;z&amp;z^2 </span><br><span class="line">\end&#123;bmatrix&#125;$$</span><br></pre></td></tr></table></figure><p>$$\begin{bmatrix}<br>1&amp;x&amp;x^2\\<br>1&amp;y&amp;y^2\\<br>1&amp;z&amp;z^2<br>\end{bmatrix}$$ </p><h3 id="如何输入上下标"><a href="#如何输入上下标" class="headerlink" title="如何输入上下标"></a>如何输入上下标</h3><p>^表示上标， _表示下标。如果上下标的内容多于一个字符，要用{}把这些内容括起来当成一个整体。上下标是可以嵌套的，也可以同时使用。</p><p>例子：<code>$x^{y^z}=(1+{\rm e}^x)^{-2xy^w}$</code></p><p>显示：$x^{y^z}=(1+{\rm e}^x)^{-2xy^w}$</p><p>另外，如果要在左右两边都有上下标，可以用<code>\sideset</code>命令。</p><p>例子：<code>$\sideset{^1_2}{^3_4}\bigotimes$</code></p><p>显示：$ \sideset{^1_2}{^3_4} \bigotimes $</p><p><code>$$\max_{k}$$</code><br>$$\max_{k}$$<br><code>$$\mathop{argmax}_{K}$$</code><br>$$\mathop{argmax}_{K}$$</p><h3 id="如何输入括号和分隔符"><a href="#如何输入括号和分隔符" class="headerlink" title="如何输入括号和分隔符"></a>如何输入括号和分隔符</h3><p>()、[]和|表示自己，{}表示{}。当要显示大号的括号或分隔符时，要用\left和\right命令。</p><p>例子：<code>$f(x,y,z) = 3y^2z \left( 3+\frac{7x+5}{1+y^2} \right)$</code></p><p>显示：$f(x,y,z) = 3y^2z \left( 3+\frac{7x+5}{1+y^2} \right)$</p><p>有时候要用<code>\left.</code>或<code>\right.</code>进行匹配而不显示本身。</p><p>例子：<code>$\left. \frac{du}{dx} \right| _{x=0}$</code></p><p>显示：$\left. \frac{du}{dx} \right| _{x=0}$</p><h3 id="如何输入分数"><a href="#如何输入分数" class="headerlink" title="如何输入分数"></a>如何输入分数</h3><p>例子：<code>$\frac{1}{3}$</code>　或　<code>$1 \over 3$</code></p><p>显示：$\frac{1}{3}$　或　$1 \over 3$</p><h3 id="如何输入开方"><a href="#如何输入开方" class="headerlink" title="如何输入开方"></a>如何输入开方</h3><p>例子：<code>$\sqrt{2}$</code>　和　<code>$\sqrt[n]{3}$</code></p><p>显示：$\sqrt{2}$　和　$\sqrt[n]{3}$</p><h3 id="如何输入省略号"><a href="#如何输入省略号" class="headerlink" title="如何输入省略号"></a>如何输入省略号</h3><p>数学公式中常见的省略号有两种，\ldots表示与文本底线对齐的省略号，\cdots表示与文本中线对齐的省略号。</p><p>例子：<code>$f(x_1,x_2,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2$</code></p><p>显示：$f(x_1,x_2,\ldots,x_n) = x_1^2 + x_2^2 + \cdots + x_n^2$</p><h3 id="如何输入矢量"><a href="#如何输入矢量" class="headerlink" title="如何输入矢量"></a>如何输入矢量</h3><p>例子：<code>$\vec{a} \cdot \vec{b}=0$</code></p><p>显示：$\vec{a} \cdot \vec{b}=0$</p><h3 id="如何输入积分"><a href="#如何输入积分" class="headerlink" title="如何输入积分"></a>如何输入积分</h3><p>例子：<code>$\int_0^1 x^2 {\rm d}x$</code></p><p>显示：$\int_0^1 x^2 {\rm d}x$</p><h3 id="如何输入极限运算"><a href="#如何输入极限运算" class="headerlink" title="如何输入极限运算"></a>如何输入极限运算</h3><p>例子：<br><code>$\lim\limits_{n \rightarrow +\infty} \frac{1}{n(n+1)}$</code></p><p><code>$$\lim_{n \rightarrow +\infty} \frac{1}{n(n+1)}$$</code></p><p>显示：$\lim\limits_{n \rightarrow +\infty} \frac{1}{n(n+1)}$<br>$$\lim_{n \rightarrow +\infty} \frac{1}{n(n+1)}$$ </p><blockquote><p>注:在latex中输入极限，主要的一种形式是使用<code>\lim</code>，输出的就是极限的原样。<br>如果在<code>$*****$</code>环境中，使用上下标起不到作用，在<code>$$******$$</code>中使用下标，会使下标部分出现在limit之下。<br>在文章中间，使用这种形式的极限，可以选择使用这种形式<code>\lim\limits_{t \to \infty }{x(t)}</code>。<br>上下极限的输入textfriend里面直接就有。<br>另外一点需要注意的是，极限的下标如果有多行的话，使用断行，有几种方法：可以使用<code>array</code>或者<code>substack</code>命令，也可以使用<code>\stackrel{top}{bot}</code>或者<code>mathop</code>命令。</p></blockquote><h3 id="如何输入累加、累乘运算"><a href="#如何输入累加、累乘运算" class="headerlink" title="如何输入累加、累乘运算"></a>如何输入累加、累乘运算</h3><p>例子：<code>$\sum_{i=0}^n \frac{1}{i^2}$　和　$\prod_{i=0}^n \frac{1}{i^2}$</code></p><p>显示：$\sum_{i=0}^n \frac{1}{i^2}$　和　$\prod_{i=0}^n \frac{1}{i^2}$</p><h3 id="如何进行公式应用"><a href="#如何进行公式应用" class="headerlink" title="如何进行公式应用"></a>如何进行公式应用</h3><p>例子：<code>$ r = r_F + \beta(r_M-r_F) - \epsilon $</code></p><p>显示： $ r = r_F + \beta(r_M-r_F) - \epsilon $</p><h3 id="如何输入希腊字母"><a href="#如何输入希腊字母" class="headerlink" title="如何输入希腊字母"></a>如何输入希腊字母</h3><p>例子：</p><p>\alpha　A　\beta　B　\gamma　\Gamma　\delta　\Delta　\epsilon　E<br>\varepsilon　　\zeta　Z　\eta　H　\theta　\Theta　\vartheta<br>\iota　I　\kappa　K　\lambda　\Lambda　\mu　M　\nu　N<br>\xi　\Xi　o　O　\pi　\Pi　\varpi　　\rho　P<br>\varrho　　\sigma　\Sigma　\varsigma　　\tau　T　\upsilon　\Upsilon<br>\phi　\Phi　\varphi　　\chi　X　\psi　\Psi　\omega　\Omega</p><p>显示： </p><p>$\alpha$　$A$　$\beta$　$B$　$\gamma$　$\Gamma$　$\delta$　$\Delta$　$\epsilon$　$E$<br>$\varepsilon$　　$\zeta$　$Z$　$\eta$　$H$　$\theta$　$\Theta$　$\vartheta$<br>$\iota$　$I$　$\kappa$　$K$　$\lambda$　$\Lambda$　$\mu$　$M$　$\nu$　$N$<br>$\xi$　$\Xi$　$o$　$O$　$\pi$　$\Pi$　$\varpi$　　$\rho$　$P$<br>$\varrho$　　$\sigma$　$\Sigma$　$\varsigma$　　$\tau$　$T$　$\upsilon$　$\Upsilon$<br>$\phi$　$\Phi$　$\varphi$　$\chi$　$X$　$\psi$　$\Psi$　$\omega$　$\Omega$</p><h3 id="如何输入其它特殊字符"><a href="#如何输入其它特殊字符" class="headerlink" title="如何输入其它特殊字符"></a>如何输入其它特殊字符</h3><h4 id="关系运算符："><a href="#关系运算符：" class="headerlink" title="关系运算符："></a>关系运算符：</h4><p>±：\pm<br>×：\times<br>÷：\div<br>∣：\mid<br>∤：\nmid<br>⋅：\cdot<br>∘：\circ<br>∗：\ast<br>⨀：\bigodot<br>⨂：\bigotimes<br>⨁：\bigoplus<br>≤：\leq<br>≥：\geq<br>≠：\neq<br>≈：\approx<br>≡：\equiv<br>∑：\sum<br>∏：\prod<br>∐：\coprod</p><h4 id="集合运算符："><a href="#集合运算符：" class="headerlink" title="集合运算符："></a>集合运算符：</h4><p>∅：\emptyset<br>∈：\in<br>∉：\notin<br>⊂：\subset<br>⊃：\supset<br>⊆：\subseteq<br>⊇：\supseteq<br>⋂：\bigcap<br>⋃：\bigcup<br>⋁：\bigvee<br>⋀：\bigwedge<br>⨄：\biguplus<br>⨆：\bigsqcup</p><h4 id="对数运算符："><a href="#对数运算符：" class="headerlink" title="对数运算符："></a>对数运算符：</h4><p>log：\log<br>lg：\lg<br>ln：\ln</p><h4 id="三角运算符："><a href="#三角运算符：" class="headerlink" title="三角运算符："></a>三角运算符：</h4><p>⊥：\bot<br>∠：\angle<br>30∘：30^\circ<br>sin：\sin<br>cos：\cos<br>tan：\tan<br>cot：\cot<br>sec：\sec<br>csc：\csc</p><h4 id="微积分运算符："><a href="#微积分运算符：" class="headerlink" title="微积分运算符："></a>微积分运算符：</h4><p>′：\prime<br>∫：\int<br>∬：\iint<br>∭：\iiint<br>⨌：\iiiint<br>∮：\oint<br>lim：\lim<br>∞：\infty<br>∇：\nabla</p><h4 id="逻辑运算符："><a href="#逻辑运算符：" class="headerlink" title="逻辑运算符："></a>逻辑运算符：</h4><p>∵：\because<br>∴：\therefore<br>∀：\forall<br>∃：\exists<br>≠：\not=<br>≯：\not&gt;<br>⊄：\not\subset</p><h4 id="戴帽符号："><a href="#戴帽符号：" class="headerlink" title="戴帽符号："></a>戴帽符号：</h4><p>$\hat{y}$ ：\hat{y}<br>$\check{y} $：\check{y}<br>$\breve{y}$：\breve{y}</p><h4 id="连线符号："><a href="#连线符号：" class="headerlink" title="连线符号："></a>连线符号：</h4><p>$\overline{a+b+c+d}$ ：\overline{a+b+c+d} </p><p>$\underline{a+b+c+d} $ ：\underline{a+b+c+d} </p><h4 id="箭头符号："><a href="#箭头符号：" class="headerlink" title="箭头符号："></a>箭头符号：</h4><p>↑：\uparrow<br>↓：\downarrow<br>⇑：\Uparrow<br>⇓：\Downarrow<br>→：\rightarrow<br>←：\leftarrow<br>⇒：\Rightarrow<br>⇐：\Leftarrow<br>⟶：\longrightarrow<br>⟵：\longleftarrow<br>⟹：\Longrightarrow<br>⟸：\Longleftarrow</p><p>要输出字符　空格　#　$　%　&amp;　_　{　}　，用命令：　\空格　#　\$　\%　\&amp;　_　{　}</p><h3 id="如何进行字体转换"><a href="#如何进行字体转换" class="headerlink" title="如何进行字体转换"></a>如何进行字体转换</h3><p>要对公式的某一部分字符进行字体转换，可以用{\rm 需转换的部分字符}命令，其中\rm可以参照下表选择合适的字体。一般情况下，公式默认为意大利体。<br>\rm　　罗马体　　　　　　　\it　　意大利体<br>\bf　　黑体　　　　　　　　\cal 　花体<br>\sl　　倾斜体　　　　　　　\sf　　等线体<br>\mit 　数学斜体　　　　　　\tt　　打字机字体<br>\sc　　小体大写字母</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;转载于&lt;a href=&quot;https://www.zybuluo.com/knight/note/96093&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;@knight&lt;/a&gt;博客，感谢博主的分享。&lt;/p&gt;
+&lt;/blockquot
+      
+    
+    </summary>
+    
+      <category term="MathJax" scheme="http://yoursite.com/categories/MathJax/"/>
+    
+    
+      <category term="LaTex" scheme="http://yoursite.com/tags/LaTex/"/>
+    
+      <category term="MathJax" scheme="http://yoursite.com/tags/MathJax/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客重建记</title>
