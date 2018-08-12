@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-11T11:19:00.754Z</updated>
+  <updated>2018-08-12T04:32:42.320Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,16 @@
     <link href="http://yoursite.com/2018/08/11/%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%B3%95/"/>
     <id>http://yoursite.com/2018/08/11/朴素贝叶斯法/</id>
     <published>2018-08-11T11:17:46.000Z</published>
-    <updated>2018-08-11T11:19:00.754Z</updated>
+    <updated>2018-08-12T04:32:42.320Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><h4 id="公式推导"><a href="#公式推导" class="headerlink" title="公式推导"></a>公式推导</h4><p>朴素贝叶斯法是基于贝叶斯定理和特征条件独立假设的分类方法，即对给定的输入 $x$，预测其类别 $y$。<br>此方法的思路是首先由训练数据计算 $P(Y)$ 和 $P(X|Y)$ 的估计,然后得到联合概率分布<br>$$ P(X,Y) = P(Y)P(X|Y) $$<br>之后利用贝叶斯定理及学到的联合概率分布计算 $X$ 属于类别 $Y$ 的概率<br>$$ P(Y|X) = \frac{P(X,Y)}{P(X)} = \frac{P(Y)P(X|Y)}{\mathop{\sum}_{Y}P(Y)P(X|Y)}$$<br>对于给定的输入 $x$，通过上式计算 $x$ 属于类别 $c_k$ 的概率 $ P(Y=c_k|X=x) $，即<br>$$ P(Y=c_k|X=x) =  \frac{P(Y=c_k)P(X=x|Y=c_k)}{\mathop{\sum}_{k}P(Y=c_k)P(X=x|Y=c_k)}$$<br>又由朴素贝叶斯法的特征条件独立性假设，有<br>$$\begin{equation}\begin{split}<br>P(X=x|Y=c_k) &amp;=P( X^{(1)}=x^{(1)},\cdots,X^{(n)}=x^{(n)} | Y=c_k )\\<br>&amp;= \prod_{j=1}^{n} P(X^{(j)}=x^{(j)}|Y=c_k)<br>\end{split}\end{equation}$$<br>其中，$x$ 为 $n$ 维向量，$x^{(j)}$ 为 $x$ 的第 $j$ 个特征。故<br>$$ P(Y=c_k|X=x) = \frac{P(Y=c_k)\prod_{j}P(X^{(j)}=x^{(j)}|Y=c_k)}{\mathop{\sum}_{k}P(Y=c_k)\prod_{j}P(X^{(j)}=x^{(j)}|Y=c_k)} , k=1,2,\dots,K$$<br>将 $x$ 分到后验概率最大的类中，朴素贝叶斯分类器可表示为<br>$$ y = f(x) = arg \max_{c_k} \frac{P(Y=c_k)\prod_{j}P(X^{(j)}=x^{(j)}|Y=c_k)}{\mathop{\sum}_{k}P(Y=c_k)\prod_{j}P(X^{(j)}=x^{(j)}|Y=c_k)}$$<br>又因为上式中分母对于所有 $c_k$ 都是相同的，故上式可以简化为<br>$$ y = arg \max_{c_k} P(Y=c_k)\prod_{j}P(X^{(j)}=x^{(j)}|Y=c_k) $$</p><p>由上式可知，只要由训练数据估计出每一个类别的概率 $P(Y=c_k)$ 和输入的每一个特征值在某一类别下的概率 $P(X^{(j)}=x^{(j)}|Y=c_k)$，便可进行预测。下面介绍进行估计的两种方法。</p><h3 id="参数估计"><a href="#参数估计" class="headerlink" title="参数估计"></a>参数估计</h3><h4 id="极大似然估计"><a href="#极大似然估计" class="headerlink" title="极大似然估计"></a>极大似然估计</h4><p>假设训练数据集为 $T = {(x_1,y_1),\dots,(x_n,y_n)}$。<br>先验概率 $P(Y=c_k)$ 的极大似然估计为<br>$$ P(Y=c_k) = \frac{\sum_{i=1}^{N}I(y_i=c_k)}{N} $$<br>设第 $j$ 个特征 $x^{(j)}$ 可能取值的集合为 ${a_{j1)},\dots,a_{jS_j}}$，条件概率 $P(X^{(j)}=a_{jl}|Y=c_k)$ 的极大似然估计为<br>$$ P(X^{(j)}=a_{jl}|Y=c_k) = \frac{\sum_{i=1}^{N}I(x_{i}^{(j)}=a_{jl},y_i=c_k)}{\sum_{i=1}^{N}I(y_i=c_k)} $$<br>$$ j=1,2,\dots,n;l=1,2,\dots,S_j;k=1,2,\dots,K $$<br>其中，$x_{i}^{j}$ 是第 $i$ 个样本的第 $j$ 个特征；a_{jl} 是第 $j$ 个特征可能取的第 $l$ 个值； $I$ 为指示函数，满足取 $1$，否则取 $0$。</p><h4 id="贝叶斯估计"><a href="#贝叶斯估计" class="headerlink" title="贝叶斯估计"></a>贝叶斯估计</h4><p>极大似然估计可能会出现所要估计的概率值为0的情况，在随机变量各个取值的频数上赋予一个正数 $\lambda \gt 0$，常取 $\lambda = 1$，称为拉普拉斯平滑。<br>$$ P_{\lambda}(Y=c_k) = \frac{\sum_{i=1}^{N}I(y_i=c_k)+{\lambda}}{N+K\lambda} $$<br>$$ P_{\lambda}(X^{(j)}=a_{jl}|Y=c_k) = \frac{\sum_{i=1}^{N}I(x_{i}^{(j)}=a_{jl},y_i=c_k)+\lambda}{\sum_{i=1}^{N}I(y_i=c_k)+S_j\lambda} $$</p>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;理论&quot;&gt;&lt;a href=&quot;#理论&quot; class=&quot;headerlink&quot; title=&quot;理论&quot;&gt;&lt;/a&gt;理论&lt;/h3&gt;&lt;h4 id=&quot;公式推导&quot;&gt;&lt;a href=&quot;#公式推导&quot; class=&quot;headerlink&quot; title=&quot;公式推导&quot;&gt;&lt;/a&gt;公式推导&lt;/h
+      
     
     </summary>
     
