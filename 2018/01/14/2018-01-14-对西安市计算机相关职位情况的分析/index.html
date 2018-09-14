@@ -89,14 +89,14 @@
 <meta property="og:site_name" content="shuang&#39;s blog">
 <meta property="og:description" content="对西安市计算机相关职位情况的分析报告主题本报告主要有以下几个目的：  分析西安市计算机相关职位的需求情况 分析西安市计算机相关职位的薪酬情况 分析西安市计算机相关职位的招聘要求 为广大意向从事计算机行业人群的就业提供借鉴和指导  数据来源本报告对智联招聘网站进行爬虫，主要采集以下几方面的数据,爬虫代码见作业中代码部分。  Java相关职位 C++相关职位 Python相关职位 C#相关职位 Rub">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/images/job_pie.jpg">
-<meta property="og:image" content="http://yoursite.com/images/salary_inXian.jpg">
-<meta property="og:image" content="http://yoursite.com/images/brief_cloud.png">
+<meta property="og:image" content="http://yoursite.com/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/images/job_pie.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/images/salary_inXian.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/images/brief_cloud.png">
 <meta property="og:updated_time" content="2018-01-14T07:00:44.511Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对西安市计算机相关职位情况的分析">
 <meta name="twitter:description" content="对西安市计算机相关职位情况的分析报告主题本报告主要有以下几个目的：  分析西安市计算机相关职位的需求情况 分析西安市计算机相关职位的薪酬情况 分析西安市计算机相关职位的招聘要求 为广大意向从事计算机行业人群的就业提供借鉴和指导  数据来源本报告对智联招聘网站进行爬虫，主要采集以下几方面的数据,爬虫代码见作业中代码部分。  Java相关职位 C++相关职位 Python相关职位 C#相关职位 Rub">
-<meta name="twitter:image" content="http://yoursite.com/images/job_pie.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/images/job_pie.jpg">
 
 
 
@@ -440,14 +440,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">label = df_key_main_count[&apos;label&apos;]</span><br><span class="line">sizes = df_key_main_count[&apos;number&apos;]</span><br><span class="line"># 设置绘图区域大小</span><br><span class="line">fig, axes = plt.subplots(figsize=(10,6),ncols=2)</span><br><span class="line">ax1, ax2 = axes.ravel()</span><br><span class="line">colors  = [&quot;blue&quot;,&quot;red&quot;,&quot;coral&quot;,&quot;green&quot;,&quot;yellow&quot;,&quot;orange&quot;] </span><br><span class="line">patches, texts = ax1.pie(sizes,labels=None, shadow=False, startangle=0, colors=colors)</span><br><span class="line">ax1.axis(&apos;equal&apos;)  </span><br><span class="line">ax1.set_title(&apos;职位数量分布&apos;, loc=&apos;center&apos;)</span><br><span class="line"># ax2 只显示图例（legend）</span><br><span class="line">ax2.axis(&apos;off&apos;)</span><br><span class="line">ax2.legend(patches, label, loc=&apos;center left&apos;, fontsize=9)</span><br><span class="line">plt.savefig(&apos;job_pie.jpg&apos;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>所得饼图如下所示：<br><img src="/images/job_pie.jpg" alt="Alt text"></p>
+<p>所得饼图如下所示：<br><img src="/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/images/job_pie.jpg" alt="Alt text"></p>
 <p>观察图表，可以看到，传统的Java和C++开发职位占据所有职位数量的半壁江山，此外，.NET，PHP，Python也占据了一部分，而像Scala，Swift等新出现的语言相关的职位则几乎没有。所以，像Java，C++在西安的计算机相关职位招聘中还是属于主流。</p>
 <h3 id="分析职位月薪情况"><a href="#分析职位月薪情况" class="headerlink" title="分析职位月薪情况"></a>分析职位月薪情况</h3><p>对西安市的职位月薪情况进行分析。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">df_salary_adjust = df_clean_concat[df_clean_concat[&apos;salary_min&apos;]&lt;=20000]</span><br><span class="line"> fig, (ax1, ax2) = plt.subplots(figsize=(10,8), nrows=2)</span><br><span class="line"> x_pos = list(range(df_salary_adjust.shape[0]))</span><br><span class="line"> y1 = df_salary_adjust[&apos;salary_min&apos;]</span><br><span class="line"> ax1.plot(x_pos, y1)</span><br><span class="line"> ax1.set_title(&apos;西安计算机相关职位月薪趋势图&apos;, size=14)</span><br><span class="line"> ax1.set_xticklabels(&apos;&apos;)</span><br><span class="line"> ax1.set_ylabel(&apos;最低月薪(RMB)&apos;)</span><br><span class="line"> bins = [3000,6000, 9000, 12000, 15000, 18000, 21000]</span><br><span class="line"> counts, bins, patches = ax2.hist(y1, bins, normed=1, histtype=&apos;bar&apos;, facecolor=&apos;g&apos;, rwidth=0.8)</span><br><span class="line"> ax2.set_title(&apos;西安计算机相关职位月薪直方图&apos;, size=14)</span><br><span class="line"> ax2.set_yticklabels(&apos;&apos;)</span><br><span class="line"> ax2.set_xticks(bins) </span><br><span class="line"> ax2.set_xticklabels(bins, rotation=-90)</span><br><span class="line"> # Label the raw counts and the percentages below the x-axis...</span><br><span class="line"> bin_centers = 0.5 * np.diff(bins) + bins[:-1]</span><br><span class="line"> for count, x in zip(counts, bin_centers):</span><br><span class="line">     percent = &apos;%0.0f%%&apos; % (100 * float(count) / counts.sum())</span><br><span class="line">     ax2.annotate(percent, xy=(x, 0), xycoords=(&apos;data&apos;, &apos;axes fraction&apos;),</span><br><span class="line">                 xytext=(0, -40), textcoords=&apos;offset points&apos;, va=&apos;top&apos;, ha=&apos;center&apos;, rotation=-90, color=&apos;b&apos;, size=14)</span><br><span class="line"> fig.savefig(&apos;salary_inXian.jpg&apos;)</span><br><span class="line"> fig.show()</span><br></pre></td></tr></table></figure></p>
-<p>所得结果如下所示：<br><img src="/images/salary_inXian.jpg" alt="Alt text"></p>
+<p>所得结果如下所示：<br><img src="/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/images/salary_inXian.jpg" alt="Alt text"></p>
 <p>观察图表，可以看到，西安市计算机相关职位月薪在3000~12000人民币占据了绝大部分，也有一小部分月薪达到了12000以上，但几乎没有超过20000的。这个月薪水平在西安可以基本达到小康水平。</p>
 <h3 id="分析招聘岗位要求"><a href="#分析招聘岗位要求" class="headerlink" title="分析招聘岗位要求"></a>分析招聘岗位要求</h3><p>对西安市计算机相关职位招聘岗位要求描述进行词云图分析<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">brief_list = list(df_clean_concat[&apos;brief&apos;])</span><br><span class="line">brief_str = &apos;&apos;.join(brief_list)</span><br><span class="line"># 首先使用 jieba 中文分词工具进行分词</span><br><span class="line">wordlist = jieba.cut(brief_str, cut_all=False)      </span><br><span class="line"># cut_all, True为全模式，False为精确模式</span><br><span class="line">wordlist_space_split = &apos; &apos;.join(wordlist)</span><br><span class="line"></span><br><span class="line">my_wordcloud = WordCloud( max_words=100, font_path=&quot;simhei.ttf&quot;,background_color=&quot;white&quot;,</span><br><span class="line">                     max_font_size=300, random_state=42).generate(wordlist_space_split)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plt.imshow(my_wordcloud)            # 以图片的形式显示词云</span><br><span class="line">plt.axis(&apos;off&apos;)                     # 关闭坐标轴</span><br><span class="line">plt.show()</span><br><span class="line">my_wordcloud.to_file(os.path.join( &apos;brief_cloud.png&apos;))</span><br></pre></td></tr></table></figure></p>
 <p>所得结果如下所示：</p>
-<p><img src="/images/brief_cloud.png" alt="Alt text"></p>
+<p><img src="/2018/01/14/2018-01-14-对西安市计算机相关职位情况的分析/images/brief_cloud.png" alt="Alt text"></p>
 <p>观察图表，可以看到企业在进行招聘时，看重具有相关的开发经验，比较青睐相关专业的人员，学历也占据了相对来说比较重要的地位，另外，也希望应聘人员具有团队合作的能力，具有较好的学习能力。</p>
 <h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>本分析报告结论如下：</p>
 <ul>
@@ -699,7 +699,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.5k</span>
+    <span title="Site words total count">16.5k</span>
   
 </div>
 
