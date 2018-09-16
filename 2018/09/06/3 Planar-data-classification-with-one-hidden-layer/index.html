@@ -89,7 +89,7 @@
 <meta property="og:description" content="np.meshgrid()从坐标向量返回坐标矩阵，生成网格数据。例如：12345678910111213141516171819202122x = np.arange(-2,2)y = np.arange(0,3)#生成一位数组，其实也就是向量xOut[31]: array([-2, -1,  0,  1])yOut[32]: array([0, 1, 2])z,s = np.meshgrid(x">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/09/06/3%20Planar-data-classification-with-one-hidden-layer/3%20Planar-data-classification-with-one-hidden-layerr/可视化.png">
-<meta property="og:updated_time" content="2018-09-14T03:29:58.269Z">
+<meta property="og:updated_time" content="2018-09-16T06:24:53.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Planar data classification with one hidden layer">
 <meta name="twitter:description" content="np.meshgrid()从坐标向量返回坐标矩阵，生成网格数据。例如：12345678910111213141516171819202122x = np.arange(-2,2)y = np.arange(0,3)#生成一位数组，其实也就是向量xOut[31]: array([-2, -1,  0,  1])yOut[32]: array([0, 1, 2])z,s = np.meshgrid(x">
@@ -328,7 +328,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,536
+                  1,563
                 </span>
               
 
@@ -344,7 +344,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  8
+                  9
                 </span>
               
             </div>
@@ -370,15 +370,16 @@
 <p>用matplotlib画等高线图，contourf可以填充等高线之间的空隙颜色，呈现出区域的分划状，所以很多分类机器学习模型的可视化常会借助其展现。<br>核心函数是plt.contourf()，输入的参数是x,y对应的网格数据以及此网格对应的高度值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"> </span><br><span class="line"># 计算x,y坐标对应的高度值</span><br><span class="line">def f(x, y):</span><br><span class="line"> return (1-x/2+x**5+y**3) * np.exp(-x**2-y**2)</span><br><span class="line"> </span><br><span class="line"># 生成x,y的数据</span><br><span class="line">n = 256</span><br><span class="line">x = np.linspace(-3, 3, n)</span><br><span class="line">y = np.linspace(-3, 3, n)</span><br><span class="line"> </span><br><span class="line"># 把x,y数据生成mesh网格状的数据，因为等高线的显示是在网格的基础上添加上高度值</span><br><span class="line">X, Y = np.meshgrid(x, y)</span><br><span class="line"> </span><br><span class="line"># 填充等高线</span><br><span class="line">plt.contourf(X, Y, f(X, Y))</span><br><span class="line"># 显示图表</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
 <p>plt.contourf(xx, yy, Z, cmap=plt.cm.Spectral)<br>cmap = plt.cm.Spectral实现的功能是给label为1的点一种颜色，给label为0的点另一种颜色。</p>
 <p>tips:<br>计算正确率的向量方法，np.dot()进行矩阵乘法，如果相同，则乘积和为1，反之为0。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">float((np.dot(Y,LR_predictions) + np.dot(1-Y,1-LR_predictions))/float(Y.size)*100)</span><br></pre></td></tr></table></figure></p>
-<p>有时为保证能重现结果，设置相同的seed，每次生成的随机数相同。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(2) # we set up a seed so that your output matches ours although the initialization is random.</span><br><span class="line">``` </span><br><span class="line">#### 公式</span><br><span class="line">对于 $x^&#123;(i)&#125;$:</span><br><span class="line">$$z^&#123;[1] (i)&#125; =  W^&#123;[1]&#125; x^&#123;(i)&#125; + b^&#123;[1] (i)&#125;$$ </span><br><span class="line">$$a^&#123;[1] (i)&#125; = \tanh(z^&#123;[1] (i)&#125;)$$</span><br><span class="line">$$z^&#123;[2] (i)&#125; = W^&#123;[2]&#125; a^&#123;[1] (i)&#125; + b^&#123;[2] (i)&#125;$$</span><br><span class="line">$$\hat&#123;y&#125;^&#123;(i)&#125; = a^&#123;[2] (i)&#125; = \sigma(z^&#123; [2] (i)&#125;)$$</span><br><span class="line">$$y^&#123;(i)&#125;_&#123;prediction&#125; = \begin&#123;cases&#125; 1 &amp; if  a^&#123;[2](i)&#125; &gt; 0.5 \\\\ 0 &amp; otherwise \end&#123;cases&#125;$$</span><br><span class="line"></span><br><span class="line">使用下面公式计算损失 $J$ : </span><br><span class="line">$$J = - \frac&#123;1&#125;&#123;m&#125; \sum\limits_&#123;i = 0&#125;^&#123;m&#125; \large\left(\small y^&#123;(i)&#125;\log\left(a^&#123;[2] (i)&#125;\right) + (1-y^&#123;(i)&#125;)\log\left(1- a^&#123;[2] (i)&#125;\right)  \large  \right) \small $$</span><br><span class="line"></span><br><span class="line">#### 算法步骤</span><br><span class="line"></span><br><span class="line">1. 定义神经网络结构：输入单元数量、隐藏单元数量、输出单元数量。</span><br></pre></td></tr></table></figure></p>
+<p>有时为保证能重现结果，设置相同的seed，每次生成的随机数相同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">np.random.seed(2) # we set up a seed so that your output matches ours although the initialization is random.</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">#### 公式</span><br><span class="line">对于 $x^&#123;(i)&#125;$:</span><br><span class="line">$$z^&#123;[1] (i)&#125; =  W^&#123;[1]&#125; x^&#123;(i)&#125; + b^&#123;[1] (i)&#125;$$ </span><br><span class="line">$$a^&#123;[1] (i)&#125; = \tanh(z^&#123;[1] (i)&#125;)$$</span><br><span class="line">$$z^&#123;[2] (i)&#125; = W^&#123;[2]&#125; a^&#123;[1] (i)&#125; + b^&#123;[2] (i)&#125;$$</span><br><span class="line">$$\hat&#123;y&#125;^&#123;(i)&#125; = a^&#123;[2] (i)&#125; = \sigma(z^&#123; [2] (i)&#125;)$$</span><br><span class="line">$$y^&#123;(i)&#125;_&#123;prediction&#125; = \begin&#123;cases&#125; 1 &amp; if  a^&#123;[2](i)&#125; &gt; 0.5 \\\\ 0 &amp; otherwise \end&#123;cases&#125;$$</span><br><span class="line"></span><br><span class="line">使用下面公式计算损失 $J$ : </span><br><span class="line">$$J = - \frac&#123;1&#125;&#123;m&#125; \sum\limits_&#123;i = 0&#125;^&#123;m&#125; \large\left(\small y^&#123;(i)&#125;\log\left(a^&#123;[2] (i)&#125;\right) + (1-y^&#123;(i)&#125;)\log\left(1- a^&#123;[2] (i)&#125;\right)  \large  \right) \small $$</span><br><span class="line"></span><br><span class="line">#### 神经网络结构</span><br><span class="line"></span><br><span class="line">![](3 Planar-data-classification-with-one-hidden-layer/classification_kiank.png)</span><br><span class="line"></span><br><span class="line">#### 算法步骤</span><br><span class="line"></span><br><span class="line">1. 定义神经网络结构：输入单元数量、隐藏单元数量、输出单元数量。</span><br></pre></td></tr></table></figure>
 <p>def layer_sizes(X, Y):</p>
 <pre><code># X:(input size, number of examples) Y:(output size, number of examples)
 n_x = X.shape[0] # the size of the input layer
 n_h = 4 # the size of the hidden layer
 n_y = Y.shape[0] #the size of the output layer
 return (n_x, n_h, n_y)
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. 初始化模型参数</span><br></pre></td></tr></table></figure>
-<p>def initialize_parameters(n_x, n_h, n_y):<br>    W1 = np.random.randn(n_h, n_x) <em> 0.01 # n_x 向量的数量 n_y 向量的维度 (n[l],n[l-1])<br>    b1 = np.zeros((n_h,1))<br>    W2 = np.random.randn(n_y, n_h) </em> 0.01<br>    b2 = np.zeros((n_y,1))<br>    parameters = {“W1”: W1,<br>                  “b1”: b1,<br>                  “W2”: W2,<br>                  “b2”: b2}<br>    return parameters<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3. 实现前向传播</span><br></pre></td></tr></table></figure></p>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2. 初始化模型参数</span><br></pre></td></tr></table></figure>
+<p>def initialize_parameters(n_x, n_h, n_y):<br>    W1 = np.random.randn(n_h, n_x) <em> 0.01 # n_x 向量的数量 n_y 向量的维度 (n[l],n[l-1])<br>    b1 = np.zeros((n_h,1))<br>    W2 = np.random.randn(n_y, n_h) </em> 0.01<br>    b2 = np.zeros((n_y,1))<br>    parameters = {“W1”: W1,<br>                  “b1”: b1,<br>                  “W2”: W2,<br>                  “b2”: b2}<br>    return parameters<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3. 实现前向传播</span><br></pre></td></tr></table></figure></p>
 <p>def forward_propagation(X, parameters):</p>
 <pre><code># Retrieve each parameter from the dictionary &quot;parameters&quot;
 W1 = parameters[&quot;W1&quot;]
@@ -398,7 +399,7 @@ cache = {&quot;Z1&quot;: Z1,
          &quot;A2&quot;: A2}
 
 return A2, cache
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4. 计算损失函数</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4. 计算损失函数</span><br></pre></td></tr></table></figure>
 <p>def compute_cost(A2, Y, parameters):</p>
 <pre><code>m = Y.shape[1] # number of example
 
@@ -409,7 +410,7 @@ cost = -np.sum(logprobs) / m
 cost = np.squeeze(cost)     # makes sure cost is the dimension we expect. 
                             # E.g., turns [[17]] into 17    
 return cost
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5. 计算反向传播</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5. 计算反向传播</span><br></pre></td></tr></table></figure>
 <p>def backward_propagation(parameters, cache, X, Y):</p>
 <pre><code>m = X.shape[1]
 
@@ -477,14 +478,14 @@ for i in range(0, num_iterations):
     if print_cost and i % 1000 == 0:
         print (&quot;Cost after iteration %i: %f&quot; %(i, cost))
 return parameters
-</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8. 实现预测函数</span><br></pre></td></tr></table></figure>
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">8. 实现预测函数</span><br></pre></td></tr></table></figure>
 <p>def predict(parameters, X):<br>    “””<br>    Using the learned parameters, predicts a class for each example in X<br>    Arguments:<br>    parameters – python dictionary containing your parameters<br>    X – input data of size (n_x, m)<br>    Returns<br>    predictions – vector of predictions of our model (red: 0 / blue: 1)<br>    “””</p>
 <pre><code># Computes probabilities using forward propagation, and classifies to 0/1 using 0.5 as the threshold.
 y_predictions, _ = forward_propagation(X, parameters)
 predictions = (y_predictions &gt; 0.5) 
 return predictions
 </code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">那么怎么调用我们实现的这个模型呢？</span><br></pre></td></tr></table></figure>
-<p>parameters = nn_model(X, Y, n_h, num_iterations = 5000)<br>plot_decision_boundary(lambda x: predict(parameters, x.T), X, Y[0, :])<br>predictions = predict(parameters, X)<br>accuracy = float((np.dot(Y,predictions.T) + np.dot(1-Y,1-predictions.T))/float(Y.size)*100)<br>print (“Accuracy for {} hidden units: {} %”.format(n_h, accuracy))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">其中，plot_decision_boundary是实现可视化的函数，其实现如下：</span><br></pre></td></tr></table></figure></p>
+<p>parameters = nn_model(X, Y, n_h, num_iterations = 5000)<br>plot_decision_boundary(lambda x: predict(parameters, x.T), X, Y[0, :])<br>predictions = predict(parameters, X)<br>accuracy = float((np.dot(Y,predictions.T) + np.dot(1-Y,1-predictions.T))/float(Y.size)*100)<br>print (“Accuracy for {} hidden units: {} %”.format(n_h, accuracy))<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">其中，plot_decision_boundary是实现可视化的函数，其实现如下：</span><br></pre></td></tr></table></figure></p>
 <p>def plot_decision_boundary(model, X, y):</p>
 <pre><code># Set min and max values and give it some padding
 x_min, x_max = X[0, :].min() - 1, X[0, :].max() + 1
@@ -500,7 +501,9 @@ plt.contourf(xx, yy, Z, cmap=plt.cm.Spectral)
 plt.ylabel(&apos;x2&apos;)
 plt.xlabel(&apos;x1&apos;)
 plt.scatter(X[0, :], X[1, :], c=y, cmap=plt.cm.Spectral)
-</code></pre><p><code>`</code><br>效果类似下图：<br><img src="/2018/09/06/3 Planar-data-classification-with-one-hidden-layer/3 Planar-data-classification-with-one-hidden-layerr/可视化.png" alt=""></p>
+</code></pre><p><code>`</code></p>
+<p>效果类似下图：</p>
+<p><img src="/2018/09/06/3 Planar-data-classification-with-one-hidden-layer/3 Planar-data-classification-with-one-hidden-layerr/可视化.png" alt=""></p>
 
       
     </div>
@@ -712,7 +715,7 @@ plt.scatter(X[0, :], X[1, :], c=y, cmap=plt.cm.Spectral)
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16.5k</span>
+    <span title="Site words total count">16.6k</span>
   
 </div>
 
