@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="shuang&#39;s blog">
 <meta property="og:description" content="在iPython Notebooks中按下”SHIFT”+”ENTER”来运行相应的代码块。  12345import numpy as np# example of np.expx = np.array([1, 2, 3])print(np.exp(x)) # result is (exp(1), exp(2), exp(3)) 1234# example of vector operatio">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-13T09:40:02.334Z">
+<meta property="og:updated_time" content="2018-09-17T08:54:48.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="1 Python Basics with Numpy">
 <meta name="twitter:description" content="在iPython Notebooks中按下”SHIFT”+”ENTER”来运行相应的代码块。  12345import numpy as np# example of np.expx = np.array([1, 2, 3])print(np.exp(x)) # result is (exp(1), exp(2), exp(3)) 1234# example of vector operatio">
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  504
+                  531
                 </span>
               
 
@@ -365,7 +365,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -392,6 +392,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># example of np.exp</span><br><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">print(np.exp(x)) # result is (exp(1), exp(2), exp(3))</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># example of vector operation</span><br><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">print (x + 3)</span><br><span class="line">print (1.0 / x)</span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x_sum = np.sum(x_exp, axis = 1, keepdims = True)</span><br></pre></td></tr></table></figure>
+<p> keepdims：是否保持矩阵的二维特性，例如使结果的形状是(4,1)而不是(4,)。</p>
 <hr>
 <p>np.shape 和 np.reshape().</p>
 <p>X.shape 用来获得矩阵或者向量X的形状（维度）.<br>X.reshape(…) 改变X的维度.<br>例如， 将三维的图片向量  (length,height,depth=3) 更改为一维  (length∗height∗3,1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v = image.reshape(image.shape[0]*image.shape[1]*image.shape[2],1)</span><br></pre></td></tr></table></figure></p>
