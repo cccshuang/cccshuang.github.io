@@ -84,14 +84,14 @@
 <meta name="description" content="注意np.zeros(shape)中的shape是有括号的形式。 12W1 = np.random.randn(n_h,n_x)*0.01b1 = np.zeros((n_h, 1)) python中，//为整除符号，取整数部分。 1234&amp;gt;&amp;gt;&amp;gt; 1/20.5&amp;gt;&amp;gt;&amp;gt; 1//20 算法步骤 初始化参数我们使用layer_dims来存储每一层单元的数量。 如laye">
 <meta name="keywords" content="DeepLearning,习题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Building your Deep Neural Network: Step by Step">
+<meta property="og:title" content="4 Building your Deep Neural Network: Step by Step">
 <meta property="og:url" content="http://yoursite.com/2018/09/16/4-Building-your-Deep-Neural-Network-Step-by-Step/index.html">
 <meta property="og:site_name" content="shuang&#39;s blog">
 <meta property="og:description" content="注意np.zeros(shape)中的shape是有括号的形式。 12W1 = np.random.randn(n_h,n_x)*0.01b1 = np.zeros((n_h, 1)) python中，//为整除符号，取整数部分。 1234&amp;gt;&amp;gt;&amp;gt; 1/20.5&amp;gt;&amp;gt;&amp;gt; 1//20 算法步骤 初始化参数我们使用layer_dims来存储每一层单元的数量。 如laye">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-17T03:29:04.807Z">
+<meta property="og:updated_time" content="2018-09-17T07:58:46.775Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Building your Deep Neural Network: Step by Step">
+<meta name="twitter:title" content="4 Building your Deep Neural Network: Step by Step">
 <meta name="twitter:description" content="注意np.zeros(shape)中的shape是有括号的形式。 12W1 = np.random.randn(n_h,n_x)*0.01b1 = np.zeros((n_h, 1)) python中，//为整除符号，取整数部分。 1234&amp;gt;&amp;gt;&amp;gt; 1/20.5&amp;gt;&amp;gt;&amp;gt; 1//20 算法步骤 初始化参数我们使用layer_dims来存储每一层单元的数量。 如laye">
 
 
@@ -128,7 +128,7 @@
 
 
 
-  <title>Building your Deep Neural Network: Step by Step | shuang's blog</title>
+  <title>4 Building your Deep Neural Network: Step by Step | shuang's blog</title>
   
 
 
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Building your Deep Neural Network: Step by Step</h1>
+          <h1 class="post-title" itemprop="name headline">4 Building your Deep Neural Network: Step by Step</h1>
         
 
         <div class="post-meta">
@@ -324,7 +324,7 @@
 
           
           
-             <span id="/2018/09/16/4-Building-your-Deep-Neural-Network-Step-by-Step/" class="leancloud_visitors" data-flag-title="Building your Deep Neural Network: Step by Step">
+             <span id="/2018/09/16/4-Building-your-Deep-Neural-Network-Step-by-Step/" class="leancloud_visitors" data-flag-title="4 Building your Deep Neural Network: Step by Step">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,746
+                  1,841
                 </span>
               
 
@@ -365,7 +365,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  11
                 </span>
               
             </div>
@@ -421,6 +421,10 @@
 <li>更新参数</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def update_parameters(parameters, grads, learning_rate):</span><br><span class="line">   </span><br><span class="line">    L = len(parameters) // 2 # number of layers in the neural network</span><br><span class="line"></span><br><span class="line">    # Update rule for each parameter. Use a for loop.</span><br><span class="line">    for l in range(1, L+1):</span><br><span class="line">        parameters[&quot;W&quot; + str(l)] = parameters[&quot;W&quot; + str(l)] - learning_rate * grads[&quot;dW&quot; + str(l)]</span><br><span class="line">        parameters[&quot;b&quot; + str(l)] = parameters[&quot;b&quot; + str(l)] - learning_rate * grads[&quot;db&quot; + str(l)]</span><br><span class="line">        </span><br><span class="line">    return parameters</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>预测函数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">def predict(X, y, parameters):</span><br><span class="line"></span><br><span class="line">    m = X.shape[1]</span><br><span class="line">    n = len(parameters) // 2 # number of layers in the neural network</span><br><span class="line">    p = np.zeros((1,m))</span><br><span class="line">    </span><br><span class="line">    # Forward propagation</span><br><span class="line">    probas, caches = L_model_forward(X, parameters)</span><br><span class="line"></span><br><span class="line">    # convert probas to 0/1 predictions</span><br><span class="line">    for i in range(0, probas.shape[1]):</span><br><span class="line">        if probas[0,i] &gt; 0.5:</span><br><span class="line">            p[0,i] = 1</span><br><span class="line">        else:</span><br><span class="line">            p[0,i] = 0</span><br><span class="line">            </span><br><span class="line">    print(&quot;Accuracy: &quot;  + str(np.sum((p == y)/m)))</span><br><span class="line">        </span><br><span class="line">    return p</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 <h4 id="附录1：SIGMOID和RELU函数实现"><a href="#附录1：SIGMOID和RELU函数实现" class="headerlink" title="附录1：SIGMOID和RELU函数实现"></a>附录1：SIGMOID和RELU函数实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">def sigmoid(Z):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Implements the sigmoid activation in numpy</span><br><span class="line">    </span><br><span class="line">    Arguments:</span><br><span class="line">    Z -- numpy array of any shape</span><br><span class="line">    </span><br><span class="line">    Returns:</span><br><span class="line">    A -- output of sigmoid(z), same shape as Z</span><br><span class="line">    cache -- returns Z as well, useful during backpropagation</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    A = 1/(1+np.exp(-Z))</span><br><span class="line">    cache = Z</span><br><span class="line">    </span><br><span class="line">    return A, cache</span><br><span class="line"></span><br><span class="line">def relu(Z):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Implement the RELU function.</span><br><span class="line"></span><br><span class="line">    Arguments:</span><br><span class="line">    Z -- Output of the linear layer, of any shape</span><br><span class="line"></span><br><span class="line">    Returns:</span><br><span class="line">    A -- Post-activation parameter, of the same shape as Z</span><br><span class="line">    cache -- a python dictionary containing &quot;A&quot; ; stored for computing the backward pass efficiently</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    A = np.maximum(0,Z)</span><br><span class="line">    </span><br><span class="line">    assert(A.shape == Z.shape)</span><br><span class="line">    </span><br><span class="line">    cache = Z </span><br><span class="line">    return A, cache</span><br></pre></td></tr></table></figure>
 <h4 id="附录2：SIGMOID和RELU反向传播函数实现"><a href="#附录2：SIGMOID和RELU反向传播函数实现" class="headerlink" title="附录2：SIGMOID和RELU反向传播函数实现"></a>附录2：SIGMOID和RELU反向传播函数实现</h4><p>relu_backward中dZ[Z &lt;= 0] = 0这一步不是很懂，不应该是大于等于0时导数为1吗？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">def relu_backward(dA, cache):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Implement the backward propagation for a single RELU unit.</span><br><span class="line"></span><br><span class="line">    Arguments:</span><br><span class="line">    dA -- post-activation gradient, of any shape</span><br><span class="line">    cache -- &apos;Z&apos; where we store for computing backward propagation efficiently</span><br><span class="line"></span><br><span class="line">    Returns:</span><br><span class="line">    dZ -- Gradient of the cost with respect to Z</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    Z = cache</span><br><span class="line">    dZ = np.array(dA, copy=True) # just converting dz to a correct object.</span><br><span class="line">    </span><br><span class="line">    # When z &lt;= 0, you should set dz to 0 as well. </span><br><span class="line">    dZ[Z &lt;= 0] = 0</span><br><span class="line">    </span><br><span class="line">    assert (dZ.shape == Z.shape)</span><br><span class="line">    </span><br><span class="line">    return dZ</span><br><span class="line"></span><br><span class="line">def sigmoid_backward(dA, cache):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Implement the backward propagation for a single SIGMOID unit.</span><br><span class="line"></span><br><span class="line">    Arguments:</span><br><span class="line">    dA -- post-activation gradient, of any shape</span><br><span class="line">    cache -- &apos;Z&apos; where we store for computing backward propagation efficiently</span><br><span class="line"></span><br><span class="line">    Returns:</span><br><span class="line">    dZ -- Gradient of the cost with respect to Z</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    Z = cache</span><br><span class="line">    </span><br><span class="line">    s = 1/(1+np.exp(-Z))</span><br><span class="line">    dZ = dA * s * (1-s)</span><br><span class="line">    </span><br><span class="line">    assert (dZ.shape == Z.shape)</span><br><span class="line">    </span><br><span class="line">    return dZ</span><br></pre></td></tr></table></figure>
@@ -455,8 +459,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/06/3 Planar-data-classification-with-one-hidden-layer/" rel="next" title="Planar data classification with one hidden layer">
-                <i class="fa fa-chevron-left"></i> Planar data classification with one hidden layer
+              <a href="/2018/09/06/3 Planar-data-classification-with-one-hidden-layer/" rel="next" title="3 Planar data classification with one hidden layer">
+                <i class="fa fa-chevron-left"></i> 3 Planar data classification with one hidden layer
               </a>
             
           </div>
@@ -464,6 +468,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/17/5-Deep-Neural-Network-for-Image-Classification-Application/" rel="prev" title="5 Deep Neural Network for Image Classification: Application">
+                5 Deep Neural Network for Image Classification: Application <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -555,7 +563,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -667,7 +675,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18.4k</span>
+    <span title="Site words total count">19.0k</span>
   
 </div>
 
