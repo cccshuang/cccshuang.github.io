@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="在iPython Notebooks中按下”SHIFT”+”ENTER”来运行相应的代码块。  12345import numpy as np# example of np.expx = np.array([1, 2, 3])print(np.exp(x)) # result is (exp(1), exp(2), exp(3)) 1234# example of vector operatio">
+<meta name="description" content="算法步骤 首先实现函数initialize_with_zeros(dim)对参数w和b进行初始化 12w = np.zeros((dim, 1))b = 0  实现前向和后向传播算法 propagate(w, b, X, Y)，在此函数里计算损失cost，并求出w和b的梯度dw和db。 12345A = sigmoid( np.dot(w.T, X) + b )           # compu">
 <meta name="keywords" content="DeepLearning,习题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="1 Python Basics with Numpy">
-<meta property="og:url" content="http://yoursite.com/2018/09/04/1 Python Basics with Numpy/index.html">
+<meta property="og:title" content="1-2 Logistic Regression with a Neural Network mindset">
+<meta property="og:url" content="http://yoursite.com/2018/09/04/1-2 Logistic-Regression-with-a-Neural-Network-mindset/index.html">
 <meta property="og:site_name" content="shuang&#39;s blog">
-<meta property="og:description" content="在iPython Notebooks中按下”SHIFT”+”ENTER”来运行相应的代码块。  12345import numpy as np# example of np.expx = np.array([1, 2, 3])print(np.exp(x)) # result is (exp(1), exp(2), exp(3)) 1234# example of vector operatio">
+<meta property="og:description" content="算法步骤 首先实现函数initialize_with_zeros(dim)对参数w和b进行初始化 12w = np.zeros((dim, 1))b = 0  实现前向和后向传播算法 propagate(w, b, X, Y)，在此函数里计算损失cost，并求出w和b的梯度dw和db。 12345A = sigmoid( np.dot(w.T, X) + b )           # compu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-17T08:54:48.830Z">
+<meta property="og:updated_time" content="2018-09-19T06:35:19.598Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="1 Python Basics with Numpy">
-<meta name="twitter:description" content="在iPython Notebooks中按下”SHIFT”+”ENTER”来运行相应的代码块。  12345import numpy as np# example of np.expx = np.array([1, 2, 3])print(np.exp(x)) # result is (exp(1), exp(2), exp(3)) 1234# example of vector operatio">
+<meta name="twitter:title" content="1-2 Logistic Regression with a Neural Network mindset">
+<meta name="twitter:description" content="算法步骤 首先实现函数initialize_with_zeros(dim)对参数w和b进行初始化 12w = np.zeros((dim, 1))b = 0  实现前向和后向传播算法 propagate(w, b, X, Y)，在此函数里计算损失cost，并求出w和b的梯度dw和db。 12345A = sigmoid( np.dot(w.T, X) + b )           # compu">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/04/1 Python Basics with Numpy/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/04/1-2 Logistic-Regression-with-a-Neural-Network-mindset/"/>
 
 
 
 
 
-  <title>1 Python Basics with Numpy | shuang's blog</title>
+  <title>1-2 Logistic Regression with a Neural Network mindset | shuang's blog</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/1 Python Basics with Numpy/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/1-2 Logistic-Regression-with-a-Neural-Network-mindset/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="cccshuang">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">1 Python Basics with Numpy</h1>
+          <h1 class="post-title" itemprop="name headline">1-2 Logistic Regression with a Neural Network mindset</h1>
         
 
         <div class="post-meta">
@@ -284,7 +284,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T10:45:01+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T21:00:54+08:00">
                 2018-09-04
               </time>
             
@@ -324,7 +324,7 @@
 
           
           
-             <span id="/2018/09/04/1 Python Basics with Numpy/" class="leancloud_visitors" data-flag-title="1 Python Basics with Numpy">
+             <span id="/2018/09/04/1-2 Logistic-Regression-with-a-Neural-Network-mindset/" class="leancloud_visitors" data-flag-title="1-2 Logistic Regression with a Neural Network mindset">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  531
+                  529
                 </span>
               
 
@@ -386,26 +386,28 @@
       
 
       
-        <hr>
-<p>在iPython Notebooks中按下”SHIFT”+”ENTER”来运行相应的代码块。</p>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line"># example of np.exp</span><br><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">print(np.exp(x)) # result is (exp(1), exp(2), exp(3))</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># example of vector operation</span><br><span class="line">x = np.array([1, 2, 3])</span><br><span class="line">print (x + 3)</span><br><span class="line">print (1.0 / x)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x_sum = np.sum(x_exp, axis = 1, keepdims = True)</span><br></pre></td></tr></table></figure>
-<p> keepdims：是否保持矩阵的二维特性，例如使结果的形状是(4,1)而不是(4,)。</p>
-<hr>
-<p>np.shape 和 np.reshape().</p>
-<p>X.shape 用来获得矩阵或者向量X的形状（维度）.<br>X.reshape(…) 改变X的维度.<br>例如， 将三维的图片向量  (length,height,depth=3) 更改为一维  (length∗height∗3,1)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v = image.reshape(image.shape[0]*image.shape[1]*image.shape[2],1)</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>求范数<br>x_norm=np.linalg.norm(x, ord=None, axis=None, keepdims=False)</p>
-<ul>
-<li>ord：范数类型<br>默认为第二范数，即算数平方根</li>
-<li>axis：处理类型<br>axis=1表示按行向量处理，求多个行向量的范数<br>axis=0表示按列向量处理，求多个列向量的范数<br>axis=None表示矩阵范数。</li>
-<li>keepdims：是否保持矩阵的二维特性</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 正则化</span><br><span class="line"># Compute x_norm as the norm 2 of x. Use np.linalg.norm(..., ord = 2, axis = ..., keepdims = True)</span><br><span class="line">x_norm = np.linalg.norm(x,axis=1,keepdims=True)</span><br><span class="line"># Divide x by its norm.</span><br><span class="line">x = x / x_norm</span><br></pre></td></tr></table></figure>
-<hr>
-<p>向量化<br>np.dot()：进行矩阵与矩阵，矩阵与向量之间的乘法。对于秩为1的数组x（即一维数组），执行对应位置相乘，然后再相加，np.dot(x)效果等同于np.sum(np.multiply(x))；对于秩不为1的二维数组，执行矩阵乘法运算。<br>np.multiply() 和 <em> 进行的是元素相乘。<br>乘号</em>：对数组执行对应位置相乘，对矩阵执行矩阵乘法运算。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">x1 = [9, 2, 5, 0, 0, 7, 5, 0, 0, 0, 9, 2, 5, 0, 0]</span><br><span class="line">x2 = [9, 2, 2, 9, 0, 9, 2, 5, 0, 0, 9, 2, 5, 0, 0]</span><br><span class="line"></span><br><span class="line">### VECTORIZED DOT PRODUCT OF VECTORS ###</span><br><span class="line">dot = np.dot(x1,x2)</span><br><span class="line"></span><br><span class="line">### VECTORIZED OUTER PRODUCT ###</span><br><span class="line">outer = np.outer(x1,x2)</span><br><span class="line"></span><br><span class="line">### VECTORIZED ELEMENTWISE MULTIPLICATION ###</span><br><span class="line">mul = np.multiply(x1,x2)</span><br><span class="line"></span><br><span class="line">np.multiply(A,B)       #数组对应元素位置相乘，输出为array</span><br><span class="line">(np.mat(A))*(np.mat(B))  #执行矩阵运算，输出为matrix</span><br></pre></td></tr></table></figure></p>
+        <h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>首先实现函数initialize_with_zeros(dim)对参数w和b进行初始化</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">w = np.zeros((dim, 1))</span><br><span class="line">b = 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现前向和后向传播算法 propagate(w, b, X, Y)，在此函数里计算损失cost，并求出w和b的梯度dw和db。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">A = sigmoid( np.dot(w.T, X) + b )           # compute activation</span><br><span class="line">cost = -  np.sum( Y * np.log(A) + (1-Y) * np.log(1-A))  / m   # compute cost</span><br><span class="line"></span><br><span class="line">dw = np.dot(X,(A-Y).T) / m</span><br><span class="line">db = np.sum(A-Y) / m</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现优化函数optimize(w, b, X, Y, num_iterations, learning_rate, print_cost = False)进行梯度下降。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">costs = []</span><br><span class="line">for i in range(num_iterations):</span><br><span class="line">   # Cost and gradient calculation (≈ 1-4 lines of code)</span><br><span class="line">   grads, cost = propagate(w, b, X, Y)</span><br><span class="line"></span><br><span class="line">   # Retrieve derivatives from grads</span><br><span class="line">   dw = grads[&quot;dw&quot;]</span><br><span class="line">   db = grads[&quot;db&quot;]</span><br><span class="line">       </span><br><span class="line">   # update rule </span><br><span class="line">   w = w - learning_rate*dw</span><br><span class="line">   b = b - learning_rate*db</span><br><span class="line">   if i % 100 == 0:</span><br><span class="line">       costs.append(cost)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>最后返回的是 params, grads 和 costs。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">params = &#123;&quot;w&quot;: w,</span><br><span class="line">            &quot;b&quot;: b&#125;</span><br><span class="line">    </span><br><span class="line">grads = &#123;&quot;dw&quot;: dw,</span><br><span class="line">            &quot;db&quot;: db&#125;</span><br></pre></td></tr></table></figure></p>
+<ol start="4">
+<li><p>实现预测函数 predict(w, b, X)，返回预测结果 Y_prediction。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">A = sigmoid( np.dot(w.T, X) + b )</span><br><span class="line">for i in range(A.shape[1]):</span><br><span class="line">    if A[0][i] &lt;= 0.5:</span><br><span class="line">        Y_prediction[0][i] = 0</span><br><span class="line">    else:</span><br><span class="line">        Y_prediction[0][i] = 1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将上述几步结合，实现最后的模型 model(X_train, Y_train, X_test, Y_test, num_iterations = 2000, learning_rate = 0.5, print_cost = False)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">w, b = initialize_with_zeros(X_train.shape[0])</span><br><span class="line">params, grads, costs = optimize(w, b, X_train, Y_train, num_iterations, learning_rate, print_cost = False)</span><br><span class="line">w = params[&apos;w&apos;]</span><br><span class="line">b = params[&apos;b&apos;]</span><br><span class="line">Y_prediction_test = predict(w, b, X_test)</span><br><span class="line">Y_prediction_train = predict(w, b, X_train)</span><br><span class="line">print(&quot;train accuracy: &#123;&#125; %&quot;.format(100 - np.mean(np.abs(Y_prediction_train - Y_train)) * 100))</span><br><span class="line">    print(&quot;test accuracy: &#123;&#125; %&quot;.format(100 - np.mean(np.abs(Y_prediction_test - Y_test)) * 100))</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="numpy部分函数"><a href="#numpy部分函数" class="headerlink" title="numpy部分函数"></a>numpy部分函数</h4><p>np.squeeze() 从数组的形状中删除单维条目，即把shape中为1的维度去掉<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">x = np.array([[[0], [1], [2]]])</span><br><span class="line">print(x.shape)  # (1, 3, 1)</span><br><span class="line"></span><br><span class="line">x1 = np.squeeze(x)  # 从数组的形状中删除单维条目，即把shape中为1的维度去掉</span><br><span class="line">print(x1)  # [0 1 2]</span><br><span class="line">print(x1.shape)  # (3,)</span><br></pre></td></tr></table></figure></p>
+<p>将矩阵 X : (a,b,c,d) 变换为矩阵 X_flatten ： (b ∗ c ∗ d, a) 时，使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X_flatten = X.reshape(X.shape[0], -1).T      # X.T is the transpose of X，参数为-1时，reshape函数会根据另一个参数的维度计算出数组的另外一个shape属性值。</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -438,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/31/社会契约论/" rel="next" title="社会契约论">
-                <i class="fa fa-chevron-left"></i> 社会契约论
+              <a href="/2018/09/04/1-1 Python Basics with Numpy/" rel="next" title="1-1 Python Basics with Numpy">
+                <i class="fa fa-chevron-left"></i> 1-1 Python Basics with Numpy
               </a>
             
           </div>
@@ -448,8 +450,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/04/2 Logistic-Regression-with-a-Neural-Network-mindset/" rel="prev" title="2 Logistic Regression with a Neural Network mindset">
-                2 Logistic Regression with a Neural Network mindset <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/06/1-3 Planar-data-classification-with-one-hidden-layer/" rel="prev" title="1-3 Planar data classification with one hidden layer">
+                1-3 Planar data classification with one hidden layer <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -513,8 +515,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -533,7 +544,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -602,6 +613,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤"><span class="nav-number">1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#numpy部分函数"><span class="nav-number">2.</span> <span class="nav-text">numpy部分函数</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -629,7 +656,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">19.0k</span>
+    <span title="Site words total count">19.5k</span>
   
 </div>
 
