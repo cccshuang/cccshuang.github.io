@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="算法步骤我们以一个三层神经网络为例，介绍三种不同的超参数初始化方法对模型的影响，分别是：  Zeros initialization – setting initialization = “zeros” in the input argument. Random initialization – setting initialization = “random” in the input argu">
+<meta name="description" content="np.linalg.norm(x, ord=None, axis=None, keepdims=False) 求向量（矩阵）范数。    参数 说明 计算方法     默认 二范数：$l_2$ $\sqrt{x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}}$   ord = 2 二范数：$l_2$ $\sqrt{x_{1}^{2}+x_{2}^{2}+\cdots+x_{">
 <meta name="keywords" content="DeepLearning,习题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2-1 Initialization">
-<meta property="og:url" content="http://yoursite.com/2018/09/20/2-1-Initialization/index.html">
+<meta property="og:title" content="2-3 Gradient Checking">
+<meta property="og:url" content="http://yoursite.com/2018/09/20/2-3-Gradient-Checking/index.html">
 <meta property="og:site_name" content="shuang&#39;s blog">
-<meta property="og:description" content="算法步骤我们以一个三层神经网络为例，介绍三种不同的超参数初始化方法对模型的影响，分别是：  Zeros initialization – setting initialization = “zeros” in the input argument. Random initialization – setting initialization = “random” in the input argu">
+<meta property="og:description" content="np.linalg.norm(x, ord=None, axis=None, keepdims=False) 求向量（矩阵）范数。    参数 说明 计算方法     默认 二范数：$l_2$ $\sqrt{x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}}$   ord = 2 二范数：$l_2$ $\sqrt{x_{1}^{2}+x_{2}^{2}+\cdots+x_{">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-20T07:06:25.785Z">
+<meta property="og:updated_time" content="2018-09-20T11:52:14.207Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2-1 Initialization">
-<meta name="twitter:description" content="算法步骤我们以一个三层神经网络为例，介绍三种不同的超参数初始化方法对模型的影响，分别是：  Zeros initialization – setting initialization = “zeros” in the input argument. Random initialization – setting initialization = “random” in the input argu">
+<meta name="twitter:title" content="2-3 Gradient Checking">
+<meta name="twitter:description" content="np.linalg.norm(x, ord=None, axis=None, keepdims=False) 求向量（矩阵）范数。    参数 说明 计算方法     默认 二范数：$l_2$ $\sqrt{x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}}$   ord = 2 二范数：$l_2$ $\sqrt{x_{1}^{2}+x_{2}^{2}+\cdots+x_{">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/20/2-1-Initialization/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/20/2-3-Gradient-Checking/"/>
 
 
 
 
 
-  <title>2-1 Initialization | shuang's blog</title>
+  <title>2-3 Gradient Checking | shuang's blog</title>
   
 
 
@@ -255,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/2-1-Initialization/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/20/2-3-Gradient-Checking/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="cccshuang">
@@ -272,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2-1 Initialization</h1>
+          <h1 class="post-title" itemprop="name headline">2-3 Gradient Checking</h1>
         
 
         <div class="post-meta">
@@ -284,7 +284,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T14:41:03+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-20T15:58:13+08:00">
                 2018-09-20
               </time>
             
@@ -324,7 +324,7 @@
 
           
           
-             <span id="/2018/09/20/2-1-Initialization/" class="leancloud_visitors" data-flag-title="2-1 Initialization">
+             <span id="/2018/09/20/2-3-Gradient-Checking/" class="leancloud_visitors" data-flag-title="2-3 Gradient Checking">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  695
+                  775
                 </span>
               
 
@@ -365,7 +365,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -386,15 +386,65 @@
       
 
       
-        <h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>我们以一个三层神经网络为例，介绍三种不同的超参数初始化方法对模型的影响，分别是：</p>
+        <p>np.linalg.norm(x, ord=None, axis=None, keepdims=False) 求向量（矩阵）范数。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">计算方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">默认</td>
+<td style="text-align:center">二范数：$l_2$</td>
+<td style="text-align:center">$\sqrt{x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}}$</td>
+</tr>
+<tr>
+<td style="text-align:center">ord = 2</td>
+<td style="text-align:center">二范数：$l_2$</td>
+<td style="text-align:center">$\sqrt{x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}}$</td>
+</tr>
+<tr>
+<td style="text-align:center">ord = 1</td>
+<td style="text-align:center">一范数：$l_1$</td>
+<td style="text-align:center">$\lvert x_{1} \rvert + \cdots + \lvert x_{n} \rvert $</td>
+</tr>
+<tr>
+<td style="text-align:center">ord=np.inf</td>
+<td style="text-align:center">无穷范数 $l_{\infty}$</td>
+<td style="text-align:center">$\max({\lvert x_{i}) \rvert}$</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = np.array([3, 4])</span><br><span class="line">&gt;&gt;&gt; np.linalg.norm(x)</span><br><span class="line">5.</span><br><span class="line">&gt;&gt;&gt; np.linalg.norm(x, ord=2)</span><br><span class="line">5.</span><br><span class="line">&gt;&gt;&gt; np.linalg.norm(x, ord=1)</span><br><span class="line">7.</span><br><span class="line">&gt;&gt;&gt; np.linalg.norm(x, ord=np.inf)</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
+<h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>梯度检查（Gradient Checking）用于检查实现的反向传播算法是否正确。利用前向传播函数，通过公式<br>$$ \frac{\partial J}{\partial \theta} = \lim_{\varepsilon \to 0} \frac{J(\theta + \varepsilon) - J(\theta - \varepsilon)}{2 \varepsilon} $$<br>来计算导数的近似值，与反向传播计算得到的导数进行对比，来判断反向传播是否正确。<br>具体步骤如下：</p>
 <ul>
-<li>Zeros initialization – setting initialization = “zeros” in the input argument.</li>
-<li>Random initialization – setting initialization = “random” in the input argument. This initializes the weights to large random values.</li>
-<li>He initialization – setting initialization = “he” in the input argument. This initializes the weights to random values scaled according to a paper by He et al., 2015.</li>
+<li>首先计算导数的近似值<ol>
+<li>$\theta^{+} = \theta + \varepsilon$</li>
+<li>$\theta^{-} = \theta - \varepsilon$</li>
+<li>$J^{+} = J(\theta^{+})$</li>
+<li>$J^{-} = J(\theta^{-})$</li>
+<li>$gradapprox = \frac{J^{+} - J^{-}}{2  \varepsilon}$</li>
+</ol>
+</li>
+<li>然后计算反向传播算法得到的导数grad</li>
+<li>最后通过下面公式来对比两个值的差别大小，若很小，如小于$10^{-7}$，便认为反向传播算法的实现是正确的。<br>$$ difference = \frac {\mid\mid grad - gradapprox \mid\mid_2}{\mid\mid grad \mid\mid_2 + \mid\mid gradapprox \mid\mid_2} $$</li>
 </ul>
-<p>下面首先是我们的三层网络模型，通过传入不同的 initialization 值来调用不同的初始化方法。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">def model(X, Y, learning_rate = 0.01, num_iterations = 15000, print_cost = True, initialization = &quot;he&quot;):</span><br><span class="line"></span><br><span class="line">    grads = &#123;&#125;</span><br><span class="line">    costs = [] # to keep track of the loss</span><br><span class="line">    m = X.shape[1] # number of examples</span><br><span class="line">    layers_dims = [X.shape[0], 10, 5, 1]</span><br><span class="line">    </span><br><span class="line">    # Initialize parameters dictionary.</span><br><span class="line">    if initialization == &quot;zeros&quot;:</span><br><span class="line">        parameters = initialize_parameters_zeros(layers_dims)</span><br><span class="line">    elif initialization == &quot;random&quot;:</span><br><span class="line">        parameters = initialize_parameters_random(layers_dims)</span><br><span class="line">    elif initialization == &quot;he&quot;:</span><br><span class="line">        parameters = initialize_parameters_he(layers_dims)</span><br><span class="line"></span><br><span class="line">    # Loop (gradient descent)</span><br><span class="line">    for i in range(0, num_iterations):</span><br><span class="line"></span><br><span class="line">        # Forward propagation: LINEAR -&gt; RELU -&gt; LINEAR -&gt; RELU -&gt; LINEAR -&gt; SIGMOID.</span><br><span class="line">        a3, cache = forward_propagation(X, parameters)</span><br><span class="line">        </span><br><span class="line">        # Loss</span><br><span class="line">        cost = compute_loss(a3, Y)</span><br><span class="line"></span><br><span class="line">        # Backward propagation.</span><br><span class="line">        grads = backward_propagation(X, Y, cache)</span><br><span class="line">        </span><br><span class="line">        # Update parameters.</span><br><span class="line">        parameters = update_parameters(parameters, grads, learning_rate)</span><br><span class="line">        </span><br><span class="line">        # Print the loss every 1000 iterations</span><br><span class="line">        if print_cost and i % 1000 == 0:</span><br><span class="line">            print(&quot;Cost after iteration &#123;&#125;: &#123;&#125;&quot;.format(i, cost))</span><br><span class="line">            costs.append(cost)</span><br><span class="line">            </span><br><span class="line">    # plot the loss</span><br><span class="line">    plt.plot(costs)</span><br><span class="line">    plt.ylabel(&apos;cost&apos;)</span><br><span class="line">    plt.xlabel(&apos;iterations (per hundreds)&apos;)</span><br><span class="line">    plt.title(&quot;Learning rate =&quot; + str(learning_rate))</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">    return parameters</span><br></pre></td></tr></table></figure>
-<p>下面对这三种初始化方法进行讨论。<br>对于 Zeros initialization ，表现非常糟糕，损失几乎在训练过程中不下降，表现不比随机猜测要好。这是为什么呢？因为将超参数初始化为0，由于对称性，导致在训练过程中每层的神经元都在做相同的计算，这样相当于每层只有一个神经元，从而神经网络的性能大大降低。因此W[l]需要通过初始化打破这种对称性（break symmetry）。<br>对于 Random initialization ，虽然进行了初始化，打破了上面所说的对称性，但是初始化的值都较大的话，会使得初始的损失较大，这是因为当超参数的值变大后，最后一层中 sigmoid 的输出对于一些样本会更加接近于 0 或 1 ，当样本预测错误后对于损失函数，例如  log(a[3])=log(0)log⁡(a[3])=log⁡(0) ，损失就变成了无穷大。这种情况减缓了神经网络的收敛。<br>对于 He initialization ， 对超参数随机初始化后，乘以一个缩放因子 sqrt(2./layers_dims[l-1]).) ，适合使用于带有 RELU 激活函数的层。其实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def initialize_parameters_he(layers_dims):</span><br><span class="line">    </span><br><span class="line">    np.random.seed(3)</span><br><span class="line">    parameters = &#123;&#125;</span><br><span class="line">    L = len(layers_dims) - 1 # integer representing the number of layers</span><br><span class="line">     </span><br><span class="line">    for l in range(1, L + 1):</span><br><span class="line">        parameters[&quot;W&quot; + str(l)] = np.random.randn(layers_dims[l], layers_dims[l-1]) * np.sqrt(2.0 / layers_dims[l-1])</span><br><span class="line">        parameters[&quot;b&quot; + str(l)] = np.zeros((layers_dims[l], 1))</span><br><span class="line">        </span><br><span class="line">    return parameters</span><br></pre></td></tr></table></figure></p>
+<p>当有很多个参数时，分别对每个进行梯度检查。算法步骤如下：<br>For each i in num_parameters:</p>
+<ul>
+<li>To compute <code>J_plus[i]</code>:<ol>
+<li>Set $\theta^{+}$ to <code>np.copy(parameters_values)</code></li>
+<li>Set $\theta^{+}_i$ to $\theta^{+}_i + \varepsilon$</li>
+<li>Calculate $J^{+}_i$ using to <code>forward_propagation_n(x, y, vector_to_dictionary(</code>$\theta^{+}$ <code>))</code>.     </li>
+</ol>
+</li>
+<li>To compute <code>J_minus[i]</code>: do the same thing with $\theta^{-}$</li>
+<li>Compute $gradapprox[i] = \frac{J^{+}_i - J^{-}_i}{2 \varepsilon}$</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">def gradient_check_n(parameters, gradients, X, Y, epsilon = 1e-7):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    Arguments:</span><br><span class="line">    parameters -- python dictionary containing your parameters &quot;W1&quot;, &quot;b1&quot;, &quot;W2&quot;, &quot;b2&quot;, &quot;W3&quot;, &quot;b3&quot;:</span><br><span class="line">    grad -- output of backward_propagation_n, contains gradients of the cost with respect to the parameters. </span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    </span><br><span class="line">    # Set-up variables</span><br><span class="line">    parameters_values, _ = dictionary_to_vector(parameters)</span><br><span class="line">    grad = gradients_to_vector(gradients)</span><br><span class="line">    num_parameters = parameters_values.shape[0]</span><br><span class="line">    J_plus = np.zeros((num_parameters, 1))</span><br><span class="line">    J_minus = np.zeros((num_parameters, 1))</span><br><span class="line">    gradapprox = np.zeros((num_parameters, 1))</span><br><span class="line">    </span><br><span class="line">    # Compute gradapprox</span><br><span class="line">    for i in range(num_parameters):</span><br><span class="line">        </span><br><span class="line">        # Compute J_plus[i]. Inputs: &quot;parameters_values, epsilon&quot;. Output = &quot;J_plus[i]&quot;.</span><br><span class="line">        # &quot;_&quot; is used because the function you have to outputs two parameters but we only care about the first one</span><br><span class="line">        theta_plus =  np.copy(parameters_values)                                     # Step 1</span><br><span class="line">        theta_plus[i] = theta_plus[i] +  epsilon                            # Step 2</span><br><span class="line">        J_plus[i], _ =  forward_propagation_n(X, Y, vector_to_dictionary(theta_plus))                                  # Step 3</span><br><span class="line">        </span><br><span class="line">        # Compute J_minus[i]. Inputs: &quot;parameters_values, epsilon&quot;. Output = &quot;J_minus[i]&quot;.</span><br><span class="line">        theta_minus =  np.copy(parameters_values)                                    # Step 1</span><br><span class="line">        theta_minus[i] = theta_minus[i] - epsilon                          # Step 2        </span><br><span class="line">        J_minus[i], _ =  forward_propagation_n(X, Y, vector_to_dictionary(theta_minus))                                   # Step 3</span><br><span class="line">        </span><br><span class="line">        # Compute gradapprox[i]</span><br><span class="line">        gradapprox[i] = (J_plus[i] - J_minus[i]) / (2 * epsilon)</span><br><span class="line">    </span><br><span class="line">    # Compare gradapprox to backward propagation gradients by computing difference.</span><br><span class="line">    numerator = np.linalg.norm(grad - gradapprox)                              # Step 1&apos;</span><br><span class="line">    denumerator = np.linalg.norm(grad) + np.linalg.norm(gradapprox)                          # Step 2&apos;</span><br><span class="line">    difference =   numerator / denumerator                                               # Step 3&apos;</span><br><span class="line"></span><br><span class="line">    if difference &gt; 1e-7:</span><br><span class="line">        print (&quot;\033[93m&quot; + &quot;There is a mistake in the backward propagation! difference = &quot; + str(difference) + &quot;\033[0m&quot;)</span><br><span class="line">    else:</span><br><span class="line">        print (&quot;\033[92m&quot; + &quot;Your backward propagation works perfectly fine! difference = &quot; + str(difference) + &quot;\033[0m&quot;)</span><br><span class="line">    </span><br><span class="line">    return difference</span><br></pre></td></tr></table></figure>
+<p>注意，进行梯度检查是很耗时的，仅仅是用来检查反向传播的实现是否正确，所以我们在训练过程中不能加进去。而且梯度检查不能用在使用dropout的神经网络中，进行梯度检查时要关闭dropout。</p>
 
       
     </div>
@@ -527,7 +577,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -639,7 +689,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21.6k</span>
+    <span title="Site words total count">22.3k</span>
   
 </div>
 
