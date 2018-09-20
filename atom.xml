@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-09-19T08:20:24.817Z</updated>
+  <updated>2018-09-20T07:06:25.785Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2-1 Initialization</title>
+    <link href="http://yoursite.com/2018/09/20/2-1-Initialization/"/>
+    <id>http://yoursite.com/2018/09/20/2-1-Initialization/</id>
+    <published>2018-09-20T06:41:03.000Z</published>
+    <updated>2018-09-20T07:06:25.785Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>我们以一个三层神经网络为例，介绍三种不同的超参数初始化方法对模型的影响，分别是：</p><ul><li>Zeros initialization – setting initialization = “zeros” in the input argument.</li><li>Random initialization – setting initialization = “random” in the input argument. This initializes the weights to large random values.</li><li>He initialization – setting initialization = “he” in the input argument. This initializes the weights to random values scaled according to a paper by He et al., 2015.</li></ul><p>下面首先是我们的三层网络模型，通过传入不同的 initialization 值来调用不同的初始化方法。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">def model(X, Y, learning_rate = 0.01, num_iterations = 15000, print_cost = True, initialization = &quot;he&quot;):</span><br><span class="line"></span><br><span class="line">    grads = &#123;&#125;</span><br><span class="line">    costs = [] # to keep track of the loss</span><br><span class="line">    m = X.shape[1] # number of examples</span><br><span class="line">    layers_dims = [X.shape[0], 10, 5, 1]</span><br><span class="line">    </span><br><span class="line">    # Initialize parameters dictionary.</span><br><span class="line">    if initialization == &quot;zeros&quot;:</span><br><span class="line">        parameters = initialize_parameters_zeros(layers_dims)</span><br><span class="line">    elif initialization == &quot;random&quot;:</span><br><span class="line">        parameters = initialize_parameters_random(layers_dims)</span><br><span class="line">    elif initialization == &quot;he&quot;:</span><br><span class="line">        parameters = initialize_parameters_he(layers_dims)</span><br><span class="line"></span><br><span class="line">    # Loop (gradient descent)</span><br><span class="line">    for i in range(0, num_iterations):</span><br><span class="line"></span><br><span class="line">        # Forward propagation: LINEAR -&gt; RELU -&gt; LINEAR -&gt; RELU -&gt; LINEAR -&gt; SIGMOID.</span><br><span class="line">        a3, cache = forward_propagation(X, parameters)</span><br><span class="line">        </span><br><span class="line">        # Loss</span><br><span class="line">        cost = compute_loss(a3, Y)</span><br><span class="line"></span><br><span class="line">        # Backward propagation.</span><br><span class="line">        grads = backward_propagation(X, Y, cache)</span><br><span class="line">        </span><br><span class="line">        # Update parameters.</span><br><span class="line">        parameters = update_parameters(parameters, grads, learning_rate)</span><br><span class="line">        </span><br><span class="line">        # Print the loss every 1000 iterations</span><br><span class="line">        if print_cost and i % 1000 == 0:</span><br><span class="line">            print(&quot;Cost after iteration &#123;&#125;: &#123;&#125;&quot;.format(i, cost))</span><br><span class="line">            costs.append(cost)</span><br><span class="line">            </span><br><span class="line">    # plot the loss</span><br><span class="line">    plt.plot(costs)</span><br><span class="line">    plt.ylabel(&apos;cost&apos;)</span><br><span class="line">    plt.xlabel(&apos;iterations (per hundreds)&apos;)</span><br><span class="line">    plt.title(&quot;Learning rate =&quot; + str(learning_rate))</span><br><span class="line">    plt.show()</span><br><span class="line">    </span><br><span class="line">    return parameters</span><br></pre></td></tr></table></figure><p>下面对这三种初始化方法进行讨论。<br>对于 Zeros initialization ，表现非常糟糕，损失几乎在训练过程中不下降，表现不比随机猜测要好。这是为什么呢？因为将超参数初始化为0，由于对称性，导致在训练过程中每层的神经元都在做相同的计算，这样相当于每层只有一个神经元，从而神经网络的性能大大降低。因此W[l]需要通过初始化打破这种对称性（break symmetry）。<br>对于 Random initialization ，虽然进行了初始化，打破了上面所说的对称性，但是初始化的值都较大的话，会使得初始的损失较大，这是因为当超参数的值变大后，最后一层中 sigmoid 的输出对于一些样本会更加接近于 0 或 1 ，当样本预测错误后对于损失函数，例如  log(a[3])=log(0)log⁡(a[3])=log⁡(0) ，损失就变成了无穷大。这种情况减缓了神经网络的收敛。<br>对于 He initialization ， 对超参数随机初始化后，乘以一个缩放因子 sqrt(2./layers_dims[l-1]).) ，适合使用于带有 RELU 激活函数的层。其实现如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def initialize_parameters_he(layers_dims):</span><br><span class="line">    </span><br><span class="line">    np.random.seed(3)</span><br><span class="line">    parameters = &#123;&#125;</span><br><span class="line">    L = len(layers_dims) - 1 # integer representing the number of layers</span><br><span class="line">     </span><br><span class="line">    for l in range(1, L + 1):</span><br><span class="line">        parameters[&quot;W&quot; + str(l)] = np.random.randn(layers_dims[l], layers_dims[l-1]) * np.sqrt(2.0 / layers_dims[l-1])</span><br><span class="line">        parameters[&quot;b&quot; + str(l)] = np.zeros((layers_dims[l], 1))</span><br><span class="line">        </span><br><span class="line">    return parameters</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;算法步骤&quot;&gt;&lt;a href=&quot;#算法步骤&quot; class=&quot;headerlink&quot; title=&quot;算法步骤&quot;&gt;&lt;/a&gt;算法步骤&lt;/h4&gt;&lt;p&gt;我们以一个三层神经网络为例，介绍三种不同的超参数初始化方法对模型的影响，分别是：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Zeros in
+      
+    
+    </summary>
+    
+      <category term="深度学习习题" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%A0%E9%A2%98/"/>
+    
+    
+      <category term="DeepLearning" scheme="http://yoursite.com/tags/DeepLearning/"/>
+    
+      <category term="习题" scheme="http://yoursite.com/tags/%E4%B9%A0%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>2-2 Regularization</title>
