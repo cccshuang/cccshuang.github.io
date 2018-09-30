@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/boxplot.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/quantileplot.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/qqplot.jpg">
-<meta property="og:updated_time" content="2018-09-30T08:54:36.815Z">
+<meta property="og:updated_time" content="2018-09-30T13:06:40.696Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘-认识数据">
 <meta name="twitter:description" content="数据对象与属性类型数据集由数据对象组成。一个数据对象代表一个实体。例如销售数据库中，对象可以是顾客、商品。属性是一个数据字段，表示数据对象的一个特征。 属性类型 标称属性（nominal attribute）：一些事物的名称，每个值代表某种类别、编码或者状态。不具有有意义的序，不是定量的，其均值和中位数无意义，总数有意义。例如，颜色这个对象的属性可能有黑色、红色、白色等，职业可能值有教师、医生等。">
@@ -355,7 +355,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,507
+                  2,773
                 </span>
               
 
@@ -371,7 +371,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  11
                 </span>
               
             </div>
@@ -422,7 +422,49 @@
 <h4 id="分位数-分位数图"><a href="#分位数-分位数图" class="headerlink" title="分位数-分位数图"></a>分位数-分位数图</h4><p>可以使得用户观察从一个分布到另一个分布是否有漂移。<br>例如两个部门销售商品的单价数据的分位数-分位数图。<br><img src="/2018/09/28/数据挖掘-认识数据/qqplot.jpg" alt=""><br>比如在$Q2$,部门1销售的商品50%低于或等于78美元，而部门21销售的商品50%低于或等于85美元。中间那条45度实线代表没有偏移。从总体来看也可以看出部门1销售的商品单价趋向于比部门2低。</p>
 <h4 id="（频率）直方图"><a href="#（频率）直方图" class="headerlink" title="（频率）直方图"></a>（频率）直方图</h4><p>如果数据是标称的，一般称作条形图，数据是数值的，多使用术语直方图。</p>
 <h4 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h4><p>散点图是一种观察双变量数据的有用方法。可以通过其看出两个变量是正相关、负相关还是不相关的。</p>
-<h2 id="度量数据的相似性和相异性"><a href="#度量数据的相似性和相异性" class="headerlink" title="度量数据的相似性和相异性"></a>度量数据的相似性和相异性</h2>
+<h2 id="度量数据的相似性和相异性"><a href="#度量数据的相似性和相异性" class="headerlink" title="度量数据的相似性和相异性"></a>度量数据的相似性和相异性</h2><p>相似性和相异行都称为邻近性，用于评估对象之间相互比较的相似或不相似的程度。</p>
+<h3 id="数据矩阵和相异性矩阵"><a href="#数据矩阵和相异性矩阵" class="headerlink" title="数据矩阵和相异性矩阵"></a>数据矩阵和相异性矩阵</h3><h4 id="数据矩阵"><a href="#数据矩阵" class="headerlink" title="数据矩阵"></a>数据矩阵</h4><p>n个对象被p个属性刻画。<br>对象-属性结构，行代表对象，列代表属性，因此数据矩阵通常被称为二模矩阵。<br>$$<br> \left[<br>\begin{matrix}<br>   x_{11} &amp; \cdots &amp; x_{1f} &amp; \cdots &amp; x_{1p} \\<br>   \cdots &amp; \cdots &amp; \cdots &amp; \cdots &amp; \cdots \\<br>   x_{i1} &amp; \cdots &amp; x_{if} &amp; \cdots &amp; x_{ip} \\<br>   \cdots &amp; \cdots &amp; \cdots &amp; \cdots &amp; \cdots \\<br>   x_{n1} &amp; \cdots &amp; x_{nf} &amp; \cdots &amp; x_{np}<br>  \end{matrix}<br> \right]<br>$$</p>
+<h4 id="相异性矩阵"><a href="#相异性矩阵" class="headerlink" title="相异性矩阵"></a>相异性矩阵</h4><p>存放n个对象两两之间的邻近度。<br>对象-对象结构，只包含一类实体，因此被称为单模矩阵。<br>$$<br> \left[<br>\begin{matrix}<br>   0 &amp;  &amp; &amp;  &amp;  \\<br>   d(2,1) &amp; 0 &amp;  &amp;  &amp;  \\<br>   d(3,1) &amp; d(3,2) &amp; 0 &amp;  &amp;  \\<br>   \vdots &amp; \vdots &amp; \vdots &amp;  &amp;  \\<br>   d(n,1) &amp; d(n,2) &amp; \cdots &amp; \cdots &amp; 0<br>  \end{matrix}<br> \right]<br>$$<br>该矩阵是对称的，$d(i,j)$是对象i和对象j之间的相异性的度量，其中$d(i,i) = 0$,即一个对象与自己的差别为0。</p>
+<p>下面我们讨论对于不同类型数据的邻近性度量方法。</p>
+<h4 id="标称数据的邻近性度量"><a href="#标称数据的邻近性度量" class="headerlink" title="标称数据的邻近性度量"></a>标称数据的邻近性度量</h4><p>标称属性可以取不同的状态，如颜色有红、黄等状态，这些状态可以用字母、符号或者一组整数来表示。<br>两个对象之间的相异性可以根据不匹配率来计算。<br>$$d(i,j) = \frac{p-m}{p} $$<br>其中，m是匹配的数目，即i和j取值相同状态的属性数，p是属性总数。<br>相似性可以根据下式计算:<br>$$ sim(i,j) = 1 - d(i, j) = \frac{m}{p} $$</p>
+<p>标称属性可以使用非对称的二元属性编码，如对颜色，可以对所有的颜色状态分别创建一个二元变量，如果一个对象为黄色，则黄色属性设置为1，其他设置为0。</p>
+<h4 id="二元属性的邻近性度量"><a href="#二元属性的邻近性度量" class="headerlink" title="二元属性的邻近性度量"></a>二元属性的邻近性度量</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>1</th>
+<th>0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>q</td>
+<td>r</td>
+</tr>
+<tr>
+<td>0</td>
+<td>s</td>
+<td>t</td>
+</tr>
+</tbody>
+</table>
+<p>在上表中，q是对象i和j都取1的属性数，其他类似。<br>对于对称的二元属性：<br>$$ d(i,j) = \frac{r+s}{q+r+s+t} $$</p>
+<p>对于非对称的二元树型，一般两个值都取1被认为比两个都取0的情况更有意义，负匹配数t通常忽略。<br>$$ d(i,j) = \frac{r+s}{q+r+s} $$<br>非对称的二元相似性被称为<strong>Jaccard系数</strong>，在文献中被广泛使用。<br>$$ sim(i,j) = \frac{q}{q+r+s} = 1 - d(i,j) $$</p>
+<h4 id="数值属性的相异性：闵科夫斯基距离"><a href="#数值属性的相异性：闵科夫斯基距离" class="headerlink" title="数值属性的相异性：闵科夫斯基距离"></a>数值属性的相异性：闵科夫斯基距离</h4><p>$$<br>d(i,j) = \sqrt[h]{|x_{i1} - x_{j1}|^h + \cdots + |x_{ip} - x_{jp}|^h}<br>$$<br>当h=1时，为曼哈顿距离，$ d(i,j) = |x_{i1} - x_{j1}| + \cdots + |x_{ip} - x_{jp}|$<br>当h=2时，为欧几里得距离，$ d(i,j) = \sqrt[2]{|x_{i1} - x_{j1}|^2 + \cdots + |x_{ip} - x_{jp}|^2} $<br>当h趋近于无穷时，为上确界距离，即两个对象的最大属性值差，$ d(i,j) = \max_{f}^{p}|x_{if}-x_{jf}| $</p>
+<h4 id="序数属性的邻近性度量"><a href="#序数属性的邻近性度量" class="headerlink" title="序数属性的邻近性度量"></a>序数属性的邻近性度量</h4><ol>
+<li>假设$f$为一个序数属性，值为$x_{if}$，其有$M_f$个有序的状态，表示排位，用对应的排位$r_{if} \in {1,\dots,M_F}$取代$x_{if}$</li>
+<li>由于每个序数属性都可能有不同的状态数，所以通常将每个属性的值域映射到$[0.0,1.0]$上，用$z_{if}$代替$r_{if}$来实现数据规格化。<br>$$ z_{if} = \frac{r_{if}-1}{M_{f}-1} $$</li>
+<li>这时候序数属性的邻近性度量就可以转换为数值属性的邻近性度量来求了。</li>
+</ol>
+<h4 id="混合属性的相异性"><a href="#混合属性的相异性" class="headerlink" title="混合属性的相异性"></a>混合属性的相异性</h4><p>一个对象可能包含很多不同类型的数据，可能有标称的、对称或者非对称二元的、数值的或者序数的，假设数据集包含$ p $个混合类型的属性，则：<br>$$<br>d(i,j) = \frac{ \sum_{f=1}^{p} \delta_{ij}^{[f]} d_{ij}^{[f]} } { \sum_{f=1}^{p} \delta_{ij}^{[f]} }<br>$$<br>其中，如果对象i和对象j没有属性f的度量值，或者两个对象的f的度量值都为0且f是非对称的二元属性，则$\delta_{ij}^{[f]}=0$，否则取1。<br>至于$d_{ij}^{[f]}$,</p>
+<ul>
+<li>f是数值的：$ d_{ij}^{[f]} = \frac{|x_{if}-x_{jf}|} {\max_{h} x_{hf}-\min_{h} x_{hf}} $ ，其中，h遍取属性f的所有非缺失对象。</li>
+<li>f是标称或二元的：如果$x_{if} = x{jf}$，则$d_{ij}^{[f]}=0$，否则取1。</li>
+<li>f是序数的：计算排位$r_{if}$和$z_{if} = \frac{r_{if}-1}{M_f-1}$，然后作为数值属性处理。</li>
+</ul>
+<h4 id="余弦相似性"><a href="#余弦相似性" class="headerlink" title="余弦相似性"></a>余弦相似性</h4><p>用来比较文档，每个文档都被一个所谓的词频向量表示，通常很长，而且稀疏，传统的距离度量效果并不好。<br>$$ sim(i,j) = \frac{x  \cdot y}{||x|| ||y||} $$<br>当属性是二值属性时，$x  \cdot y$是$x$ 和$y$共有的属性数，而$|x||y|$是$x$具有的属性数 和$y$具有的属性数的几何均值，于是$sim(x,y)$是公共属性相对拥有的一种度量，余弦相似性一个简单变种如下:<br>$$<br>sim(x,y) = \frac{x \cdot y}{x \cdot x + y \cdot y - x \cdot y}<br>$$<br>称为Tanimoto距离，常用在信息检索和生物学分类中。</p>
+
       
     </div>
     
@@ -630,7 +672,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据对象与属性类型"><span class="nav-number">1.</span> <span class="nav-text">数据对象与属性类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性类型"><span class="nav-number">1.1.</span> <span class="nav-text">属性类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的基本统计描述"><span class="nav-number">2.</span> <span class="nav-text">数据的基本统计描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中心趋势度量"><span class="nav-number">2.1.</span> <span class="nav-text">中心趋势度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#均值-mean"><span class="nav-number">2.1.1.</span> <span class="nav-text">均值 (mean)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中位数-median"><span class="nav-number">2.1.2.</span> <span class="nav-text">中位数 (median)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#众数-mode"><span class="nav-number">2.1.3.</span> <span class="nav-text">众数 (mode)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中列数（midrange）"><span class="nav-number">2.1.4.</span> <span class="nav-text">中列数（midrange）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的散布"><span class="nav-number">2.2.</span> <span class="nav-text">数据的散布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#极差（range）"><span class="nav-number">2.2.1.</span> <span class="nav-text">极差（range）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四分位数（quartile）"><span class="nav-number">2.2.2.</span> <span class="nav-text">四分位数（quartile）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方差（Variance）和标准差（Standard-deviation）"><span class="nav-number">2.2.3.</span> <span class="nav-text">方差（Variance）和标准差（Standard deviation）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形显示"><span class="nav-number">2.3.</span> <span class="nav-text">图形显示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分位数图"><span class="nav-number">2.3.1.</span> <span class="nav-text">分位数图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分位数-分位数图"><span class="nav-number">2.3.2.</span> <span class="nav-text">分位数-分位数图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（频率）直方图"><span class="nav-number">2.3.3.</span> <span class="nav-text">（频率）直方图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#散点图"><span class="nav-number">2.3.4.</span> <span class="nav-text">散点图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#度量数据的相似性和相异性"><span class="nav-number">3.</span> <span class="nav-text">度量数据的相似性和相异性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据对象与属性类型"><span class="nav-number">1.</span> <span class="nav-text">数据对象与属性类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性类型"><span class="nav-number">1.1.</span> <span class="nav-text">属性类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的基本统计描述"><span class="nav-number">2.</span> <span class="nav-text">数据的基本统计描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中心趋势度量"><span class="nav-number">2.1.</span> <span class="nav-text">中心趋势度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#均值-mean"><span class="nav-number">2.1.1.</span> <span class="nav-text">均值 (mean)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中位数-median"><span class="nav-number">2.1.2.</span> <span class="nav-text">中位数 (median)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#众数-mode"><span class="nav-number">2.1.3.</span> <span class="nav-text">众数 (mode)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中列数（midrange）"><span class="nav-number">2.1.4.</span> <span class="nav-text">中列数（midrange）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的散布"><span class="nav-number">2.2.</span> <span class="nav-text">数据的散布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#极差（range）"><span class="nav-number">2.2.1.</span> <span class="nav-text">极差（range）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四分位数（quartile）"><span class="nav-number">2.2.2.</span> <span class="nav-text">四分位数（quartile）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方差（Variance）和标准差（Standard-deviation）"><span class="nav-number">2.2.3.</span> <span class="nav-text">方差（Variance）和标准差（Standard deviation）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形显示"><span class="nav-number">2.3.</span> <span class="nav-text">图形显示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分位数图"><span class="nav-number">2.3.1.</span> <span class="nav-text">分位数图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分位数-分位数图"><span class="nav-number">2.3.2.</span> <span class="nav-text">分位数-分位数图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（频率）直方图"><span class="nav-number">2.3.3.</span> <span class="nav-text">（频率）直方图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#散点图"><span class="nav-number">2.3.4.</span> <span class="nav-text">散点图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#度量数据的相似性和相异性"><span class="nav-number">3.</span> <span class="nav-text">度量数据的相似性和相异性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据矩阵和相异性矩阵"><span class="nav-number">3.1.</span> <span class="nav-text">数据矩阵和相异性矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据矩阵"><span class="nav-number">3.1.1.</span> <span class="nav-text">数据矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相异性矩阵"><span class="nav-number">3.1.2.</span> <span class="nav-text">相异性矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标称数据的邻近性度量"><span class="nav-number">3.1.3.</span> <span class="nav-text">标称数据的邻近性度量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二元属性的邻近性度量"><span class="nav-number">3.1.4.</span> <span class="nav-text">二元属性的邻近性度量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数值属性的相异性：闵科夫斯基距离"><span class="nav-number">3.1.5.</span> <span class="nav-text">数值属性的相异性：闵科夫斯基距离</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#序数属性的邻近性度量"><span class="nav-number">3.1.6.</span> <span class="nav-text">序数属性的邻近性度量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#混合属性的相异性"><span class="nav-number">3.1.7.</span> <span class="nav-text">混合属性的相异性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#余弦相似性"><span class="nav-number">3.1.8.</span> <span class="nav-text">余弦相似性</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -664,7 +706,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">28.8k</span>
+    <span title="Site words total count">30.1k</span>
   
 </div>
 
