@@ -89,15 +89,16 @@
 <meta property="og:site_name" content="shuang&#39;s blog">
 <meta property="og:description" content="数据对象与属性类型数据集由数据对象组成。一个数据对象代表一个实体。例如销售数据库中，对象可以是顾客、商品。属性是一个数据字段，表示数据对象的一个特征。 属性类型 标称属性（nominal attribute）：一些事物的名称，每个值代表某种类别、编码或者状态。不具有有意义的序，不是定量的，其均值和中位数无意义，总数有意义。例如，颜色这个对象的属性可能有黑色、红色、白色等，职业可能值有教师、医生等。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/median.PNG">
 <meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/data_shape.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/boxplot.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/quantileplot.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/qqplot.jpg">
-<meta property="og:updated_time" content="2018-09-30T08:37:19.735Z">
+<meta property="og:updated_time" content="2018-09-30T08:54:36.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘-认识数据">
 <meta name="twitter:description" content="数据对象与属性类型数据集由数据对象组成。一个数据对象代表一个实体。例如销售数据库中，对象可以是顾客、商品。属性是一个数据字段，表示数据对象的一个特征。 属性类型 标称属性（nominal attribute）：一些事物的名称，每个值代表某种类别、编码或者状态。不具有有意义的序，不是定量的，其均值和中位数无意义，总数有意义。例如，颜色这个对象的属性可能有黑色、红色、白色等，职业可能值有教师、医生等。">
-<meta name="twitter:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/data_shape.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/median.PNG">
 
 
 
@@ -354,7 +355,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,518
+                  1,507
                 </span>
               
 
@@ -391,8 +392,8 @@
       
 
       
-        <h3 id="数据对象与属性类型"><a href="#数据对象与属性类型" class="headerlink" title="数据对象与属性类型"></a>数据对象与属性类型</h3><p>数据集由数据对象组成。一个数据对象代表一个实体。例如销售数据库中，对象可以是顾客、商品。属性是一个数据字段，表示数据对象的一个特征。</p>
-<h4 id="属性类型"><a href="#属性类型" class="headerlink" title="属性类型"></a>属性类型</h4><ul>
+        <h2 id="数据对象与属性类型"><a href="#数据对象与属性类型" class="headerlink" title="数据对象与属性类型"></a>数据对象与属性类型</h2><p>数据集由数据对象组成。一个数据对象代表一个实体。例如销售数据库中，对象可以是顾客、商品。属性是一个数据字段，表示数据对象的一个特征。</p>
+<h3 id="属性类型"><a href="#属性类型" class="headerlink" title="属性类型"></a>属性类型</h3><ul>
 <li><p>标称属性（nominal attribute）：一些事物的名称，每个值代表某种类别、编码或者状态。不具有有意义的序，不是定量的，其均值和中位数无意义，总数有意义。例如，颜色这个对象的属性可能有黑色、红色、白色等，职业可能值有教师、医生等。</p>
 </li>
 <li><p>二元属性（binary attribute）：一种标称属性，只有两个类别或状态：0或1。有对称和非对称两种情况，对称比如性别男女两种状态；非对称比如HIV检测中的阳性和阴性，为了方便，通常用1表示最重要的结果（通常是稀有的，另一个用0编码。</p>
@@ -408,20 +409,20 @@
 </ul>
 </li>
 </ul>
-<h3 id="数据的基本统计描述"><a href="#数据的基本统计描述" class="headerlink" title="数据的基本统计描述"></a>数据的基本统计描述</h3><p>我们为了把握数据的全貌，关注数据的中心趋势度量、数据的散布和图形显示。</p>
-<h4 id="中心趋势度量"><a href="#中心趋势度量" class="headerlink" title="中心趋势度量"></a>中心趋势度量</h4><p>中心趋势度量度量数据分布的中部或中心位置，或者说，给定一个属性，它的值大部分落在何处？</p>
-<h5 id="均值-mean"><a href="#均值-mean" class="headerlink" title="均值 (mean)"></a>均值 (mean)</h5><p>最常用最有效的是的算术均值：<br>$$  \overline{x} = \frac{\sum_{i=1}^N x_i}{N} $$<br>或者使用加权平均，反映对应值的意义、重要性或者出现频率。<br>$$  \overline{x} = \frac{\sum_{i=1}^N w_ix_i}{\sum_{i=1}^N w_i} $$<br>但是均值对极端值很敏感，对于非对称数据，数据中心更好的度量是中位数。</p>
-<h5 id="中位数-median"><a href="#中位数-median" class="headerlink" title="中位数 (median)"></a>中位数 (median)</h5><p>中位数是有序数据的中间值，将数据分成两半。<br>中位数在观测数量很大时，计算开销很大。下面给出近似计算公式。假定数据根据值划分成了区间，并且已知每个区间的频率（数据值的个数）。令包含中位数频率的区间为中位数区间。<br>$$ median = L_1 + (\frac{N/2 - (\sum freq)<em>l}{freq</em>{median}}) width$$<br>其中，$L_1$是中位数区间下界，$N$是整个数据集中值的个数，$\sum freq$是低于中位数区间的所有区间的频率和，$freq_{median}$是中位数区间的频率，$width$是中位数区间的宽度。</p>
-<h5 id="众数-mode"><a href="#众数-mode" class="headerlink" title="众数 (mode)"></a>众数 (mode)</h5><p>出现最频繁的值。具有有一个、两个、三个众数的数据集合分别成为单峰的（unimodal）、双峰的（bimodal）、三峰的（trimodal）。<br>当数据对称时，众数 = 中位数 = 均值。<br>当次数分布右偏时,即正倾斜时，均值受偏高数值影响较大，其位置必然在众数之右，中位数在众数与算术平均数之间，众数 &lt; 中位数 &lt; 均值。<br>反之，当次数分布左偏时,即负倾斜时，均值受偏小数值的影响较大,其位置在众数之左,中位数仍在两者之间，均值 &lt; 中位数 &lt; 众数。<br><img src="/2018/09/28/数据挖掘-认识数据/data_shape.jpg" alt=""></p>
-<h5 id="中列数（midrange）"><a href="#中列数（midrange）" class="headerlink" title="中列数（midrange）"></a>中列数（midrange）</h5><p>最大和最小值的平均值。</p>
-<h4 id="数据的散布"><a href="#数据的散布" class="headerlink" title="数据的散布"></a>数据的散布</h4><h5 id="极差（range）"><a href="#极差（range）" class="headerlink" title="极差（range）"></a>极差（range）</h5><p>最大值和最小值之差。</p>
-<h5 id="四分位数（quartile）"><a href="#四分位数（quartile）" class="headerlink" title="四分位数（quartile）"></a>四分位数（quartile）</h5><p>把数据划分成四个基本上大小相等的连贯集合。<br>$ Q_1 $：有25%的数据在此之下；<br>$ Q_2 $：有50%的数据在此之下,即中位数；<br>$ Q_3 $：有75%的数据在此之下。<br>四分位数极差IQR：给出被数据中间一半所覆盖的范围。<br>$$ IQR = Q_3 - Q_1 $$<br>对于倾斜分布，单个散步数值度量如IQR都不是很有用，识别可以离群点的通常规则是挑选落在  $Q_3$ 之上和 $Q_1$ 之下至少 $1.5 * IQR$ 处的值。<br>五数概括：最小值、$Q_1$、中位数、$Q_3$、最大值。盒图体现了五数概括。<br><img src="/2018/09/28/数据挖掘-认识数据/boxplot.jpg" alt=""></p>
-<h5 id="方差（Variance）和标准差（Standard-deviation）"><a href="#方差（Variance）和标准差（Standard-deviation）" class="headerlink" title="方差（Variance）和标准差（Standard deviation）"></a>方差（Variance）和标准差（Standard deviation）</h5><p>$$ \sigma ^2 = \frac{1}{N} \sum_{i=1}^{N}(x_i - \overline{x})^2 $$<br>$\sigma ^2$ 是方差，$\sigma$是标准差。</p>
-<h4 id="图形显示"><a href="#图形显示" class="headerlink" title="图形显示"></a>图形显示</h4><h5 id="分位数图"><a href="#分位数图" class="headerlink" title="分位数图"></a>分位数图</h5><p>设 $x_i$ 是按递增顺序的数据，使得 $x_1$ 是最小的观测值，而 $x_N$ 是最大的，每个观测值$x_i$ 与一个百分数$f_i$对应，指出大约$f_i * 100%$的数据小于值$x_i$。<br><img src="/2018/09/28/数据挖掘-认识数据/quantileplot.jpg" alt=""></p>
-<h5 id="分位数-分位数图"><a href="#分位数-分位数图" class="headerlink" title="分位数-分位数图"></a>分位数-分位数图</h5><p>可以使得用户观察从一个分布到另一个分布是否有漂移。<br>例如两个部门销售商品的单价数据的分位数-分位数图。<br><img src="/2018/09/28/数据挖掘-认识数据/qqplot.jpg" alt=""><br>比如在$Q2$,部门1销售的商品50%低于或等于78美元，而部门21销售的商品50%低于或等于85美元。中间那条45度实线代表没有偏移。从总体来看也可以看出部门1销售的商品单价趋向于比部门2低。</p>
-<h5 id="（频率）直方图"><a href="#（频率）直方图" class="headerlink" title="（频率）直方图"></a>（频率）直方图</h5><p>如果数据是标称的，一般称作条形图，数据是数值的，多使用术语直方图。</p>
-<h5 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h5><p>散点图是一种观察双变量数据的有用方法。可以通过其看出两个变量是正相关、负相关还是不相关的。</p>
-<h3 id="度量数据的相似性和相异性"><a href="#度量数据的相似性和相异性" class="headerlink" title="度量数据的相似性和相异性"></a>度量数据的相似性和相异性</h3>
+<h2 id="数据的基本统计描述"><a href="#数据的基本统计描述" class="headerlink" title="数据的基本统计描述"></a>数据的基本统计描述</h2><p>我们为了把握数据的全貌，关注数据的中心趋势度量、数据的散布和图形显示。</p>
+<h3 id="中心趋势度量"><a href="#中心趋势度量" class="headerlink" title="中心趋势度量"></a>中心趋势度量</h3><p>中心趋势度量度量数据分布的中部或中心位置，或者说，给定一个属性，它的值大部分落在何处？</p>
+<h4 id="均值-mean"><a href="#均值-mean" class="headerlink" title="均值 (mean)"></a>均值 (mean)</h4><p>最常用最有效的是的算术均值：<br>$$  \overline{x} = \frac{\sum_{i=1}^N x_i}{N} $$<br>或者使用加权平均，反映对应值的意义、重要性或者出现频率。<br>$$  \overline{x} = \frac{\sum_{i=1}^N w_ix_i}{\sum_{i=1}^N w_i} $$<br>但是均值对极端值很敏感，对于非对称数据，数据中心更好的度量是中位数。</p>
+<h4 id="中位数-median"><a href="#中位数-median" class="headerlink" title="中位数 (median)"></a>中位数 (median)</h4><p>中位数是有序数据的中间值，将数据分成两半。<br>中位数在观测数量很大时，计算开销很大。下面给出近似计算公式。假定数据根据值划分成了区间，并且已知每个区间的频率（数据值的个数）。令包含中位数频率的区间为中位数区间。<br><img src="/2018/09/28/数据挖掘-认识数据/median.PNG" alt=""><br>其中，$L_1$是中位数区间下界，$N$是整个数据集中值的个数，$\sum freq$是低于中位数区间的所有区间的频率和，$freq_{median}$是中位数区间的频率，$width$是中位数区间的宽度。</p>
+<h4 id="众数-mode"><a href="#众数-mode" class="headerlink" title="众数 (mode)"></a>众数 (mode)</h4><p>出现最频繁的值。具有有一个、两个、三个众数的数据集合分别成为单峰的（unimodal）、双峰的（bimodal）、三峰的（trimodal）。<br>当数据对称时，众数 = 中位数 = 均值。<br>当次数分布右偏时,即正倾斜时，均值受偏高数值影响较大，其位置必然在众数之右，中位数在众数与算术平均数之间，众数 &lt; 中位数 &lt; 均值。<br>反之，当次数分布左偏时,即负倾斜时，均值受偏小数值的影响较大,其位置在众数之左,中位数仍在两者之间，均值 &lt; 中位数 &lt; 众数。<br><img src="/2018/09/28/数据挖掘-认识数据/data_shape.jpg" alt=""></p>
+<h4 id="中列数（midrange）"><a href="#中列数（midrange）" class="headerlink" title="中列数（midrange）"></a>中列数（midrange）</h4><p>最大和最小值的平均值。</p>
+<h3 id="数据的散布"><a href="#数据的散布" class="headerlink" title="数据的散布"></a>数据的散布</h3><h4 id="极差（range）"><a href="#极差（range）" class="headerlink" title="极差（range）"></a>极差（range）</h4><p>最大值和最小值之差。</p>
+<h4 id="四分位数（quartile）"><a href="#四分位数（quartile）" class="headerlink" title="四分位数（quartile）"></a>四分位数（quartile）</h4><p>把数据划分成四个基本上大小相等的连贯集合。<br>$ Q_1 $：有25%的数据在此之下；<br>$ Q_2 $：有50%的数据在此之下,即中位数；<br>$ Q_3 $：有75%的数据在此之下。<br>四分位数极差IQR：给出被数据中间一半所覆盖的范围。<br>$$ IQR = Q_3 - Q_1 $$<br>对于倾斜分布，单个散步数值度量如IQR都不是很有用，识别可以离群点的通常规则是挑选落在  $Q_3$ 之上和 $Q_1$ 之下至少 $1.5 * IQR$ 处的值。<br>五数概括：最小值、$Q_1$、中位数、$Q_3$、最大值。盒图体现了五数概括。<br><img src="/2018/09/28/数据挖掘-认识数据/boxplot.jpg" alt=""></p>
+<h4 id="方差（Variance）和标准差（Standard-deviation）"><a href="#方差（Variance）和标准差（Standard-deviation）" class="headerlink" title="方差（Variance）和标准差（Standard deviation）"></a>方差（Variance）和标准差（Standard deviation）</h4><p>$$ \sigma ^2 = \frac{1}{N} \sum_{i=1}^{N}(x_i - \overline{x})^2 $$<br>$\sigma ^2$ 是方差，$\sigma$是标准差。</p>
+<h3 id="图形显示"><a href="#图形显示" class="headerlink" title="图形显示"></a>图形显示</h3><h4 id="分位数图"><a href="#分位数图" class="headerlink" title="分位数图"></a>分位数图</h4><p>设 $x_i$ 是按递增顺序的数据，使得 $x_1$ 是最小的观测值，而 $x_N$ 是最大的，每个观测值$x_i$ 与一个百分数$f_i$对应，指出大约$f_i * 100%$的数据小于值$x_i$。<br><img src="/2018/09/28/数据挖掘-认识数据/quantileplot.jpg" alt=""></p>
+<h4 id="分位数-分位数图"><a href="#分位数-分位数图" class="headerlink" title="分位数-分位数图"></a>分位数-分位数图</h4><p>可以使得用户观察从一个分布到另一个分布是否有漂移。<br>例如两个部门销售商品的单价数据的分位数-分位数图。<br><img src="/2018/09/28/数据挖掘-认识数据/qqplot.jpg" alt=""><br>比如在$Q2$,部门1销售的商品50%低于或等于78美元，而部门21销售的商品50%低于或等于85美元。中间那条45度实线代表没有偏移。从总体来看也可以看出部门1销售的商品单价趋向于比部门2低。</p>
+<h4 id="（频率）直方图"><a href="#（频率）直方图" class="headerlink" title="（频率）直方图"></a>（频率）直方图</h4><p>如果数据是标称的，一般称作条形图，数据是数值的，多使用术语直方图。</p>
+<h4 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h4><p>散点图是一种观察双变量数据的有用方法。可以通过其看出两个变量是正相关、负相关还是不相关的。</p>
+<h2 id="度量数据的相似性和相异性"><a href="#度量数据的相似性和相异性" class="headerlink" title="度量数据的相似性和相异性"></a>度量数据的相似性和相异性</h2>
       
     </div>
     
@@ -629,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据对象与属性类型"><span class="nav-number">1.</span> <span class="nav-text">数据对象与属性类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性类型"><span class="nav-number">1.1.</span> <span class="nav-text">属性类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的基本统计描述"><span class="nav-number">2.</span> <span class="nav-text">数据的基本统计描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#中心趋势度量"><span class="nav-number">2.1.</span> <span class="nav-text">中心趋势度量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#均值-mean"><span class="nav-number">2.1.1.</span> <span class="nav-text">均值 (mean)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#中位数-median"><span class="nav-number">2.1.2.</span> <span class="nav-text">中位数 (median)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#众数-mode"><span class="nav-number">2.1.3.</span> <span class="nav-text">众数 (mode)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#中列数（midrange）"><span class="nav-number">2.1.4.</span> <span class="nav-text">中列数（midrange）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据的散布"><span class="nav-number">2.2.</span> <span class="nav-text">数据的散布</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#极差（range）"><span class="nav-number">2.2.1.</span> <span class="nav-text">极差（range）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四分位数（quartile）"><span class="nav-number">2.2.2.</span> <span class="nav-text">四分位数（quartile）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方差（Variance）和标准差（Standard-deviation）"><span class="nav-number">2.2.3.</span> <span class="nav-text">方差（Variance）和标准差（Standard deviation）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图形显示"><span class="nav-number">2.3.</span> <span class="nav-text">图形显示</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#分位数图"><span class="nav-number">2.3.1.</span> <span class="nav-text">分位数图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分位数-分位数图"><span class="nav-number">2.3.2.</span> <span class="nav-text">分位数-分位数图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（频率）直方图"><span class="nav-number">2.3.3.</span> <span class="nav-text">（频率）直方图</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#散点图"><span class="nav-number">2.3.4.</span> <span class="nav-text">散点图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#度量数据的相似性和相异性"><span class="nav-number">3.</span> <span class="nav-text">度量数据的相似性和相异性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据对象与属性类型"><span class="nav-number">1.</span> <span class="nav-text">数据对象与属性类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#属性类型"><span class="nav-number">1.1.</span> <span class="nav-text">属性类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据的基本统计描述"><span class="nav-number">2.</span> <span class="nav-text">数据的基本统计描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#中心趋势度量"><span class="nav-number">2.1.</span> <span class="nav-text">中心趋势度量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#均值-mean"><span class="nav-number">2.1.1.</span> <span class="nav-text">均值 (mean)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中位数-median"><span class="nav-number">2.1.2.</span> <span class="nav-text">中位数 (median)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#众数-mode"><span class="nav-number">2.1.3.</span> <span class="nav-text">众数 (mode)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中列数（midrange）"><span class="nav-number">2.1.4.</span> <span class="nav-text">中列数（midrange）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据的散布"><span class="nav-number">2.2.</span> <span class="nav-text">数据的散布</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#极差（range）"><span class="nav-number">2.2.1.</span> <span class="nav-text">极差（range）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四分位数（quartile）"><span class="nav-number">2.2.2.</span> <span class="nav-text">四分位数（quartile）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方差（Variance）和标准差（Standard-deviation）"><span class="nav-number">2.2.3.</span> <span class="nav-text">方差（Variance）和标准差（Standard deviation）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图形显示"><span class="nav-number">2.3.</span> <span class="nav-text">图形显示</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#分位数图"><span class="nav-number">2.3.1.</span> <span class="nav-text">分位数图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分位数-分位数图"><span class="nav-number">2.3.2.</span> <span class="nav-text">分位数-分位数图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（频率）直方图"><span class="nav-number">2.3.3.</span> <span class="nav-text">（频率）直方图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#散点图"><span class="nav-number">2.3.4.</span> <span class="nav-text">散点图</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#度量数据的相似性和相异性"><span class="nav-number">3.</span> <span class="nav-text">度量数据的相似性和相异性</span></a></li></ol></div>
             
 
           </div>
