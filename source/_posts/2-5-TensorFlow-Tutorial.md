@@ -106,7 +106,7 @@ tf.zeros(shape) 将向量初始化为0
 #### 计算cost
 tf.nn.sigmoid_cross_entropy_with_logits(logits = ...,  labels = ...)
 用来计算交叉熵损失函数。
-$$- \frac{1}{m}  \sum_{i = 1}^m  \large ( \small y^{(i)} \log \sigma(z^{[2](i)}) + (1-y^{(i)})\log (1-\sigma(z^{[2](i)})\large )\small$$
+$$- \frac{1}{m}  \sum_{i = 1}^m  \large ( \small y^{[i]} \log \sigma(z^{[2][i]}) + (1-y^{[i]})\log (1-\sigma(z^{[2][i]})\large )\small$$
 
 ```
 
