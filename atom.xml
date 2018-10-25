@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-20T09:13:24.548Z</updated>
+  <updated>2018-10-25T09:21:26.336Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>4-3 Keras Tutorial</title>
+    <link href="http://yoursite.com/2018/10/25/4-3%20Keras-Tutorial/"/>
+    <id>http://yoursite.com/2018/10/25/4-3 Keras-Tutorial/</id>
+    <published>2018-10-25T09:18:39.958Z</published>
+    <updated>2018-10-25T09:21:26.336Z</updated>
+    
+    <content type="html"><![CDATA[<p>np.expand_dims:用于扩展数组的形状<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; x = np.array([1,2])</span><br><span class="line">&gt;&gt;&gt; x.shape</span><br><span class="line">(2,)</span><br><span class="line">&gt;&gt;&gt; y = np.expand_dims(x, axis=0)</span><br><span class="line">&gt;&gt;&gt; y</span><br><span class="line">array([[1, 2]])</span><br><span class="line">&gt;&gt;&gt; y.shape</span><br><span class="line">(1, 2)</span><br><span class="line">&gt;&gt;&gt; y = np.expand_dims(x, axis=1)  # Equivalent to x[:,newaxis]</span><br><span class="line">&gt;&gt;&gt; y</span><br><span class="line">array([[1],</span><br><span class="line">       [2]])</span><br><span class="line">&gt;&gt;&gt; y.shape</span><br><span class="line">(2, 1)</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;np.expand_dims:用于扩展数组的形状&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class
+      
+    
+    </summary>
+    
+      <category term="深度学习习题" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%A0%E9%A2%98/"/>
+    
+    
+      <category term="DeepLearning" scheme="http://yoursite.com/tags/DeepLearning/"/>
+    
+      <category term="习题" scheme="http://yoursite.com/tags/%E4%B9%A0%E9%A2%98/"/>
+    
+  </entry>
   
   <entry>
     <title>幸福之路</title>
