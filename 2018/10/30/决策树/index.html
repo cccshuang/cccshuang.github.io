@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="决策树,统计学习," />
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="滴水穿石，非一日之功">
-<meta property="og:type" content="website">
-<meta property="og:title" content="shuang&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/tags/NoSQL/index.html">
+<meta name="description" content="理论什么是决策树？决策树内部节点表示一个特征或属性，叶节点表示一个类，进行分类时，从根节点开始，对实例的某一特征进行测试，根据测试结果，将实例分配到其子节点，这时每一个子节点对应着该特征的一个取值，如此递归地对实例进行测试并分配，直至到达叶节点，最后将实例分到叶节点地类中。可以将决策树看成一个if-then规则的集合，每一个实例都被一条路径或一条规则所覆盖，而且只被一条路径或一条规则所覆盖，互斥并">
+<meta name="keywords" content="决策树,统计学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="决策树">
+<meta property="og:url" content="http://yoursite.com/2018/10/30/决策树/index.html">
 <meta property="og:site_name" content="shuang&#39;s blog">
-<meta property="og:description" content="滴水穿石，非一日之功">
+<meta property="og:description" content="理论什么是决策树？决策树内部节点表示一个特征或属性，叶节点表示一个类，进行分类时，从根节点开始，对实例的某一特征进行测试，根据测试结果，将实例分配到其子节点，这时每一个子节点对应着该特征的一个取值，如此递归地对实例进行测试并分配，直至到达叶节点，最后将实例分到叶节点地类中。可以将决策树看成一个if-then规则的集合，每一个实例都被一条路径或一条规则所覆盖，而且只被一条路径或一条规则所覆盖，互斥并">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-30T09:19:01.470Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shuang&#39;s blog">
-<meta name="twitter:description" content="滴水穿石，非一日之功">
+<meta name="twitter:title" content="决策树">
+<meta name="twitter:description" content="理论什么是决策树？决策树内部节点表示一个特征或属性，叶节点表示一个类，进行分类时，从根节点开始，对实例的某一特征进行测试，根据测试结果，将实例分配到其子节点，这时每一个子节点对应着该特征的一个取值，如此递归地对实例进行测试并分配，直至到达叶节点，最后将实例分到叶节点地类中。可以将决策树看成一个if-then规则的集合，每一个实例都被一条路径或一条规则所覆盖，而且只被一条路径或一条规则所覆盖，互斥并">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/NoSQL/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/30/决策树/"/>
 
 
 
 
 
-  <title>标签: NoSQL | shuang's blog</title>
+  <title>决策树 | shuang's blog</title>
   
 
 
@@ -145,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -239,54 +241,226 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>NoSQL<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/30/决策树/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="cccshuang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shuang's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/01/17/2018-01-17-MongoDB学习笔记/" itemprop="url">
-              
-                <span itemprop="name">MongoDB学习笔记</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">决策树</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-17T19:40:37+08:00"
-              content="2018-01-17" >
-          01-17
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-30T16:28:27+08:00">
+                2018-10-30
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/统计机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">统计机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/30/决策树/" class="leancloud_visitors" data-flag-title="决策树">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  927
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h3><h4 id="什么是决策树？"><a href="#什么是决策树？" class="headerlink" title="什么是决策树？"></a>什么是决策树？</h4><p>决策树内部节点表示一个特征或属性，叶节点表示一个类，进行分类时，从根节点开始，对实例的某一特征进行测试，根据测试结果，将实例分配到其子节点，这时每一个子节点对应着该特征的一个取值，如此递归地对实例进行测试并分配，直至到达叶节点，最后将实例分到叶节点地类中。<br>可以将决策树看成一个if-then规则的集合，每一个实例都被一条路径或一条规则所覆盖，而且只被一条路径或一条规则所覆盖，互斥并且完备。同时，决策树还表示给定特征条件下类的条件概率分布，定义了特征空间的一个划分，分为互不相交的几个单元，决策树的一条路径就对应划分中的一个单元，决策树分类时将实例分到条件概率大的一类去。</p>
+<h4 id="决策树学习"><a href="#决策树学习" class="headerlink" title="决策树学习"></a>决策树学习</h4><p>决策树学习通常包括3个步骤：特征选择、决策树的生成和决策树的剪枝。决策树学习的算法通常是一个递归地选择最优特征，并根据该特征对训练数据进行分割，使得对各个子数据集有一个最好的分类的过程，这一过程对应着特征空间的划分，也对应着决策树的构建。为了防止过拟合，我们需要对生成的决策树自下而上进行剪枝，去掉过于细分的叶节点，使其回退到父节点，甚至更高的节点，然后将父节点或更高的节点改为新的叶节点。</p>
+<h5 id="前提知识"><a href="#前提知识" class="headerlink" title="前提知识"></a>前提知识</h5><p>设 $X$ 是一个取有限值的离散随机变量，其概率分布为<br>$$ P(X=x_i) = p_i,  i=1,2,\cdots,n $$<br>随机变量$(X,Y)$，其联合概率分布为<br>$$ P(X=x_i,Y=y_j) = p_{ij},  i=1,2,\cdots,n; j=1,2,\cdots,m; $$</p>
+<p>则随机变量 $X$ 的熵定义为<br>$$ H(X) = -\sum_{i=1}^{n} p_i log(p_i)$$ </p>
+<p>条件熵$H(Y|X)$表示在已知$X$的条件下随机变量$Y$的不确定性，定义为在$X$给定的条件下，$Y$的条件概率分布的熵对$X$的数学期望<br>$$ H(Y|X) = \sum_{i=1}^{n} p_iH(Y|X=x_i) $$<br>这里，$p_i =P(X=x_i)$<br>当熵和条件熵的概率由数据估计得到时，称为经验熵和经验条件熵，如果有$0$概率，则令 $0log0=0$ </p>
+<h5 id="特征选择"><a href="#特征选择" class="headerlink" title="特征选择"></a>特征选择</h5><p>特征选择在于选取对训练数据具有分类能力的特征，准则是信息增益或信息增益比。</p>
+<p>信息增益表示得知特征$X$的信息而使得类$Y$的信息的不确定性减少的程度，将熵$H(Y)$与条件熵$H(Y|X)$之差称为互信息，决策树学习中的信息增益等价于训练数据集中类与特征的互信息。</p>
+<p>给定训练数据集$D$和特征$A$，经验熵$H(D)$表示对数据集$D$进行分类的不确定性，经验条件熵$H(D|A)$表示在特征$A$给定的条件下对数据集$D$进行分类的不确定性，它们的差，即信息增益，表示由于特征$A$而使得对数据集$D$的分类的不确定性减少的程度。在进行特征选择的时候。我们选择信息增益最大的特征，因为信息增益大的特征具有更强的分类能力。<br>信息增益定义为<br>$$ g(D,A) = H(D) - H(D|A) $$</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/决策树/" rel="tag"># 决策树</a>
+          
+            <a href="/tags/统计学习/" rel="tag"># 统计学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/25/4-3 Keras-Tutorial/" rel="next" title="4-3 Keras Tutorial">
+                <i class="fa fa-chevron-left"></i> 4-3 Keras Tutorial
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b65bae16a23e4cc" async = "async" ></script>
+</div>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -294,6 +468,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzE4NC85NzQx"></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -314,8 +497,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -402,6 +594,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理论"><span class="nav-number">1.</span> <span class="nav-text">理论</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是决策树？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是决策树？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决策树学习"><span class="nav-number">1.2.</span> <span class="nav-text">决策树学习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#前提知识"><span class="nav-number">1.2.1.</span> <span class="nav-text">前提知识</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#特征选择"><span class="nav-number">1.2.2.</span> <span class="nav-text">特征选择</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -551,6 +759,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -579,6 +791,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
