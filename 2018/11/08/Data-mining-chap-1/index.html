@@ -81,17 +81,17 @@
 
 
 
-<meta name="description" content="系统中的所有信息，包括文件、程序、数据等本质上都是由一串位（比特）序列表示的。其中，8个比特称为一个字节，每个字节可以表示某个文本字符，如ASCII码一共有$2^8$个（标准码0-127，扩展码128-255），用一个单字节大小的整数来表示每个字符。只由ASCII字符构成的文件称为文本文件，而其他文件都称为二进制文件。">
+<meta name="description" content="Knowledge discovery (KDD) ProcessA view from database system Data cleaning 数据清洗：去除噪声和不一致数据 Data integration 数据集成：合并多数据源 Data selection 数据选择：选择与任务相关的数据。 Data transformation 数据变换：将数据转换或统一成适合挖掘的形式 Data m">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSAP Charpter 1">
-<meta property="og:url" content="http://yoursite.com/2018/10/15/CSAP-Charpter-1/index.html">
+<meta property="og:title" content="Data mining chap 1">
+<meta property="og:url" content="http://yoursite.com/2018/11/08/Data-mining-chap-1/index.html">
 <meta property="og:site_name" content="shuang&#39;s blog">
-<meta property="og:description" content="系统中的所有信息，包括文件、程序、数据等本质上都是由一串位（比特）序列表示的。其中，8个比特称为一个字节，每个字节可以表示某个文本字符，如ASCII码一共有$2^8$个（标准码0-127，扩展码128-255），用一个单字节大小的整数来表示每个字符。只由ASCII字符构成的文件称为文本文件，而其他文件都称为二进制文件。">
+<meta property="og:description" content="Knowledge discovery (KDD) ProcessA view from database system Data cleaning 数据清洗：去除噪声和不一致数据 Data integration 数据集成：合并多数据源 Data selection 数据选择：选择与任务相关的数据。 Data transformation 数据变换：将数据转换或统一成适合挖掘的形式 Data m">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-15T09:12:13.218Z">
+<meta property="og:updated_time" content="2018-11-08T07:32:33.578Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSAP Charpter 1">
-<meta name="twitter:description" content="系统中的所有信息，包括文件、程序、数据等本质上都是由一串位（比特）序列表示的。其中，8个比特称为一个字节，每个字节可以表示某个文本字符，如ASCII码一共有$2^8$个（标准码0-127，扩展码128-255），用一个单字节大小的整数来表示每个字符。只由ASCII字符构成的文件称为文本文件，而其他文件都称为二进制文件。">
+<meta name="twitter:title" content="Data mining chap 1">
+<meta name="twitter:description" content="Knowledge discovery (KDD) ProcessA view from database system Data cleaning 数据清洗：去除噪声和不一致数据 Data integration 数据集成：合并多数据源 Data selection 数据选择：选择与任务相关的数据。 Data transformation 数据变换：将数据转换或统一成适合挖掘的形式 Data m">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/15/CSAP-Charpter-1/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/08/Data-mining-chap-1/"/>
 
 
 
 
 
-  <title>CSAP Charpter 1 | shuang's blog</title>
+  <title>Data mining chap 1 | shuang's blog</title>
   
 
 
@@ -254,7 +254,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/CSAP-Charpter-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/Data-mining-chap-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="cccshuang">
@@ -271,7 +271,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CSAP Charpter 1</h1>
+          <h1 class="post-title" itemprop="name headline">Data mining chap 1</h1>
         
 
         <div class="post-meta">
@@ -283,8 +283,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-15T17:03:08+08:00">
-                2018-10-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T14:24:37+08:00">
+                2018-11-08
               </time>
             
 
@@ -301,7 +301,7 @@
 
           
           
-             <span id="/2018/10/15/CSAP-Charpter-1/" class="leancloud_visitors" data-flag-title="CSAP Charpter 1">
+             <span id="/2018/11/08/Data-mining-chap-1/" class="leancloud_visitors" data-flag-title="Data mining chap 1">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  125
+                  339
                 </span>
               
 
@@ -342,7 +342,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -363,7 +363,58 @@
       
 
       
-        <p>系统中的所有信息，包括文件、程序、数据等本质上都是由一串位（比特）序列表示的。其中，8个比特称为一个字节，每个字节可以表示某个文本字符，如ASCII码一共有$2^8$个（标准码0-127，扩展码128-255），用一个单字节大小的整数来表示每个字符。只由ASCII字符构成的文件称为文本文件，而其他文件都称为二进制文件。</p>
+        <h3 id="Knowledge-discovery-KDD-Process"><a href="#Knowledge-discovery-KDD-Process" class="headerlink" title="Knowledge discovery (KDD) Process"></a>Knowledge discovery (KDD) Process</h3><h4 id="A-view-from-database-system"><a href="#A-view-from-database-system" class="headerlink" title="A view from database system"></a>A view from database system</h4><ol>
+<li>Data cleaning 数据清洗：去除噪声和不一致数据</li>
+<li>Data integration 数据集成：合并多数据源</li>
+<li>Data selection 数据选择：选择与任务相关的数据。</li>
+<li>Data transformation 数据变换：将数据转换或统一成适合挖掘的形式</li>
+<li>Data mining 数据挖掘</li>
+<li>Pattern evaluation 模式评估：根据某种兴趣度度量，识别代表知识的真正有趣的模式</li>
+<li>Knowledge presentation 知识表示</li>
+</ol>
+<h4 id="A-view-from-ML"><a href="#A-view-from-ML" class="headerlink" title="A view from ML"></a>A view from ML</h4><p>Input data -&gt; Data Pre-Processing -&gt; Data Mining -&gt; Post-Processing -&gt; Knowledge</p>
+<p>Data Pre-Processing: Data integration、Normalization、Feature selection、Dimension reduction<br>Post-Processing：Pattern evaluation、Pattern selection、Pattern interpretation、Pattern visualization</p>
+<h3 id="Data-mining-分类"><a href="#Data-mining-分类" class="headerlink" title="Data mining 分类"></a>Data mining 分类</h3><h3 id="Data-mining-function"><a href="#Data-mining-function" class="headerlink" title="Data mining function"></a>Data mining function</h3><ol>
+<li>Generalization</li>
+<li>Association and Correlation Analysis 关联分析</li>
+<li>Classification 分类</li>
+<li>Cluster Analysis 聚类分析</li>
+<li>Outlier Analysis 离群点分析</li>
+</ol>
+<h3 id="Confluence-of-Multiple-Discipline-学科"><a href="#Confluence-of-Multiple-Discipline-学科" class="headerlink" title="Confluence of Multiple Discipline(学科)"></a>Confluence of Multiple Discipline(学科)</h3><p>Machine Learning、Pattern Recognition、 Statistics、Visualization、High-Performance Computing、Database Technology、Algorithm、Applications、Information retrieval</p>
+<h3 id="Major-Issues"><a href="#Major-Issues" class="headerlink" title="Major Issues"></a>Major Issues</h3><ul>
+<li>Mining Methodology<ul>
+<li>Mining various and new kinds of knowledge</li>
+<li>Mining knowledge in multi-dimensional space</li>
+<li>Data mining: An interdisciplinary effort 跨学科的努力</li>
+<li>Boosting the power of discovery in a networked environment</li>
+<li>Handling noise, uncertainty, and incompleteness of data</li>
+<li>Pattern evaluation and pattern- or constraint-guided mining</li>
+</ul>
+</li>
+<li>User Interaction<ul>
+<li>Interactive mining</li>
+<li>Incorporation（合并） of background knowledge</li>
+<li>Presentation and visualization of data mining results</li>
+</ul>
+</li>
+<li>Efficiency and Scalability<ul>
+<li>Efficiency and scalability of data mining algorithms</li>
+<li>Parallel, distributed, stream, and incremental mining methods</li>
+</ul>
+</li>
+<li>Diversity（多种） of data types<ul>
+<li>Handling complex types of data</li>
+<li>Mining dynamic, networked, and global data repositories</li>
+</ul>
+</li>
+<li>Data mining and society<ul>
+<li>Social impacts of data mining</li>
+<li>Privacy-preserving data mining</li>
+<li>Invisible（看不见的） data mining</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -388,8 +439,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/12/4-1-Convolutional-Neural-Networks-Step-by-Step/" rel="next" title="4-1 Convolutional Neural Networks: Step by Step">
-                <i class="fa fa-chevron-left"></i> 4-1 Convolutional Neural Networks: Step by Step
+              <a href="/2018/10/30/决策树/" rel="next" title="决策树">
+                <i class="fa fa-chevron-left"></i> 决策树
               </a>
             
           </div>
@@ -397,10 +448,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/19/幸福之路/" rel="prev" title="幸福之路">
-                幸福之路 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -463,8 +510,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -551,6 +607,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Knowledge-discovery-KDD-Process"><span class="nav-number">1.</span> <span class="nav-text">Knowledge discovery (KDD) Process</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#A-view-from-database-system"><span class="nav-number">1.1.</span> <span class="nav-text">A view from database system</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#A-view-from-ML"><span class="nav-number">1.2.</span> <span class="nav-text">A view from ML</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-mining-分类"><span class="nav-number">2.</span> <span class="nav-text">Data mining 分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Data-mining-function"><span class="nav-number">3.</span> <span class="nav-text">Data mining function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Confluence-of-Multiple-Discipline-学科"><span class="nav-number">4.</span> <span class="nav-text">Confluence of Multiple Discipline(学科)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Major-Issues"><span class="nav-number">5.</span> <span class="nav-text">Major Issues</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

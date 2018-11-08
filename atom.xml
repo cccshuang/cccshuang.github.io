@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-10-31T06:50:42.937Z</updated>
+  <updated>2018-11-08T07:32:33.578Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Data mining chap 1</title>
+    <link href="http://yoursite.com/2018/11/08/Data-mining-chap-1/"/>
+    <id>http://yoursite.com/2018/11/08/Data-mining-chap-1/</id>
+    <published>2018-11-08T06:24:37.000Z</published>
+    <updated>2018-11-08T07:32:33.578Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Knowledge-discovery-KDD-Process"><a href="#Knowledge-discovery-KDD-Process" class="headerlink" title="Knowledge discovery (KDD) Process"></a>Knowledge discovery (KDD) Process</h3><h4 id="A-view-from-database-system"><a href="#A-view-from-database-system" class="headerlink" title="A view from database system"></a>A view from database system</h4><ol><li>Data cleaning 数据清洗：去除噪声和不一致数据</li><li>Data integration 数据集成：合并多数据源</li><li>Data selection 数据选择：选择与任务相关的数据。</li><li>Data transformation 数据变换：将数据转换或统一成适合挖掘的形式</li><li>Data mining 数据挖掘</li><li>Pattern evaluation 模式评估：根据某种兴趣度度量，识别代表知识的真正有趣的模式</li><li>Knowledge presentation 知识表示</li></ol><h4 id="A-view-from-ML"><a href="#A-view-from-ML" class="headerlink" title="A view from ML"></a>A view from ML</h4><p>Input data -&gt; Data Pre-Processing -&gt; Data Mining -&gt; Post-Processing -&gt; Knowledge</p><p>Data Pre-Processing: Data integration、Normalization、Feature selection、Dimension reduction<br>Post-Processing：Pattern evaluation、Pattern selection、Pattern interpretation、Pattern visualization</p><h3 id="Data-mining-分类"><a href="#Data-mining-分类" class="headerlink" title="Data mining 分类"></a>Data mining 分类</h3><h3 id="Data-mining-function"><a href="#Data-mining-function" class="headerlink" title="Data mining function"></a>Data mining function</h3><ol><li>Generalization</li><li>Association and Correlation Analysis 关联分析</li><li>Classification 分类</li><li>Cluster Analysis 聚类分析</li><li>Outlier Analysis 离群点分析</li></ol><h3 id="Confluence-of-Multiple-Discipline-学科"><a href="#Confluence-of-Multiple-Discipline-学科" class="headerlink" title="Confluence of Multiple Discipline(学科)"></a>Confluence of Multiple Discipline(学科)</h3><p>Machine Learning、Pattern Recognition、 Statistics、Visualization、High-Performance Computing、Database Technology、Algorithm、Applications、Information retrieval</p><h3 id="Major-Issues"><a href="#Major-Issues" class="headerlink" title="Major Issues"></a>Major Issues</h3><ul><li>Mining Methodology<ul><li>Mining various and new kinds of knowledge</li><li>Mining knowledge in multi-dimensional space</li><li>Data mining: An interdisciplinary effort 跨学科的努力</li><li>Boosting the power of discovery in a networked environment</li><li>Handling noise, uncertainty, and incompleteness of data</li><li>Pattern evaluation and pattern- or constraint-guided mining</li></ul></li><li>User Interaction<ul><li>Interactive mining</li><li>Incorporation（合并） of background knowledge</li><li>Presentation and visualization of data mining results</li></ul></li><li>Efficiency and Scalability<ul><li>Efficiency and scalability of data mining algorithms</li><li>Parallel, distributed, stream, and incremental mining methods</li></ul></li><li>Diversity（多种） of data types<ul><li>Handling complex types of data</li><li>Mining dynamic, networked, and global data repositories</li></ul></li><li>Data mining and society<ul><li>Social impacts of data mining</li><li>Privacy-preserving data mining</li><li>Invisible（看不见的） data mining</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Knowledge-discovery-KDD-Process&quot;&gt;&lt;a href=&quot;#Knowledge-discovery-KDD-Process&quot; class=&quot;headerlink&quot; title=&quot;Knowledge discovery (KDD) Proc
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>决策树</title>
