@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="shuang&#39;s blog">
 <meta property="og:description" content="数据预处理的主要步骤包括数据清理、数据集成、数据归约和数据变换。数据清理可以用来清除数据中的噪声，纠正不一致。数据集成将数据由多个数据源合并成一个一致的数据存储，如数据仓库。数据归约可以通过如聚集、删除冗余特征或聚类来降低数据的规模。数据变换（如规范化）可以用来把数据压缩到较小的区间，如0.0到1.0，从而提高涉及距离度量的算法的准确率和效率。 数据清理现实世界的数据一般是不完整的、有噪声的和不一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-09T08:29:42.731Z">
+<meta property="og:updated_time" content="2018-11-09T08:35:35.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘-数据预处理">
 <meta name="twitter:description" content="数据预处理的主要步骤包括数据清理、数据集成、数据归约和数据变换。数据清理可以用来清除数据中的噪声，纠正不一致。数据集成将数据由多个数据源合并成一个一致的数据存储，如数据仓库。数据归约可以通过如聚集、删除冗余特征或聚类来降低数据的规模。数据变换（如规范化）可以用来把数据压缩到较小的区间，如0.0到1.0，从而提高涉及距离度量的算法的准确率和效率。 数据清理现实世界的数据一般是不完整的、有噪声的和不一">
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,047
+                  2,037
                 </span>
               
 
@@ -463,7 +463,7 @@
 <h3 id="数据变换"><a href="#数据变换" class="headerlink" title="数据变换"></a>数据变换</h3><p>对于数据变换，我们介绍规范化和离散化。</p>
 <h4 id="规范化"><a href="#规范化" class="headerlink" title="规范化"></a>规范化</h4><p>一般而言，用较小单位表示的属性将导致该属性具有较大值域，因此趋向于使这样的属性具有较大影响或权重，尤其对于神经网络或基于距离的算法或聚类。规范化试图赋予所有属性相等的权重，使之落入较小的共同区间，如[-1,1]或[0,1]。</p>
 <ol>
-<li><p>最小-最大规范化<br>将A的值$v_i$映射到区间$[new{_}min_A, new{_}max_A] $<br>$$ \hat v_i = \frac{v_i - min_A}{max_A - min_A} (new{_}max_A - new{_}min_A) + new{_}min_A $$</p>
+<li><p>最小-最大规范化<br>将A的值$v_i$映射到区间$[newMin_A, newMax_A] $<br>$$ \hat v_i = \frac{v_i - min_A}{max_A - min_A} (newMax_A - newMin_A) + newMin_A $$</p>
 </li>
 <li><p>z-score规范化<br>$$ \hat v_i = \frac{v_i-\bar A}{\sigma _A} $$<br>当属性A的最小最大值未知或者离群点左右了最小-最大规范化时，该方法是有用的。<br>其中，方差$\sigma _A$可以替换为A的均值绝对偏差$s_A$<br>$$ s_A = \frac{1}{n} (|v_1-\bar A| + \cdots + |v_n- \bar A|) $$<br>对于离群点，$s_A$比方差更加鲁棒，因为计算$s_A$时不对到均值的偏差即$|x_i - \bar x|$取平方，因此离群点的影响会降低。</p>
 </li>
