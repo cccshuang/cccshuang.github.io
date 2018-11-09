@@ -94,7 +94,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/boxplot.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/quantileplot.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/09/28/数据挖掘-认识数据/qqplot.jpg">
-<meta property="og:updated_time" content="2018-09-30T13:06:40.696Z">
+<meta property="og:updated_time" content="2018-11-09T08:27:19.820Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘-认识数据">
 <meta name="twitter:description" content="数据对象与属性类型数据集由数据对象组成。一个数据对象代表一个实体。例如销售数据库中，对象可以是顾客、商品。属性是一个数据字段，表示数据对象的一个特征。 属性类型 标称属性（nominal attribute）：一些事物的名称，每个值代表某种类别、编码或者状态。不具有有意义的序，不是定量的，其均值和中位数无意义，总数有意义。例如，颜色这个对象的属性可能有黑色、红色、白色等，职业可能值有教师、医生等。">
@@ -460,7 +460,7 @@
 <h4 id="混合属性的相异性"><a href="#混合属性的相异性" class="headerlink" title="混合属性的相异性"></a>混合属性的相异性</h4><p>一个对象可能包含很多不同类型的数据，可能有标称的、对称或者非对称二元的、数值的或者序数的，假设数据集包含$ p $个混合类型的属性，则：<br>$$<br>d(i,j) = \frac{ \sum_{f=1}^{p} \delta_{ij}^{[f]} d_{ij}^{[f]} } { \sum_{f=1}^{p} \delta_{ij}^{[f]} }<br>$$<br>其中，如果对象i和对象j没有属性f的度量值，或者两个对象的f的度量值都为0且f是非对称的二元属性，则$\delta_{ij}^{[f]}=0$，否则取1。<br>至于$d_{ij}^{[f]}$,</p>
 <ul>
 <li>f是数值的：$ d_{ij}^{[f]} = \frac{|x_{if}-x_{jf}|} {\max_{h} x_{hf}-\min_{h} x_{hf}} $ ，其中，h遍取属性f的所有非缺失对象。</li>
-<li>f是标称或二元的：如果$x_{if} = x{jf}$，则$d_{ij}^{[f]}=0$，否则取1。</li>
+<li>f是标称或二元的：如果$x_{if} = x_{jf}$，则$d_{ij}^{[f]}=0$，否则取1。</li>
 <li>f是序数的：计算排位$r_{if}$和$z_{if} = \frac{r_{if}-1}{M_f-1}$，然后作为数值属性处理。</li>
 </ul>
 <h4 id="余弦相似性"><a href="#余弦相似性" class="headerlink" title="余弦相似性"></a>余弦相似性</h4><p>用来比较文档，每个文档都被一个所谓的词频向量表示，通常很长，而且稀疏，传统的距离度量效果并不好。<br>$$ sim(i,j) = \frac{x  \cdot y}{||x|| ||y||} $$<br>当属性是二值属性时，$x  \cdot y$是$x$ 和$y$共有的属性数，而$|x||y|$是$x$具有的属性数 和$y$具有的属性数的几何均值，于是$sim(x,y)$是公共属性相对拥有的一种度量，余弦相似性一个简单变种如下:<br>$$<br>sim(x,y) = \frac{x \cdot y}{x \cdot x + y \cdot y - x \cdot y}<br>$$<br>称为Tanimoto距离，常用在信息检索和生物学分类中。</p>
@@ -710,7 +710,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">42.7k</span>
+    <span title="Site words total count">43.7k</span>
   
 </div>
 
