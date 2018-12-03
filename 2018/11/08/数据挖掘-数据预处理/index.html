@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="shuang&#39;s blog">
 <meta property="og:description" content="数据预处理的主要步骤包括数据清理、数据集成、数据归约和数据变换。数据清理可以用来清除数据中的噪声，纠正不一致。数据集成将数据由多个数据源合并成一个一致的数据存储，如数据仓库。数据归约可以通过如聚集、删除冗余特征或聚类来降低数据的规模。数据变换（如规范化）可以用来把数据压缩到较小的区间，如0.0到1.0，从而提高涉及距离度量的算法的准确率和效率。 数据清理现实世界的数据一般是不完整的、有噪声的和不一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-13T11:48:24.070Z">
+<meta property="og:updated_time" content="2018-11-13T11:56:21.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据挖掘-数据预处理">
 <meta name="twitter:description" content="数据预处理的主要步骤包括数据清理、数据集成、数据归约和数据变换。数据清理可以用来清除数据中的噪声，纠正不一致。数据集成将数据由多个数据源合并成一个一致的数据存储，如数据仓库。数据归约可以通过如聚集、删除冗余特征或聚类来降低数据的规模。数据变换（如规范化）可以用来把数据压缩到较小的区间，如0.0到1.0，从而提高涉及距离度量的算法的准确率和效率。 数据清理现实世界的数据一般是不完整的、有噪声的和不一">
@@ -468,7 +468,7 @@
 <p>举个例子：<br>为了方便表示，我们首先将每个特征的所有值都减去该特征的均值，其结果是将每个特征都变为均值为0。<br>我们的目标是投影后投影值尽可能分散，而这种分散程度，可以用数学上的方差来表述<br>$$Var(a)=\frac{1}{m}\sum_{i=1}^m{(a_i-\mu)^2}$$<br>由于上面我们已经将每个特征的均值都化为0了，因此方差可以表示为<br>$$ Var(a)=\frac{1}{m}\sum_{i=1}^m{a_i^2} $$<br>找到一个方向使得投影后方差最大，这样就完成了第一个方向的选择，继而我们选择第二个投影方向。<br>我们希望两个方向之间不存在相关性的，可以用两个特征的协方差表示其相关性，由于已经让每个特征均值为0，则<br>$$ Cov(a,b)=\frac{1}{m}\sum_{i=1}^m{a_ib_i} $$<br>可以看到，在特征均值为0的情况下，两个字段的协方差可以表示为其内积除以元素数m。<br>我们在这里认为协方差为0时蕴含独立性。为了让协方差为0，我们选择第二个基时只能在与第一个基正交的方向上选择。因此最终选择的两个方向一定是正交的。<br>我们发现特征内方差及特征间协方差均可以表示为内积的形式，而内积又与矩阵相乘密切相关。<br>假设我们只有a和b两个字段，那么我们将它们按行组成矩阵X：<br>$$<br>X=\begin{pmatrix}<br>  a_1 &amp; a_2 &amp; \cdots &amp; a_m \\<br>  b_1 &amp; b_2 &amp; \cdots &amp; b_m<br>\end{pmatrix}<br>$$<br>用X乘以X的转置，并乘上系数1/m，得到：<br>$$<br>\frac{1}{m}XX^\mathsf{T}=\begin{pmatrix}<br>  \frac{1}{m}\sum_{i=1}^m{a_i^2}   &amp; \frac{1}{m}\sum_{i=1}^m{a_ib_i} \\<br>  \frac{1}{m}\sum_{i=1}^m{a_ib_i} &amp; \frac{1}{m}\sum_{i=1}^m{b_i^2}<br>\end{pmatrix}<br>$$<br>这个矩阵对角线上的两个元素分别是两个字段的方差，而其它元素是a和b的协方差。<br>推广一下，设我们有m个n维数据记录，将其按列排成n乘m的矩阵X，设$C=\frac{1}{m}XX^\mathsf{T}$，则C是一个对称矩阵，其对角线分别个各个字段的方差，而第i行j列和j行i列元素相同，表示i和j两个字段的协方差。C被称为协方差矩阵。<br>我们的目标即使得各个特征内的方差最大，而特征之间的协方差为0，即如何将协方差矩阵转换为一个对角矩阵，除对角线外的其它元素化为0，并且在对角线上将元素按大小从上到下排列。</p>
 <p>我们进一步看下原矩阵与基变换后矩阵协方差矩阵的关系：<br>设原始数据矩阵X对应的协方差矩阵为C，而P是一组基按行组成的矩阵，设Y=PX，则Y为X对P做基变换后的数据。设Y的协方差矩阵为D，我们推导一下D与C的关系：<br>$$<br>\begin{array}{l l l}<br>  D &amp; = &amp; \frac{1}{m}YY^\mathsf{T} \\<br>    &amp; = &amp; \frac{1}{m}(PX)(PX)^\mathsf{T} \\<br>    &amp; = &amp; \frac{1}{m}PXX^\mathsf{T}P^\mathsf{T} \\<br>    &amp; = &amp; P(\frac{1}{m}XX^\mathsf{T})P^\mathsf{T} \\<br>    &amp; = &amp; PCP^\mathsf{T}<br>\end{array}<br>$$<br>优化目标变成了寻找一个矩阵P，满足PCPT是一个对角矩阵，并且对角元素按从大到小依次排列，那么P的前K行就是要寻找的基，用P的前K行组成的矩阵乘以X就使得X从N维降到了K维并满足上述优化条件。<br>由上文知道，协方差矩阵C是一个是对称矩阵，在线性代数上，实对称矩阵有一系列非常好的性质：</p>
 <p>1）实对称矩阵不同特征值对应的特征向量必然正交。</p>
-<p>2）设特征向量$\lambda$重数为r，则必然存在r个线性无关的特征向量对应于$\lambda$，因此可以将这r个特征向量单位正交化。<br>由上面两条可知，一个n行n列的实对称矩阵一定可以找到n个单位正交特征向量，设这n个特征向量为$e_1,e_2,\cdots,e_n$,我们将其按列组成矩阵：<br>$$<br>E=\begin{pmatrix}<br>  e_1 &amp; e_2 &amp; \cdots &amp; e_n<br>\end{pmatrix}<br>$$<br>则对协方差矩阵C有如下结论：<br>$$<br>E^\mathsf{T}CE=\Lambda=\begin{pmatrix}<br>  \lambda_1 &amp;             &amp;         &amp; \\<br>              &amp; \lambda_2 &amp;         &amp; \\<br>              &amp;             &amp; \ddots &amp; \\<br>              &amp;             &amp;         &amp; \lambda_n<br>\end{pmatrix}<br>$$<br>其中$Lambda$为对角矩阵，其对角元素为各特征向量对应的特征值（可能有重复）。<br>到这里，我们发现我们已经找到了需要的矩阵P：<br>$$ P=E^\mathsf{T} $$<br>P是协方差矩阵的特征向量单位化后按行排列出的矩阵，其中每一行都是C的一个特征向量。如果设P按照Λ中特征值的从大到小，将特征向量从上到下排列，则用P的前K行组成的矩阵乘以原始数据矩阵X，就得到了我们需要的降维后的数据矩阵Y。</p>
+<p>2）设特征向量$\lambda$重数为r，则必然存在r个线性无关的特征向量对应于$\lambda$，因此可以将这r个特征向量单位正交化。<br>由上面两条可知，一个n行n列的实对称矩阵一定可以找到n个单位正交特征向量，设这n个特征向量为$e_1,e_2,\cdots,e_n$,我们将其按列组成矩阵：<br>$$<br>E=\begin{pmatrix}<br>  e_1 &amp; e_2 &amp; \cdots &amp; e_n<br>\end{pmatrix}<br>$$<br>则对协方差矩阵C有如下结论：<br>$$<br>E^\mathsf{T}CE=\Lambda=\begin{pmatrix}<br>  \lambda_1 &amp;             &amp;         &amp; \\<br>              &amp; \lambda_2 &amp;         &amp; \\<br>              &amp;             &amp; \ddots &amp; \\<br>              &amp;             &amp;         &amp; \lambda_n<br>\end{pmatrix}<br>$$<br>其中$\Lambda$为对角矩阵，其对角元素为各特征向量对应的特征值（可能有重复）。<br>到这里，我们发现我们已经找到了需要的矩阵P：<br>$$ P=E^\mathsf{T} $$<br>P是协方差矩阵的特征向量单位化后按行排列出的矩阵，其中每一行都是C的一个特征向量。如果设P按照Λ中特征值的从大到小，将特征向量从上到下排列，则用P的前K行组成的矩阵乘以原始数据矩阵X，就得到了我们需要的降维后的数据矩阵Y。</p>
 <h6 id="属性子集选择"><a href="#属性子集选择" class="headerlink" title="属性子集选择"></a>属性子集选择</h6><p>属性子集选择即通过删除不相关或冗余的属性来减少数据量，与PCA的区别是它是在原来就有的属性上选择一个好的属性集合。</p>
 <h4 id="数量规约（Numerosity-reduction-）"><a href="#数量规约（Numerosity-reduction-）" class="headerlink" title="数量规约（Numerosity reduction ）"></a>数量规约（Numerosity reduction ）</h4><p>用替代的、较小的数据表示形式替换原数据。有参数方法，包括使用模型如回归等估计数据，使得只需要存储模型参数，而不是实际数据；非参数方法包括直方图、聚类、抽样等。<br>可以使用直方图（histogram）来近似数据的分布，使用等宽（每个桶宽度一致）或者等频（每个桶大致包含相同个数的邻近样本）划分。<br>抽样可以是无放回的简单随机抽样（SRSWOR），也可以是有放回的简单随机抽样（SRSWR），二者区别是后者同一个样本有可能被抽取多次。</p>
 <h4 id="数据压缩（Data-compression）"><a href="#数据压缩（Data-compression）" class="headerlink" title="数据压缩（Data compression）"></a>数据压缩（Data compression）</h4><p>包括无损的和有损的，维规约和数量规约也可以看作某种形式的数据压缩。<br>一个原则：花费在数据规约上的计算时间不应超过或抵消在规约后的数据上挖掘所节省的时间。</p>
@@ -617,7 +617,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -628,7 +628,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -639,7 +639,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -729,7 +729,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">45.4k</span>
+    <span title="Site words total count">46.2k</span>
   
 </div>
 
