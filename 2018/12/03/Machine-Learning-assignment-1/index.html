@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="###  Visualize very high dimensional data in 2D or 3D space.t-SNE聚类  Represent image as a well chosen 64 bits integer, so that similar images will berepresented as integers with small hamming distance">
+<meta name="description" content="Visualize very high dimensional data in 2D or 3D space.t-SNE聚类  Represent image as a well chosen 64 bits integer, so that similar images will berepresented as integers with small hamming distance参考Go">
 <meta name="keywords" content="习题,Machine Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Machine Learning Assignment 1">
 <meta property="og:url" content="http://yoursite.com/2018/12/03/Machine-Learning-assignment-1/index.html">
 <meta property="og:site_name" content="shuang&#39;s blog">
-<meta property="og:description" content="###  Visualize very high dimensional data in 2D or 3D space.t-SNE聚类  Represent image as a well chosen 64 bits integer, so that similar images will berepresented as integers with small hamming distance">
+<meta property="og:description" content="Visualize very high dimensional data in 2D or 3D space.t-SNE聚类  Represent image as a well chosen 64 bits integer, so that similar images will berepresented as integers with small hamming distance参考Go">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-03T07:49:30.367Z">
+<meta property="og:updated_time" content="2018-12-06T08:26:49.814Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Machine Learning Assignment 1">
-<meta name="twitter:description" content="###  Visualize very high dimensional data in 2D or 3D space.t-SNE聚类  Represent image as a well chosen 64 bits integer, so that similar images will berepresented as integers with small hamming distance">
+<meta name="twitter:description" content="Visualize very high dimensional data in 2D or 3D space.t-SNE聚类  Represent image as a well chosen 64 bits integer, so that similar images will berepresented as integers with small hamming distance参考Go">
 
 
 
@@ -386,8 +386,7 @@
       
 
       
-        <p>###</p>
-<ol>
+        <ol>
 <li><p>Visualize very high dimensional data in 2D or 3D space.<br>t-SNE聚类</p>
 </li>
 <li><p>Represent image as a well chosen 64 bits integer, so that similar images will be<br>represented as integers with small hamming distance<br><a href="http://www.ruanyifeng.com/blog/2011/07/principle_of_similar_image_search.html" target="_blank" rel="noopener">参考</a><br>Google、Baidu 等搜索引擎相继推出了以图搜图的功能，测试了下效果还不错~ 那这种技术的原理是什么呢？计算机怎么知道两张图片相似呢？<br>根据Neal Krawetz博士的解释，原理非常简单易懂。我们可以用一个快速算法，就达到基本的效果。<br>这里的关键技术叫做”感知哈希算法”（Perceptual hash algorithm），它的作用是对每张图片生成一个”指纹”（fingerprint）字符串，然后比较不同图片的指纹。结果越接近，就说明图片越相似。<br>下面是一个最简单的实现：<br>第一步，缩小尺寸。<br>将图片缩小到8x8的尺寸，总共64个像素。这一步的作用是去除图片的细节，只保留结构、明暗等基本信息，摒弃不同尺寸、比例带来的图片差异。<br>第二步，简化色彩。<br>将缩小后的图片，转为64级灰度。也就是说，所有像素点总共只有64种颜色。<br>第三步，计算平均值。<br>计算所有64个像素的灰度平均值。<br>第四步，比较像素的灰度。<br>将每个像素的灰度，与平均值进行比较。大于或等于平均值，记为1；小于平均值，记为0。<br>第五步，计算哈希值。<br>将上一步的比较结果，组合在一起，就构成了一个64位的整数，这就是这张图片的指纹。组合的次序并不重要，只要保证所有图片都采用同样次序就行了。<br>= = 8f373714acfcf4d0<br>得到指纹以后，就可以对比不同的图片，看看64位中有多少位是不一样的。在理论上，这等同于计算”汉明距离”（Hamming distance）。如果不相同的数据位不超过5，就说明两张图片很相似；如果大于10，就说明这是两张不同的图片。<br>这种算法的优点是简单快速，不受图片大小缩放的影响，缺点是图片的内容不能变更。如果在图片上加几个文字，它就认不出来了。所以，它的最佳用途是根据缩略图，找出原图。</p>
@@ -444,6 +443,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/06/Annotated-Transformer/" rel="prev" title="Annotated Transformer">
+                Annotated Transformer <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -526,7 +529,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -622,7 +625,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">46.2k</span>
+    <span title="Site words total count">47.9k</span>
   
 </div>
 
