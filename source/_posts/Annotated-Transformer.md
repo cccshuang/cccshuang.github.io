@@ -379,3 +379,12 @@ def make_model(src_vocab, tgt_vocab, N=6,
 tmp_model = make_model(10, 10, 2)
 None
 ```
+
+
+## Reference
+![The Annotated Transformer](http://nlp.seas.harvard.edu/2018/04/03/attention.html)
+
+![
+深度学习中的注意力机制](https://blog.csdn.net/tg229dvt5i93mxaq5a6u/article/details/78422216)
+
+![细讲 | Attention Is All You Need](http://mp.weixin.qq.com/s?__biz=MzI3ODgwODA2MA==&mid=2247486011&idx=1&sn=d25921bf1e50df6b4c221ab9f6afd7b7&chksm=eb501ea8dc2797be9d047a25ac2a409aa691245bd7dc8f6f83f2491087c08d8b6b7394663c9d&mpshare=1&scene=1&srcid=1206nDr3S4QJBrfyooT5eQWM#rd)
