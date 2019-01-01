@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-12-12T09:09:01.502Z</updated>
+  <updated>2019-01-01T13:59:39.587Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,47 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一种向量化技巧--Make Your Program Run Faster</title>
+    <link href="http://yoursite.com/2019/01/01/%E4%B8%80%E7%A7%8D%E5%90%91%E9%87%8F%E5%8C%96%E6%8A%80%E5%B7%A7-Make-Your-Program-Run-Faster/"/>
+    <id>http://yoursite.com/2019/01/01/一种向量化技巧-Make-Your-Program-Run-Faster/</id>
+    <published>2019-01-01T11:56:23.000Z</published>
+    <updated>2019-01-01T13:59:39.587Z</updated>
+    
+    <content type="html"><![CDATA[<p>相对于编译型语言，python是解释执行的，每次在循环调用时都会先将代码解释执行，此处的消耗非常之大，而使用底层是C实现的numpy编写高度向量化的代码，可以大大提高程序执行效率。<br>所以我们在编写程序时，尽可能地减少for循环，可以让我们的代码变得更快。这里以k-NearestNeighbor（KNN）算法为例分享一种将代码向量化的方法。</p><p>假设我们有$N_{test}$个维度为P的测试数据$x$，$N$个维度为$P$的且具有类别标记的训练数据$x_{train}$，根目标是据训练数据使用KNN将每一个测试数据分别划分到合适的类别。那么怎么实现呢？<br>首先想到的一种方法是对于每一个测试数据$x[i]$，我们分别计算$x[i]$与$N$个训练数据$x_{train}$的距离，这样对于$x[i]$可以得到长度为$N$的距离数组$dis$，将其从小到大排序，取距离较小的前$k$个训练数据，然后我们根据这$k$个数据中最多的类别来确定$x[i]$的类别。实现如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> scipy.stats</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn</span><span class="params">(x, x_train, y_train, k)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    KNN k-Nearest Neighbors Algorithm.</span></span><br><span class="line"><span class="string">        INPUT:  x:         testing sample features, (N_test, P) matrix.</span></span><br><span class="line"><span class="string">                x_train:   training sample features, (N, P) matrix.</span></span><br><span class="line"><span class="string">                y_train:   training sample labels, (N, ) column vector.</span></span><br><span class="line"><span class="string">                k:         the k in k-Nearest Neighbors</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        OUTPUT: y    : predicted labels, (N_test, ) column vector.</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    y = np.zeros(x.shape[<span class="number">0</span>])</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(x.shape[<span class="number">0</span>]):</span><br><span class="line">        dis = np.linalg.norm(x_train - x[i, :], ord=<span class="number">2</span>, axis=<span class="number">1</span>, keepdims=<span class="keyword">True</span>).flatten() <span class="comment"># 耗时</span></span><br><span class="line">        top_k = y_train[np.argsort(dis)[:k]]</span><br><span class="line">        y[i] = scipy.stats.mode(top_k).mode</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure><p>之前我们提到在编写程序时，尽可能地减少for循环，上面程序中出现了一层循环，那么我们有没有办法把这一层循环也去掉呢，从而将我们的程序完全向量化。当然是可以的，仅仅将测试数据和训练数据的维度进行一个简单的变换即可。测试数据$x$的原来维度为$(N_{test},P)$，我们将其扩展一维变成$(N_{test},1,P)$，而对于训练数据$x_{train}$原来维度为$(N,P)$，我们也将其扩展一维变成$(1,N,P)$。这样当我们计算测试数据与训练数据距离的时候，由于numpy的广播机制，$x_{train} - x$的维度就变成了$(N_{test},N,P)$，对其第3个维度求和，得到距离矩阵$dis$，维度为$(N_{test},N,1)$，代表每一个测试数据点与$N$个训练数据的距离，对于每个测试数据点根据其与训练数据的距离进行排序，取前$k$个，然后我们根据这$k$个数据中最多的类别来确定$x[i]$的类别。实现如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> scipy.stats</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">knn</span><span class="params">(x, x_train, y_train, k)</span>:</span></span><br><span class="line">    x_ = x.reshape((x.shape[<span class="number">0</span>], <span class="number">1</span>, x.shape[<span class="number">1</span>]))</span><br><span class="line">    x_train_ = x_train.reshape((<span class="number">1</span>, x_train.shape[<span class="number">0</span>],x_train.shape[<span class="number">1</span>]))</span><br><span class="line">    dis = np.sum(np.square(x_train_ - x_), axis = <span class="number">2</span>)</span><br><span class="line">    top_k = y_train[np.argsort(dis, axis=<span class="number">1</span>)[:, :k]]</span><br><span class="line">    y = scipy.stats.mode(top_k, axis=<span class="number">1</span>).mode  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> y</span><br></pre></td></tr></table></figure><p>使用一些数据进行测试，在我的计算机上，完全向量化的第二种方法相较于第一种含有for循环的实现，达到了4倍的加速比，第二种方法的实现也体现了一种空间换时间的思想。由此可见向量化对于提高程序运行效率是非常有效的一种方法！</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;相对于编译型语言，python是解释执行的，每次在循环调用时都会先将代码解释执行，此处的消耗非常之大，而使用底层是C实现的numpy编写高度向量化的代码，可以大大提高程序执行效率。&lt;br&gt;所以我们在编写程序时，尽可能地减少for循环，可以让我们的代码变得更快。这里以k-Ne
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://yoursite.com/categories/python/"/>
+    
+    
+      <category term="向量化" scheme="http://yoursite.com/tags/%E5%90%91%E9%87%8F%E5%8C%96/"/>
+    
+      <category term="numpy" scheme="http://yoursite.com/tags/numpy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unsupervised learning</title>
+    <link href="http://yoursite.com/2018/12/27/Unsupervised-learning/"/>
+    <id>http://yoursite.com/2018/12/27/Unsupervised-learning/</id>
+    <published>2018-12-27T06:44:16.000Z</published>
+    <updated>2018-12-27T06:44:16.662Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Machine Learning 2</title>
