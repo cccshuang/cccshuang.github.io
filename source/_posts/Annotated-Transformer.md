@@ -17,7 +17,7 @@ Self-attention 是一种将单个序列的不同位置联系起来以便计算�
 
 大多数的神经序列转换模型都具有 encoder-decoder 结构。这里，编码器将符号表示的输入序列$(x_1, ..., x_n)$映射到连续表示序列$\mathbf{z} = (z_1, ..., z_n)$。给定$\mathbf{z}$，解码器然后一次一个元素地生成符号的输出序列 $(y_1,...,y_m)$。在每个步骤中，模型是自回归的，在生成下一个时将先前生成的符号作为附加输入使用。
 
-```
+```python
 class EncoderDecoder(nn.Module):
     """
     A standard Encoder-Decoder architecture. Base for this and many 
