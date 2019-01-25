@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="shuang&#39;s blog">
 <meta property="og:description" content="BayesianBayes’s Theorem$ P(A|B) = \frac{P(B|A)P(A)}{P(B)} $prior: $P(w)$likelihood: $P(x|w)$posterior: $P(w_i|x) = \frac{P(x|w_i)P(w_i)}{P(x)} = \frac{P(x|w_i)P(w_i)}{\sum_{j=1}^k P(x|w_j)P(w_j)} $ Op">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-25T06:53:47.490Z">
+<meta property="og:updated_time" content="2019-01-25T07:30:09.321Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="machine learning review">
 <meta name="twitter:description" content="BayesianBayes’s Theorem$ P(A|B) = \frac{P(B|A)P(A)}{P(B)} $prior: $P(w)$likelihood: $P(x|w)$posterior: $P(w_i|x) = \frac{P(x|w_i)P(w_i)}{P(x)} = \frac{P(x|w_i)P(w_i)}{\sum_{j=1}^k P(x|w_j)P(w_j)} $ Op">
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  166
+                  274
                 </span>
               
 
@@ -365,7 +365,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -391,7 +391,11 @@
 <blockquote>
 <p>Prove: For a particular $x$,<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;$P(error|x) = P(w_1|x)$ if we decide $w_2$;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;$P(error|x) = P(w_2|x)$ if we decide $w_1$.<br>Bayes Decision Rule:Decide $w_1$ if $P(w_1|x) &gt; P(w_2|x)$;otherwise decide $w_2$.<br>Therefore: $P(error|x) = min[P(w_1|x),P(w_2|x)]$.<br>The unconditional error $P(error)$ obtained by integration over all $P(error|x)$.</p>
 </blockquote>
-<h3 id="Bayesian-Decision-Theory"><a href="#Bayesian-Decision-Theory" class="headerlink" title="Bayesian Decision Theory"></a>Bayesian Decision Theory</h3><p>c state of nature:${w_1,,w_2,\cdots,w_c}$<br>a possible actions:${\alpha_1,\alpha_2,\cdots,\alpha_a}$</p>
+<h3 id="Bayesian-Decision-Theory"><a href="#Bayesian-Decision-Theory" class="headerlink" title="Bayesian Decision Theory"></a>Bayesian Decision Theory</h3><p>c state of nature: ${w_1,,w_2,\cdots,w_c}$<br>a possible actions: ${\alpha_1,\alpha_2,\cdots,\alpha_a}$<br>the loss for taking action $\alpha_i$ when the true state of nature is $w_j$: $\lambda(\alpha_i|w_j)$<br>$R(\alpha_i|x) = \sum_{j=1}^{c}\lambda(\alpha_i|w_j)P(w_j|x)$<br>Select the action for which the conditional risk $R(\alpha_i|x)$ is minimum.<br>Bayes Risk: $R = \sum_{over x} R(\alpha_i|x)$.</p>
+<ul>
+<li>Example 1:<br>action $\alpha_1$: deciding $w_1$<br>action $\alpha_2$: deciding $w_2$<br>$\lambda_{ij} = \lambda(\alpha_i|w_j)$<br>$R(\alpha_1|x) = \lambda_{11}P(w_1|x) + \lambda_{12}P(w_2|x)$<br>$R(\alpha_2|x) = \lambda_{21}P(w_1|x) + \lambda_{22}P(w_2|x)$<br>if $R(\alpha_1|x) &lt; R(\alpha_2|x)$ , action $\alpha_1$ is taken: deciding $w_1$.</li>
+<li>Example 2:</li>
+</ul>
 
       
     </div>
@@ -634,7 +638,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">51.5k</span>
+    <span title="Site words total count">51.6k</span>
   
 </div>
 
