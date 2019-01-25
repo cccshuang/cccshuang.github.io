@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-01T13:59:39.587Z</updated>
+  <updated>2019-01-25T06:53:47.490Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>machine learning review</title>
+    <link href="http://yoursite.com/2019/01/25/machine-learning-review/"/>
+    <id>http://yoursite.com/2019/01/25/machine-learning-review/</id>
+    <published>2019-01-25T06:20:24.000Z</published>
+    <updated>2019-01-25T06:53:47.490Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Bayesian"><a href="#Bayesian" class="headerlink" title="Bayesian"></a>Bayesian</h2><h3 id="Bayes’s-Theorem"><a href="#Bayes’s-Theorem" class="headerlink" title="Bayes’s Theorem"></a>Bayes’s Theorem</h3><p>$ P(A|B) = \frac{P(B|A)P(A)}{P(B)} $<br>prior: $P(w)$<br>likelihood: $P(x|w)$<br>posterior: $P(w_i|x) = \frac{P(x|w_i)P(w_i)}{P(x)} = \frac{P(x|w_i)P(w_i)}{\sum_{j=1}^k P(x|w_j)P(w_j)} $</p><p><strong>Optimal Bayes Decision Rule: minimize the probability of error.</strong><br>&ensp;&ensp;&ensp;&ensp;if $P(w_1|x) &gt; P(w_2|x)$ then True state of nature $=w_1$;<br>&ensp;&ensp;&ensp;&ensp;if $P(w_1|x) &lt; P(w_2|x)$ then True state of nature $=w_2$.</p><blockquote><p>Prove: For a particular $x$,<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;$P(error|x) = P(w_1|x)$ if we decide $w_2$;<br>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;$P(error|x) = P(w_2|x)$ if we decide $w_1$.<br>Bayes Decision Rule:Decide $w_1$ if $P(w_1|x) &gt; P(w_2|x)$;otherwise decide $w_2$.<br>Therefore: $P(error|x) = min[P(w_1|x),P(w_2|x)]$.<br>The unconditional error $P(error)$ obtained by integration over all $P(error|x)$.</p></blockquote><h3 id="Bayesian-Decision-Theory"><a href="#Bayesian-Decision-Theory" class="headerlink" title="Bayesian Decision Theory"></a>Bayesian Decision Theory</h3><p>c state of nature:${w_1,,w_2,\cdots,w_c}$<br>a possible actions:${\alpha_1,\alpha_2,\cdots,\alpha_a}$</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Bayesian&quot;&gt;&lt;a href=&quot;#Bayesian&quot; class=&quot;headerlink&quot; title=&quot;Bayesian&quot;&gt;&lt;/a&gt;Bayesian&lt;/h2&gt;&lt;h3 id=&quot;Bayes’s-Theorem&quot;&gt;&lt;a href=&quot;#Bayes’s-Theore
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/categories/Machine-Learning/"/>
+    
+    
+      <category term="Machine Learning" scheme="http://yoursite.com/tags/Machine-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>一种向量化技巧--Make Your Program Run Faster</title>
