@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="shuang&#39;s blog">
 <meta property="og:description" content="BayesianBayes’s Theorem$ P(A|B) = \frac{P(B|A)P(A)}{P(B)} $prior: $P(\omega)$likelihood: $P(x|\omega)$posterior: $P(\omega_i|x) = \frac{P(x|\omega_i)P(\omega_i)}{P(x)} = \frac{P(x|\omega_i)P(\omega_i)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-25T08:08:33.625Z">
+<meta property="og:updated_time" content="2019-01-25T08:12:02.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="machine learning review">
 <meta name="twitter:description" content="BayesianBayes’s Theorem$ P(A|B) = \frac{P(B|A)P(A)}{P(B)} $prior: $P(\omega)$likelihood: $P(x|\omega)$posterior: $P(\omega_i|x) = \frac{P(x|\omega_i)P(\omega_i)}{P(x)} = \frac{P(x|\omega_i)P(\omega_i)">
@@ -349,7 +349,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  487
+                  507
                 </span>
               
 
@@ -394,9 +394,8 @@
 <h3 id="Bayesian-Decision-Theory"><a href="#Bayesian-Decision-Theory" class="headerlink" title="Bayesian Decision Theory"></a>Bayesian Decision Theory</h3><p>c state of nature: ${\omega_1,,\omega_2,\cdots,\omega_c}$<br>a possible actions: ${\alpha_1,\alpha_2,\cdots,\alpha_a}$<br>the loss for taking action $\alpha_i$ when the true state of nature is $\omega_j$: $\lambda(\alpha_i|\omega_j)$<br>$R(\alpha_i|x) = \sum_{j=1}^{c}\lambda(\alpha_i|\omega_j)P(\omega_j|x)$<br>Select the action for which the conditional risk $R(\alpha_i|x)$ is minimum.<br>Bayes Risk: $R = \sum_{over x} R(\alpha_i|x)$.</p>
 <ul>
 <li>Example 1:<br>action $\alpha_1$: deciding $\omega_1$<br>action $\alpha_2$: deciding $\omega_2$<br>$\lambda_{ij} = \lambda(\alpha_i|\omega_j)$<br>$R(\alpha_1|x) = \lambda_{11}P(\omega_1|x) + \lambda_{12}P(\omega_2|x)$<br>$R(\alpha_2|x) = \lambda_{21}P(\omega_1|x) + \lambda_{22}P(\omega_2|x)$<br>if $R(\alpha_1|x) &lt; R(\alpha_2|x)$ , action $\alpha_1$ is taken: deciding $\omega_1$.</li>
-<li>Example 2:</li>
+<li>Example 2:<br>Suppose $\lambda\left(\alpha_{i} | \omega_{j}\right) =<br>\begin{cases}<br>0&amp; \text{i = j}\\<br>1&amp; \text{i != j}<br>\end{cases}$<br>Conditional risk<br>$  R\left(\alpha_{i} | x\right)=\sum_{j=1}^{c} \lambda\left(\alpha_{i} | \omega_{j}\right) P\left(\omega_{j} | x\right)  =\sum_{j \neq i} P\left(\omega_{j} | x\right)=1-P\left(\omega_{i} | x\right)  $<br>Minimizing the risk $\longrightarrow$ Maximizing the posterior $P(\omega_i|x)$.<br>So we have the discriminant function(max. discriminant corresponds to min. risk):<br>$ g_{i}(x)=-R\left(\alpha_{i} | x\right) $<br>$\Longleftrightarrow$<br>$ g_{i}(x)=P\left(\omega_{i} | x\right) $<br>$  g_{i}(x)=P(x | \omega_{i}) P\left(\omega_{i}\right)  $<br>$  g_{i}(x)=\ln P(x | \omega_{i})+\ln P\left(\omega_{i}\right)  $<br>Set of discriminant functions: $ g_{i}(x), i=1, \cdots, c $<br>Classifier assigns a feature vector $x$ to class $\omega_i$ if: $ g_{i}(x)&gt;g_{j}(x), \quad \forall j \neq i $</li>
 </ul>
-<p>Conditional risk<br>$  R\left(\alpha_{i} | x\right)=\sum_{j=1}^{c} \lambda\left(\alpha_{i} | \omega_{j}\right) P\left(\omega_{j} | x\right)  =\sum_{j \neq i} P\left(\omega_{j} | x\right)=1-P\left(\omega_{i} | x\right)  $<br>Minimizing the risk $\longrightarrow$ Maximizing the posterior $P(\omega_i|x)$.<br>So we have the discriminant function(max. discriminant corresponds to min. risk):<br>$ g_{i}(x)=-R\left(\alpha_{i} | x\right) $<br>$\Longleftrightarrow$<br>$ g_{i}(x)=P\left(\omega_{i} | x\right) $<br>$  g_{i}(x)=P(x | \omega_{i}) P\left(\omega_{i}\right)  $<br>$  g_{i}(x)=\ln P(x | \omega_{i})+\ln P\left(\omega_{i}\right)  $<br>Set of discriminant functions: $ g_{i}(x), i=1, \cdots, c $<br>Classifier assigns a feature vector $x$ to class $\omega_i$ if: $ g_{i}(x)&gt;g_{j}(x), \quad \forall j \neq i $</p>
 <p>Binary classification $\longrightarrow$ Multi‐class classfication</p>
 <ul>
 <li>One vs. One<br>$N$ class, design $\frac{N(N-1)}{2}$ classifiers, denote for result.</li>
@@ -675,7 +674,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">51.8k</span>
+    <span title="Site words total count">51.9k</span>
   
 </div>
 
