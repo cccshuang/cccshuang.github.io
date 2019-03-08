@@ -16,14 +16,14 @@ mathjax: true
 事件抽取的目标是检测事件实例的类型并抽取其argument及role，即$(event  \, instance, event \, type;
 role_1, argument_1; role_2, argument_2; ...; role_n,
 argument_n)$在Freebase等knowledge base中，事件的表示如图所示：
-![](论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/example-of-ee.png )
+![](论文阅读-Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/example-of-ee.png )
 矩形表示事件实例的arguments，连接arguments和事件实例的每条边都表示arguments的role，这样看好像是可以使用远程监督自动标注数据，但是在通常的事件抽取中，一个事件实例通常是使用trigger word来表示的，但在现有的knowledge base 中并不存在事件的triggers。为了解决这个问题，所以需要在使用远程监督前找到事件的trigger word。
 - 第二个问题
 一个句子实际上并不能够包含某一事件的所有参数，简单地使用知识库中的所有参数在句子中进行标记，将只有很少的句子满足条件，因此作者选择了几个具有代表性的参数来代表事件。
 
 ### 方法
 作者提出了一个利用world knowledge(Freebase)和linguistic knowledge(FrameNet)来自动标注event extraction所需要的数据的方法。这个方法能够探测到每一个event type的key argument和trigger word，然后用它们来从文本中标注event。
-![](论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/method.png )
+![](论文阅读-Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/method.png )
 
 方法主要分为4步：
 1. Key Argument Detection
