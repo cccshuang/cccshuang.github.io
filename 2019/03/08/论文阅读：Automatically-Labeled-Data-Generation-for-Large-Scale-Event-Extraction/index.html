@@ -89,13 +89,13 @@
 <meta property="og:site_name" content="shuang&#39;s blog">
 <meta property="og:description" content="简介这篇文章关注对event extraction提供标注数据的方法。传统的hand-labeled的训练数据非常昂贵，并且event覆盖的非常有限。这使得一些supervised的方法很难去抽取大规模的event来进行KBP(knowledge base population)。 我们知道，关系抽取中可以用远程监督的方法来自动标注数据，一种想法就是可以不可以把这种方法扩展到event extra">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/08/论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/exampleofee.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/08/论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/method.png">
-<meta property="og:updated_time" content="2019-03-11T09:04:30.221Z">
+<meta property="og:image" content="http://yoursite.com/2019/03/08/论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/论文阅读：Automatically%20Labeled%20Data%20Generation%20for%20Large%20Scale%20Event%20Extraction/exampleofee.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/08/论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/论文阅读：Automatically%20Labeled%20Data%20Generation%20for%20Large%20Scale%20Event%20Extraction/method.png">
+<meta property="og:updated_time" content="2019-03-11T09:09:37.219Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读：Automatically Labeled Data Generation for Large Scale Event Extraction">
 <meta name="twitter:description" content="简介这篇文章关注对event extraction提供标注数据的方法。传统的hand-labeled的训练数据非常昂贵，并且event覆盖的非常有限。这使得一些supervised的方法很难去抽取大规模的event来进行KBP(knowledge base population)。 我们知道，关系抽取中可以用远程监督的方法来自动标注数据，一种想法就是可以不可以把这种方法扩展到event extra">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/08/论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/exampleofee.png">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/08/论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/论文阅读：Automatically%20Labeled%20Data%20Generation%20for%20Large%20Scale%20Event%20Extraction/exampleofee.png">
 
 
 
@@ -394,13 +394,13 @@
 <ul>
 <li>第一个问题<br>事件抽取的目标是检测事件实例的类型并抽取其argument及role，即$(event  \, instance, event \, type;<br>role_1, argument_1; role_2, argument_2; …; role_n,<br>argument_n)$在Freebase等knowledge base中，事件的表示如图所示：</li>
 </ul>
-<p><img src="/2019/03/08/论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/exampleofee.png" alt=""></p>
+<p><img src="/2019/03/08/论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/论文阅读：Automatically Labeled Data Generation for Large Scale Event Extraction/exampleofee.png" alt=""></p>
 <p>矩形表示事件实例的arguments，连接arguments和事件实例的每条边都表示arguments的role，这样看好像是可以使用远程监督自动标注数据，但是在通常的事件抽取中，一个事件实例通常是使用trigger word来表示的，但在现有的knowledge base 中并不存在事件的triggers。为了解决这个问题，所以需要在使用远程监督前找到事件的trigger word。</p>
 <ul>
 <li>第二个问题<br>一个句子实际上并不能够包含某一事件的所有参数，简单地使用知识库中的所有参数在句子中进行标记，将只有很少的句子满足条件，因此作者选择了几个具有代表性的参数来代表事件。</li>
 </ul>
 <h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>作者提出了一个利用world knowledge(Freebase)和linguistic knowledge(FrameNet)来自动标注event extraction所需要的数据的方法。这个方法能够探测到每一个event type的key argument和trigger word，然后用它们来从文本中标注event。</p>
-<p><img src="/2019/03/08/论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/method.png" alt=""></p>
+<p><img src="/2019/03/08/论文阅读：Automatically-Labeled-Data-Generation-for-Large-Scale-Event-Extraction/论文阅读：Automatically Labeled Data Generation for Large Scale Event Extraction/method.png" alt=""></p>
 <p>方法主要分为4步：</p>
 <ol>
 <li><p>Key Argument Detection<br>使用Key Rate(KR) 来衡量某一事件类型中各个参数的重要性，然后在Freebase中计算每个事件类型中所有argument的KR，然后选择前$K$大个作为key argument。<br>计算KR公式如下：<br>$$ K R_{i j}=R S_{i j} * E R_{i} $$<br>其中，RS为角色显著性（Role Saliency）。区分同一类型中一个事件实例和另一个事件实例。<br>$$R S_{i j}=\frac{\operatorname{Count}\left(A_{i}, E T_{j}\right)}{\operatorname{Count}\left(E T_{j}\right)} $$<br>分子：$eventType_j$所有实例中出现$Argument_i$的数量，<br>分母：$eventType_j$实例的总数。<br>某一参数在某一特定类型中出现越多，说明RS越大，越能代表这个类型的特点。<br>ER为事件相关性（Event Relevance）。区分不同事件类型。<br>$$E R_{i}=\log \frac{\operatorname{Sum}(E T)}{1+\operatorname{Count}(E T C i)}$$<br>分子：所有事件类型总数，<br>分母：出现过$Argument_i$的事件类型的数量。<br>如果一个参数在所有事件类型中都出现，那么则这个参数区分性不高，具有较低的ER。</p>
